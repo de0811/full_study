@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+
+      .all {
+        box-sizing: content-box;
+        width: 600px;
+        height: 600px;
+        border: solid;
+        border-left-width: 6px;
+        border-bottom-width: 12px;
+        border-right-width: 18px;
+        border-top-width: 0px;
+        border-color: #c1b295;
+      }
+
+      .first,
+      .first div {
+        float: left;
+        width: 600px;
+        height: 300px;
+        background-color: #ecebe0;
+      }
+      .first > div:first-child {
+        position: relative;
+        width: calc((100% / 5) * 3);
+        border: 7px;
+        border-style: none solid none none;
+      }
+      .first > div:nth-child(2) {
+        width: calc((100% / 5) * 1);
+        height: 300px;
+        border: 7px;
+        border-style: none solid none none;
+        background-color: #d7dee3;
+      }
+      .first > div:last-child {
+        width: calc((100% / 5) * 1);
+        height: 300px;
+        border: 7px;
+        border-style: none;
+      }
+
+      .first_sub > div {
+        position: absolute;
+        top: 150px;
+        width: 120px;
+        height: 150px;
+      }
+      .first_sub > div:first-child {
+        border: 7px;
+        border-style: solid solid none none;
+      }
+      .first_sub > div:nth-child(2) {
+        left: 120px;
+        border: 7px;
+        border-style: solid solid none none;
+      }
+      .first_sub > div:last-child {
+        left: 240px;
+        border: 7px;
+        border-style: solid none none none;
+        background-color: black;
+      }
+
+      .second,
+      .second div {
+        float: left;
+        width: 600px;
+        height: 150px;
+        background-color: #d7dee3;
+      }
+      .second div:first-child {
+        width: calc((100% / 5) * 2);
+        border: 7px;
+        border-style: solid solid none none;
+        background-color: #efc942;
+      }
+      .second div:not(:first-child) {
+        width: calc((100% / 5) * 1);
+        border: 7px;
+        border-style: solid solid none none;
+      }
+      .second div:last-child {
+        border-style: solid none none none;
+        background-color: #e03e33;
+      }
+
+      .third,
+      .third div {
+        float: left;
+        width: 600px;
+        height: 150px;
+        background-color: #d7dee3;
+      }
+      .third div:nth-child(1) {
+        width: calc((100% / 5) * 4);
+        border: 7px;
+        border-style: solid solid none none;
+      }
+      .third div:nth-child(2) {
+        width: calc((100% / 5) * 1);
+        border: 7px;
+        border-style: solid none none none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="all">
+      <div class="first">
+        <div class="first_sub">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="second">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="third">
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+  </body>
+</html>

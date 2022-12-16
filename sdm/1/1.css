@@ -1,0 +1,53 @@
+.main {
+  width: 600px;
+}
+
+.title {
+  background-color: #2090ff;
+  text-align: center;
+  color: #fff;
+}
+
+.profile {
+  background-color: #ff6446;
+  padding: 40px;
+  color: #fff;
+}
+
+.example {
+  background-color: #eeeaea;
+  padding: 20px;
+  margin-top: 20px;
+}
+.example > h2{
+  /* �덈㉨�� */
+  font-weight: 800px;
+  margin-top: 0;
+}
+
+.example > div {
+  background-color: #fff;
+  padding: 20px 40px;
+  position: relative;
+  margin: 20px 0px;
+}
+.example > div xmp{
+  margin: 0px;
+}
+
+.example > div::before {
+  content: '';
+  position: absolute;
+  background-color: #33cd32;
+  width: 10px;
+  height: 100px;
+  top: 0;
+  left: 0;
+}
+
+.example > a {
+  background-color: #33cd32;
+  text-decoration: none;
+  padding: 5px;
+  color: #fff;
+}

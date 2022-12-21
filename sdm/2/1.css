@@ -1,0 +1,46 @@
+
+
+.user-info {
+    width: 600px;
+    /* height: 900px; */
+    /* border: 1px solid red; */
+  }
+  
+  .user-info > div {
+    border-bottom: 3px solid black;
+    border-width: 3px;
+    border-style: none solid solid solid;
+  }
+  .user-info > div:first-child {
+    border-style: solid solid solid solid;
+  }
+  .user-info > div div {
+    display: inline-block;
+  }
+  .sp {
+    overflow: hidden;
+  }
+  .dp-ib {
+    float: left;
+    width: 50%;
+    box-sizing: border-box;
+  }
+  .sp .dp-ib:last-child {
+    border-left: 3px solid black;
+  }
+  
+  .user-info .subject {
+    width: 100px;
+    text-align: center;
+    background-color: #EE7A69;
+    border-right: 3px solid black;
+    padding: 5px 10px;
+  }
+  
+  .w400 {
+    width: 400px;
+  }
+  
+  .tcenter {
+    text-align: center;
+  }

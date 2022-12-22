@@ -1,0 +1,212 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+:root {
+  --color: #000;
+  --background: transparent;
+  --b-color: #fff;
+  --b-background: #394059;
+  --d-color: #000;
+  --d-background: #fff;
+}
+
+.main {
+  width: 250px;
+  height: 500px;
+  box-shadow: 0px 0px 5px #ddd;
+  border-radius: 0.4em;
+  overflow: hidden;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: var(--background);
+  color: var(--color);
+}
+
+.row {
+  width: 100%;
+  margin: 10px 0;
+}
+
+.row:first-child {
+  margin: 0 0 10px 0;
+}
+
+.top-icon {
+  height: 50px;
+}
+
+.ckb {
+  display: none;
+}
+.ckb+label {
+  cursor: pointer;
+}
+.ckb+label::before {
+  /* content: ''; */
+  font-size: 20px;
+  width: 30px;
+  height: 30px;
+  /* background-color: red; */
+  /* border: 1px solid blue; */
+}
+.ckb:checked+label::before {
+}
+
+.ckb.change + label::before{
+  content: '\1F319';
+
+  /* 색반전 */
+  --background: var(--d-background);
+  --color: var(--d-color);
+}
+.ckb.change:checked + label::before{
+  content: '\1F31E';
+
+  /* 색반전 */
+  --background: var(var(--b-background));
+  --color: var(var(--b-color));
+}
+.ckb.heart + label::before {
+  content: '\1F497';
+}
+.ckb.heart:checked + label::before{
+  content: '\1F496';
+}
+.ckb.t-dot + label::before {
+  content: '\26BD';
+}
+.ckb.t-dot:checked + label::before{
+  content: '\26BE';
+}
+
+.top-icon>.ckb+label {
+  float: right;
+  background-color: transparent;
+}
+
+
+.top-icon>.ckb:first-child+label {
+  float: left;
+}
+
+.snapshot {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  margin: auto;
+  /* overflow: hidden; */
+  position: relative;
+  box-shadow: 0px 0px 5px #000;
+}
+
+.snapshot::after {
+  content: '\2714';
+  text-align: center;
+  /* line-height: 1.7em; */
+  color: #fff;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  background-color: #16afeb;
+  border-radius: 100%;
+  bottom: 0;
+  right: 0;
+}
+
+.snapshot img {
+  display: block;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+  border-radius: 100%;
+}
+
+
+.profile {
+  text-align: center;
+}
+
+.profile h1 {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.profile h2 {
+  font-size: 12px;
+  font-weight: bold;
+  color: #ccc;
+}
+
+.profile p {
+  font-size: 12px;
+  margin: 12px 0 0 0;
+}
+
+.profile a {
+  text-decoration: none;
+  color: rgb(75, 57, 179);
+  font-size: 12px;
+}
+
+.main>.portfolio {
+  text-align: center;
+}
+
+.main>.portfolio>button {
+  background-color: #00c2d2;
+  padding: 10px 40px;
+  border-radius: 10em;
+  border: none;
+  font-size: 13px;
+  color: #fff;
+}
+
+.hr {
+  border-bottom: 1px solid #eee;
+  margin: 20px auto;
+  width: 80%;
+}
+
+.icon {
+  text-align: center;
+}
+
+.icon-item {
+  display: inline-block;
+  width: 50px;
+  height: 100px;
+  margin: 0 5px;
+}
+
+.icon-item a {
+  width: 100%;
+  height: 50%;
+  background-color: yellowgreen;
+  text-decoration: none;
+  color: #000;
+}
+
+.icon-item a img {
+  display: block;
+  object-fit: cover;
+  width: inherit;
+  height: inherit;
+}
+
+.icon-item a h3 {
+  font-size: 15px;
+  font-weight: bold;
+  margin: 5px 0;
+}
+
+.icon-item a p {
+  font-size: 12px;
+  margin: 5px 0;
+  color: #ccc;
+}

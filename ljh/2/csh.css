@@ -1,0 +1,53 @@
+dl {
+    margin: 0px;
+    border: 1px solid;
+}
+
+dt {
+    display: inline-block;
+    width: 110px;
+    height: 30px;
+    border: 2px;
+    border-style: none solid none none;
+    background-color: #ffd2e9;
+    text-align: center;
+    line-height: 2;
+    font-weight: 500;
+}
+
+dd {
+    display: inline-block;
+    margin-inline-start: 0px;
+}
+
+.submit {
+    text-align: center;
+}
+
+h1 {
+    background-color: #3499fe;
+    color: white;
+    font-family: sans-serif;
+    margin: 0px;
+    padding: 1px 0 6px 3px;
+    font-size: 20px;
+}
+
+p {
+    margin: 3px 0 20px 3px;
+}
+
+.table {
+    border: 2px solid;
+}
+
+.submit {
+    height: 40px;
+    line-height: 2.5;
+}
+
+.table>dl:nth-child(2)>dt:nth-child(3),
+.table>dl:nth-child(5)>dt:nth-child(3) {
+    border: 2px;
+    border-style: none solid;
+}

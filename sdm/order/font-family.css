@@ -1,0 +1,31 @@
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+.noto-sans{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+}
+
+@font-face {
+  font-family: 'KyoboHandwriting2021sjy';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+.nonnu {
+  font-family: 'KyoboHandwriting2021sjy';
+}
+
+a {
+  display: block;
+}
+
+@import url('./XEIcon/xeicon.min.css');
+.xe-icon > a::after {
+  content: '\ebb4';
+  font-family: xeicon;
+}

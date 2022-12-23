@@ -1,0 +1,263 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=chrome">
+    <title>Document</title>
+    <style>
+        /*body{*/
+        /*    height: 100000px;*/
+        /*}*/
+        .all{
+            border :3px solid black;
+            margin-left: 10vh;
+            margin-right: 10vh;
+        }
+        .title{
+            background-color: dodgerblue;
+            color:white;
+            margin-left: 10vh;
+            margin-right: 10vh;
+        }
+        .word{
+            margin-left: 10vh;
+            margin-right: 10vh;
+        }
+
+        .first, .second, .third, .fourth, .fifth, .sixth, .seventh, .eighth, .nineth, .tenth, .eleventh {
+            /*margin-left: 10vh;*/
+            /*margin-right: 10vh;*/
+            /*border-top : 3px solid black;*/
+            border-bottom: 3px solid black;     /*맨 마지막 줄 클래스만 빼서 border-bottom 안 먹이기 */
+            height: 22px;
+        }
+        .eleventh{
+            height: 25px;
+        }
+        #id, #password, #user_name, #id_number, #birth, #post, #adress, #adress_detail, #email, #jobs  {
+            background-color: pink;
+            text-align: center;
+            position: absolute;
+            width : 10%;
+            border-right: 3px solid black;
+        }
+
+        #password_check, #sex{
+            background-color: pink;
+            text-align: center;
+            position: absolute;
+            width : 10%;
+            border-left: 3px solid black;
+            border-right:3px solid black;
+            left : 50%;
+        }
+
+        #id_input{
+            position: relative;
+            left : 13vw;
+        }
+        #check_id{
+            position: relative;
+            left : 15vw ;
+        }
+
+
+        #password_input {
+            position: absolute;
+            left : 13vw;
+        }
+
+        #password_check_input{
+            position: absolute;
+            left : 13vw;
+        }
+
+        #user_input{
+            position: absolute;
+            left : 13vw;
+        }
+
+        #id_num1{
+            position: absolute;
+            left : 13vw;
+        }
+        #hyppen, #hyppen2, #golbangee{
+            text-align: center;
+            position: absolute;
+            width : 1%;
+            left : 30.5vw;
+        }
+        #id_num2{
+            position: absolute;
+            left : 1.5vw;
+        }
+
+        #birth_input{
+            position: absolute;
+            left : 13vw;
+        }
+
+        #male{
+            position: absolute;
+            left : 61%;
+
+        }
+        #female{
+            position: absolute;
+            left : 67%;
+        }
+
+        #post_num1{
+            position: absolute;
+            left : 13vw;
+        }
+        #post_num2{
+            position: absolute;
+            left : 1.5vw;
+        }
+        #post_search{
+            position: absolute;
+            left : 45vw;
+        }
+
+        #address_input{
+            position: absolute;
+            left : 13vw;
+        }
+
+
+        #address_detail_input{
+            position: absolute;
+            left : 13vw;
+        }
+
+
+
+        #email_input{
+            position: absolute;
+            left : 13vw;
+        }
+
+        #email_select{
+            position: absolute;
+            left : 1.5vw;
+        }
+
+        #jobs_select{
+            position: relative;
+            left : 13vw;
+        }
+
+
+        #enter{
+            position: absolute;
+            left : 47%;
+        }
+        #cancel{
+            position: absolute;
+            left : 53%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="title">사용자 정보입력</div>
+    <div class="word">안녕하세요. OO의 홈페이지를 자유롭게 이용하려면 회원가입을 진행하셔야합니다.<br> 아래사항을 빠짐없이 기록해주세요.</div>
+    <br>
+
+
+    <div class="all">
+
+        <div class="first">
+            <div id="id">사용자 ID</div>
+            <input type="text" size="30" id="id_input">
+            <button id="check_id">ID 중복 확인</button>
+        </div>
+
+        <div class="second">
+            <div id="password"> 비밀번호
+                <input type="password" size="30" id="password_input">
+            </div>
+            <div id="password_check"> 비밀번호 확인
+                <input type="password" size = "30" id="password_check_input">
+            </div>
+        </div>
+
+        <div class = "third">
+            <div id="user_name">사용자 이름
+                <input type="text" size="30" id="user_input">
+            </div>
+        </div>
+        <div class = "fourth">
+            <div id="id_number">주민등록번호
+                <input type="tel" size="30" id="id_num1" numberOnly="true">
+            </div>
+            <div id = "hyppen"> -
+                <input type="password" size="30" id="id_num2">
+            </div>
+        </div>
+        <div class = "fifth">
+            <div id="birth"> 생년월일
+                <input type="text" size="30" id="birth_input">
+            </div>
+            <div id="sex"> 성별</div>
+                <label id="male"> <input type="radio">남자</label>
+                <label id="female"> <input type="radio">여자</label>
+        </div>
+        <div class = "sixth">
+            <div id="post"> 우편번호
+                <input type="text" size="30" id="post_num1">
+            </div>
+            <div id = "hyppen2"> -
+                <input type="password" size="30" id="post_num2">
+            </div>
+            <button id="post_search">우편번호 검색</button>
+        </div>
+        <div class = "seventh">
+            <div id="adress">주 소
+                <input type="text" size="90" id="address_input">
+            </div>
+        </div>
+
+        <div class = "eighth">
+            <div id="adress_detail">나머지 주소
+                <input type="text" size="90" id="address_detail_input">
+            </div>
+        </div>
+
+        <div class = "nineth">
+            <div id="email">E-Mail
+                <input type="text" size="30" id="email_input">
+            </div>
+            <div id = "golbangee"> @
+                <select id="email_select">
+                    <option value="please_checkItOut"> 선택해주세요 </option>
+                    <option value="gamil"> gmail.com </option>
+                    <option value="naver"> naver.com </option>
+                    <option value="daum"> daum.net </option>
+                 </select>
+            </div>
+
+        </div>
+
+        <div class = "tenth">
+            <div id="jobs">직업</div>
+            <select id="jobs_select">
+                <option value="please_checkItOut"> 선택해주세요 </option>
+                <option value="developer"> 개발자 </option>
+                <option value="doctor"> 의사 </option>
+                <option value="fireman"> 소방관 </option>
+            </select>
+        </div>
+
+        <div class = "eleventh">
+            <button id="enter">등 록</button>
+            <button id="cancel">취 소</button>
+        </div>
+
+    </div>
+
+</body>
+</html>

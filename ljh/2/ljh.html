@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="reset.css">
+    <style>
+        #wrap {
+            margin: 0 auto;
+            width: 1000px;
+            height: 680px;
+            background-color: #b4d1da;
+            border-radius: 10px;
+            padding: 30px;
+        }
+
+        .inner {
+            height: 100%;
+            border-radius: 10px;
+            background-color: #eeeeee;
+            margin: 0 auto;
+            position: relative;
+            padding: 20px;
+        }
+
+        .inner:before {
+            position: absolute;
+            top: -14px;
+            left: -14px;
+            border: 2px dashed #ffffff;
+            width: calc(100% + 24px);
+            height: calc(100% + 24px);
+            content: "";
+            border-radius: 10px;
+        }
+
+        .inner>article {
+            float: left;
+        }
+
+        .inner::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .lft {
+            width: 25%;
+            height: 100%;
+        }
+
+        .rgh {
+            position: relative;
+            width: calc(63% - 20px);
+            height: 100%;
+            margin-left: 20px;
+        }
+
+        .rgh .nav {
+            position: absolute;
+            right: -93px;
+            top: 47px;
+        }
+
+        .lftBx {
+            position: relative;
+            height: 97%;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 25px;
+        }
+
+        .lftBx .profile,
+        .lftBx .profile img {
+            width: 100%;
+        }
+
+        .lftBx .info {
+            padding-top: 30px;
+            font-size: 13px;
+            line-height: 1.3;
+
+        }
+
+        .lftBx .bot {
+            position: absolute;
+            bottom: 20px;
+            width: calc(100% - 50px);
+        }
+
+        .lftBx .bot select {
+            margin-top: 10px;
+            width: 100%;
+        }
+
+        .lft .top .in::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+
+        .lft>.top {
+            text-align: center;
+            margin-bottom: 5px;
+        }
+
+        .top .in {
+            display: inline-block;
+        }
+
+        .rgh>.nav li {
+            margin-top: 13px;
+
+        }
+
+        .rgh>.nav li a {
+            border-radius: 0 5px 5px 0;
+            padding: 10px 20px 10px 10px;
+            display: block;
+            background-color: #3b87ab;
+            color: white;
+            text-decoration: none;
+        }
+
+        .rgh>.top {
+            margin-bottom: 5px;
+        }
+
+        .rgh .top:after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .rgh>.top .tit {
+            float: left;
+        }
+
+        .rgh>.top .adrs {
+            float: right;
+            font-size: 11px;
+        }
+
+        .lft>.top::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .lft>.top dl {
+            float: left;
+            font-size: 12px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .lft>.top dl:first-child:after {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 1px;
+            height: 100%;
+            background-color: #000;
+            content: "";
+        }
+
+        .lft>.top dl:first-child {
+            padding-right: 5px;
+        }
+
+        .lft>.top dt,
+        .lft>.top dd {
+            float: left;
+        }
+
+        .rghBx {
+            position: relative;
+            height: 97%;
+            background-color: white;
+            border: 1px solid gray;
+            border-radius: 10px;
+            padding: 14px;
+        }
+
+        .rghBx .tit_st {
+            border-bottom: 2px solid grey;
+            font-size: 25px;
+            color: #5296b8;
+            text-decoration: none;
+            padding-bottom: 4px;
+        }
+
+        .rghBx .upNews .inBox::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .rghBx .upNews .inBox {
+            margin-top: 10px;
+        }
+
+        .rghBx .upNews .lst_news {
+            float: left;
+        }
+
+        .rghBx .upNews .lst_bbs {
+            float: right;
+        }
+
+        .rghBx .upNews .lst_news li {
+            margin-top: 9px;
+        }
+
+        .rghBx .upNews .lst_news li:first-child {
+            margin-top: 0px;
+        }
+
+        .rghBx .upNews .lst_news a {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+        }
+
+        .rghBx .upNews .lst_news .tag {
+            background-color: #f15f5f;
+            color: white;
+            margin-right: 4px;
+            border-radius: 3px;
+            padding: 1px 4px;
+        }
+
+        .rghBx .upNews .lst_news .tag.bbs {
+            background-color: #5d79bf;
+        }
+
+        .rghBx .upNews .lst_bbs {
+            width: 50%;
+        }
+
+        .rghBx .upNews .lst_bbs ul::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        .rghBx .upNews .lst_bbs li {
+            padding: 5px 0px 5px 0;
+            border-bottom: 1px dashed black;
+            width: 50%;
+            float: left;
+        }
+
+        .rghBx .upNews .lst_bbs {
+            margin-top: -5px;
+        }
+
+        .rghBx .upNews .lst_bbs li span {
+            margin-left: 5px;
+            font-size: 12px;
+            color: #1597dd;
+        }
+
+        .rghBx .miniroom {
+            margin-top: 30px;
+        }
+
+        .rghBx .miniroom .inBox img {
+            width: 100%;
+        }
+
+        .lft .top dl:first-child dd {
+            color: red;
+        }
+
+        .lft .top dl:first-child {
+            margin-right: 5px;
+        }
+
+        .lft .top dl:last-child dt {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <section id="wrap">
+        <div class="inner">
+            <article class="lft">
+                <div class="top">
+                    <div class="in">
+                        <dl>
+                            <dt>TODAY</dt>
+                            <dd>28</dd>
+                        </dl>
+                        <dl>
+                            <dt>TOTAL</dt>
+                            <dd>2349618</dd>
+                        </dl>
+                    </div>
+                </div>
+                <div class="lftBx">
+                    <div class="profile">
+                        <img src="./asset/sudal.png" alt="sudal">
+                    </div>
+                    <div class="info">
+                        <p>저는 주식이 뭐냐구요? 설탕물을 주로 좋아합니다. 여러분들에게 설명해주면서 알아가는 설탕물이 제가 제일 좋아하는 음식이죠 ^.^</p>
+                    </div>
+                    <div class="bot">
+                        <p>수달(남)</p>
+                        <select name="" id="">
+                            <option value="">파도타기</option>
+                        </select>
+                    </div>
+                </div>
+            </article>
+            <article class="rgh">
+                <div class="top">
+                    <p class="tit">수달의 추억상ㅈr...♥♡</p>
+                    <p class="adrs">https://url주소/나중에입력</p>
+                </div>
+                <div class="nav">
+                    <ul>
+                        <li><a href="#">홈</a></li>
+                        <li><a href="#">다이어리</a></li>
+                        <li><a href="#">사진첩</a></li>
+                        <li><a href="#">방명록</a></li>
+                    </ul>
+                </div>
+                <div class="rghBx">
+                    <article class="upNews">
+                        <p class="tit_st">Updated news</p>
+                        <div class="inBox">
+                            <div class="lst_news">
+                                <ul>
+                                    <li><span class="tag">사진첩</span><a href="#">나보러 왔길래 손잡아줌</a></li>
+                                    <li><span class="tag bbs">게시판</span><a href="#">웹코딩이 어렵다면 해봐</a></li>
+                                    <li><span class="tag bbs">게시판</span><a href="#">사실은 나도 어려워</a></li>
+                                    <li><span class="tag">사진첩</span><a href="#">같이하자! HTML/CSS</a></li>
+                                </ul>
+                            </div>
+                            <div class="lst_bbs">
+                                <ul>
+                                    <li>다이어리<span>8/25</span></li>
+                                    <li>사진첩<span>8/25</span></li>
+                                    <li>게시판<span>8/25</span></li>
+                                    <li>방명록<span>8/25</span></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </article>
+                    <article class="miniroom">
+                        <p class="tit_st">Miniroom</p>
+                        <div class="inBox">
+                            <div class="img"><img src="./asset/sudal2.png" alt="sudal2"></div>
+                        </div>
+                    </article>
+                </div>
+            </article>
+        </div>
+    </section>
+</body>
+
+</html>

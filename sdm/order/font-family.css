@@ -29,3 +29,11 @@ a {
   content: '\ebb4';
   font-family: xeicon;
 }
+
+.normal-icon > a::after {
+  content: '\2603';
+}
+
+.font-awesome {
+
+}

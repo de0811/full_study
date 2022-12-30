@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=chrome">
+    <title>Document</title>
+    <script src="https://kit.fontawesome.com/cb8c12a634.js" crossorigin="anonymous"></script>
+    <style>
+        .all{
+            height: 700px;
+            width: 400px;
+            border : 1px solid black;
+            position: absolute;
+            left : 50px;
+            top : 50px;
+        }
+        h2{
+            text-align: center;
+        }
+        .sunOrMoon{
+            width: 20px;
+            height : 20px;
+            position: absolute;
+            left: 0px;
+            top : 0px;
+            background-image: url(./sun.svg);
+        }
+        .sunOrMoon:hover{
+            background-image: url(./moon.svg) ;
+        }
+        .sunOrMoon:active{
+            background-image: url(./moon.svg);
+        }
+        .heart{
+            width: 20px;
+            height : 20px;
+            position: absolute;
+            left : 300px;
+            top : 0px;
+            background-image: url(./heart-regular.svg);
+        }
+        .heart:hover{
+            background-image: url(./heart-solid.svg) ;
+        }
+        .heart:active{
+            background-image: url(./heart-solid.svg);
+        }
+        .change{
+            width: 20px;
+            height : 20px;
+            position: absolute;
+            left : 370px;
+            top : 0px;
+            background-image: url(./dots.svg);
+        }
+        .change:hover{
+            background-image: url(./docker.svg) ;
+        }
+        .change:active{
+            background-image: url(./champagne.svg);
+        }
+    </style>
+
+
+</head>
+<body>
+    <div class="all">
+        <h2>해님과 달님</h2>
+        <div class="sunOrMoon"></div>
+        <div class="heart"></div>
+        <div class="change"></div>
+</body>
+</html>

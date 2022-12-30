@@ -1,0 +1,324 @@
+<!doctype html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .all{
+            background-color : lightgrey;
+            height: 700px;
+            width : 1200px;
+            border : 25px solid skyblue;
+        }
+        .side{
+            background-color: white;
+            height: 620px;
+            width : 300px;
+            position : absolute;
+            left : 50px;
+            top : 95px;
+            border-radius: 15px;
+        }
+
+        .main{
+            background-color: white;
+            height: 620px;
+            width: 730px;
+            position: absolute;
+            left : 400px;
+            top : 95px;
+            border-radius: 15px;
+        }
+        #top1{
+            display: inline;
+            position: absolute;
+            left : 105px;
+            top : 70px;
+        }
+        #top2{
+            display: inline;
+            position: absolute;
+            left : 400px;
+            top : 35px;
+            font-family: cursive;
+        }
+
+        #top3{
+            display: inline;
+            position : absolute;
+            left : 950px;
+            top : 70px;
+        }
+        .updatedNews{
+            border-bottom: 1px solid black;
+            color : dodgerblue;
+            font-size: 30px;
+            font-family: sans-serif;
+            position: relative;
+            width: 700px;
+            left : 10px;
+        }
+
+        .miniroom{
+            /*border-bottom: 1px solid black;*/
+            color : dodgerblue;
+            font-size: 30px;
+            font-family: sans-serif;
+            position: relative;
+            width: 700px;
+            left : 10px;
+            top : 20%;
+        }
+        .pics1{
+            display: inline;
+            position: absolute;
+            width: 250px;
+            height: 250px;
+            overflow: hidden;
+        }
+
+        .pics1 img {
+            position: relative;
+            top: 50px;
+            left: 50px;
+            width: 81%;
+            height: 84%;
+            object-fit: cover;
+        }
+        .pics2{
+            display: inline;
+            position: absolute;
+            width: 900px;
+            height: 500px;
+            overflow: hidden;
+            top: 149px;
+            left : -45px;
+        }
+
+        .pics2 img {
+            position: relative;
+            top: 65px;
+            left: 50px;
+            width: 80%;
+            height: 80%;
+            object-fit: cover;
+        }
+        #word1{
+            position: absolute;
+            width : 250px;
+            top : 287px;
+            left : 55px;
+            font-family: fantasy;
+        }
+        #wave{
+            position: absolute;
+            top : 500px;
+            left : 50px;
+        }
+        #wave_select{
+            position: absolute;
+            top : 526px;
+            left : 50px;
+            width : 120px;
+            height: 40px;
+        }
+
+        .box1{
+            /*position: relative;*/
+            width: 365px;
+            /*height: 150px;*/
+
+        }
+        #gallery{
+            display: inline;
+            background-color: red;
+            color: white;
+            width : 50px;
+            position: absolute;
+            top : 40px;
+            left : 10px;
+            text-align: center;
+        }
+        #gallery2{
+            display: inline;
+            background-color: red;
+            color: white;
+            width : 50px;
+            position: absolute;
+            top : 115px;
+            left : 10px;
+            text-align: center;
+        }
+        #board{
+            display: inline;
+            background-color: blue;
+            color: white;
+            width : 50px;
+            position: absolute;
+            top : 65px;
+            left : 10px;
+            text-align: center;
+        }
+        #board2{
+            display: inline;
+            background-color: blue;
+            color: white;
+            width : 50px;
+            position: absolute;
+            top : 90px;
+            left : 10px;
+            text-align: center;
+        }
+        #gallay_story{
+            position: absolute;
+            left : 70px;
+            top : 35px;
+        }
+        #gallay2_story{
+            position: absolute;
+            left : 70px;
+            top : 110px;
+        }
+        #board_story{
+            position: absolute;
+            left: 70px;
+            top: 60px;
+        }
+        #board2_story{
+            position: absolute;
+            left: 70px;
+            top : 85px;
+        }
+        .no1{
+            float: right;
+            display: inline;
+            border-bottom: 1px dashed black;
+            position: absolute;
+            left : 400px;
+            top : 40px;
+
+        }
+        .no2{
+            float : right;
+            display: inline;
+            border-bottom: 1px dashed black;
+            position: absolute;
+            left : 400px;
+            top : 65px;
+        }
+        #side1{
+            background-color: cadetblue;
+            color:white;
+            width: 70px;
+            height : 30px;
+            border-radius: 0px 10px 10px 0px;
+            padding-top: 11px;
+            padding-left: 2px;
+            position: absolute;
+            left : 1130px;
+            top : 115px;
+        }
+        #side2{
+            background-color: cadetblue;
+            color:white;
+            width: 70px;
+            height : 30px;
+            border-radius: 0px 10px 10px 0px;
+            padding-top: 11px;
+            padding-left: 2px;
+            position: absolute;
+            left : 1130px;
+            top : 175px;
+        }
+        #side3{
+            background-color: cadetblue;
+            color:white;
+            width: 70px;
+            height : 30px;
+            border-radius: 0px 10px 10px 0px;
+            padding-top: 11px;
+            padding-left: 2px;
+            position: absolute;
+            left : 1130px;
+            top : 235px;
+        }
+        #side4{
+            background-color: cadetblue;
+            color:white;
+            width: 70px;
+            height : 30px;
+            border-radius: 0px 10px 10px 0px;
+            padding-top: 11px;
+            padding-left: 2px;
+            position: absolute;
+            left : 1130px;
+            top : 295px;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="all">
+        <div id="top1">TODAY <font color="red">28</font> | TOTAL 100000</div>
+        <div id="top2"><h2>해달🦦의 추억 상ㅈr📦...❤️</h2></div>
+        <div id="top3">https://url주소/나중에입력</div>
+        <div class="side">
+            <div class="pics1">
+                <img src="./otter1.jpg">
+            </div>
+            <div id="word1">
+                졸리다.. 지금 시간 새벽 2시..<br>
+                내일 출근해야하는 데 이거 하고<br>
+                또 하나 해야돼..</br>
+                언제 자지..
+                </br></br>
+                Good Night...
+            </div>
+            <div id="wave">
+                해달</div>
+            <select id="wave_select">
+                <option value="waving"> 파도타기 </option>
+                <option value="surfing"> 서핑하기 </option>
+            </select>
+
+        </div>
+        <div class="main">
+            <div class="updatedNews">Updated news</div>
+                <div class="box1">
+                    <div id="gallery">사진첩</div>
+                    <div id="gallay_story">사진을 사진않아 📸️</div>
+                    <div id="gallery2">사진첩</div>
+                    <div id="gallay2_story">삼진아웃 사진헬로 😎</div>
+                    <div id="board">게시판</div>
+                    <div id="board_story">게시글 쓴분 계시나요? 🤔</div>
+                    <div id="board2">게시판</div>
+                    <div id="board2_story">게시글을 쓰라는 신의 계시 👼🏻</div>
+                </div>
+                <div class="box2">
+                    <div class="no1">다이어리 <font color="blue"> 24/26</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 사진첩 <font color="blue">4/18</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                    <div class="no2">게시판 <font color="blue"> 12/34</font> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 방명록 <font color="blue">56/78</font>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</div>
+                </div>
+
+
+<!--            <div id="gallay_story"><div id="gallery">사진첩</div> 나보러 왔길래 손잡아줌</div>-->
+<!--            <div id="gallay2_story"><div id="gallery2">사진첩</div></div>-->
+<!--            <div id="board_story"><div id="board">게시판</div></div>-->
+<!--            <div id="board2_story"><div id="board2">게시판</div></div>-->
+
+            <div class="miniroom">Miniroom</div>
+            <div class="pics2">
+                <img src="./otter.jpg">
+            </div>
+        </div>
+
+        <div id="side1">홈</div>
+        <div id="side2">다이어리</div>
+        <div id="side3">사진첩</div>
+        <div id="side4">방명록</div>
+    </div>
+
+</body>
+</html>

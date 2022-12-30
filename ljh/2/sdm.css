@@ -1,0 +1,123 @@
+.main {
+    position: relative;
+    left: 30vw;
+    top: 10vh;
+    width: 300px;
+    height: 600px;
+    border-radius: 10px;
+    border: 1px solid whitesmoke;
+}
+
+.main .header {
+    content: "";
+    display: block;
+    clear: both;
+    margin: 20px;
+}
+
+.main .header::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.main .header>div:first-child {
+    float: left;
+}
+
+.main .header>div:last-child {
+    float: right;
+}
+
+.main .header>div:last-child span {
+    float: left
+}
+
+.content {
+    position: absolute;
+    top: 60px;
+    padding: 0 20px;
+    width: 100%;
+    text-align: center;
+}
+
+.content img {
+    width: 50%;
+}
+
+.content .mainName {
+    font-size: 30px;
+    margin-top: 20px;
+}
+
+.content .subName {
+    font-size: 13px;
+    color: gray;
+    opacity: 0.5;
+    margin-top: 5px;
+}
+
+.content .doc {
+    margin-top: 20px;
+    line-height: 23px;
+    opacity: 0.6;
+}
+
+.content .mail {
+    display: block;
+    color: blue;
+    opacity: 0.9;
+}
+
+.content .viewPf {
+    color: white;
+    line-height: 2;
+    height: 30px;
+    margin: 15px 30px 30px 30px;
+    border-radius: 15px;
+    background-color: rgb(52, 211, 211);
+}
+
+.content-footer {
+    height: 100%;
+    border-top: 1px;
+    border: 2px whitesmoke;
+    border-style: solid none none none;
+}
+
+.content-footer::after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.content-footer .img {
+    margin: 30px 8px;
+    float: left;
+    width: 27%;
+}
+
+.content-footer img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.content-footer span {
+    width: 100%;
+}
+
+.content-footer .img span:last-child {
+    color: gray;
+    font-size: 12px;
+}
+
+.content .mainImg {
+    position: relative;
+}
+
+.content .mainImg::after {
+    position: absolute;
+    content: "\00A9";
+    top: 74%;
+    right: 82px;
+}

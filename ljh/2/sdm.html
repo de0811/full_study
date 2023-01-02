@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile</title>
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="sdm.css">
+
+    <script type="text/javascript">
+        function chgCode(val) {
+            if (val == "moon") {
+                document.getElementsByClassName("moon")[0].childNodes[0].remove()
+                document.getElementsByClassName("moon")[0].innerHTML = document.getElementsByClassName("heart")[0].innerHTML;
+            } else if (val == "heart") {
+                document.getElementsByClassName("heart")[0].childNodes[0].remove()
+                document.getElementsByClassName("heart")[0].innerHTML = document.getElementsByClassName("menu")[0].innerHTML;
+            } else {
+                document.getElementsByClassName("menu")[0].childNodes[0].remove()
+                document.getElementsByClassName("menu")[0].innerHTML = document.getElementsByClassName("moon")[0].innerHTML;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="header">
+            <div>
+                <span class="moon" onclick="javascript:chgCode('moon')">&#9790;</span>
+            </div>
+            <div>
+                <span class="heart" onclick="javascript:chgCode('heart')">&#9825;</span>
+                <span class="menu" onclick="javascript:chgCode('menu')">&#8942;</span>
+            </div>
+        </div>
+        <div class="content">
+            <div class="mainImg"><img src="asset/profileimg.png" alt="profile"></div>
+            <div class="mainName">
+                CodingWorks
+            </div>
+            <div class="subName">
+                CLASS IN INFLEARN
+            </div>
+            <p class="doc">
+                I'm a web publisher, Andrew. I'm looking forward to a good project.
+                <span class="mail">andrew@codingworks.com</span>
+            </p>
+            <div class="viewPf">
+                View My Portfolio
+            </div>
+            <div class="content-footer">
+                <div class="img"><img src="asset/insta.png" alt="instagram">
+                    <span>15.6k</span>
+                    <span>followers</span>
+                </div>
+                <div class="img"><img src="asset/fb.png" alt="facebook">
+                    <span>12.9k</span>
+                    <span>followers</span>
+                </div>
+                <div class="img"><img src="asset/tw.png" alt="twitter">
+                    <span>10.2k</span>
+                    <span>followers</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

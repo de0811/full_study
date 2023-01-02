@@ -32,8 +32,20 @@ a {
 
 .normal-icon > a::after {
   content: '\2603';
+  color: crimson;
+  font-size: 20px;
 }
 
 .font-awesome {
-
+}
+.font-awesome > a::after{
+  content: "\f35b";
+    font: var(--fa-font-solid);
+    margin-right: 5px;
+    color: #ff5544;
+}
+.font-google a::after {
+  content: '\eb88';
+  color:lightblue;
+  font-family: "Material Icons";
 }

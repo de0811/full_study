@@ -1,0 +1,23 @@
+
+@import 'profile.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+.noto-sans{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+}
+
+.story-cards {
+  display: flex;
+  border: 1px solid #ccc;
+  border-radius: 0.4em;
+  width: 380px;
+  height: 100px;
+  justify-content: space-around;
+  background-color: #fff;
+}
+.story-cards > .profile-link {
+  height: inherit;
+  display: flex;
+  align-items: center;
+}

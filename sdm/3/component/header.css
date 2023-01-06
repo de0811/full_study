@@ -1,0 +1,72 @@
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp);
+@import 'profile.css';
+@import 'icon.css';
+
+body {
+  margin: 0;
+}
+
+header {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 50px;
+  border: 1px solid #eee;
+}
+
+header .logo {
+  display: flex;
+  align-items: center;
+}
+header .logo svg{
+  height: 30px;
+  width: 100px;
+}
+
+header .middle {
+  display: flex;
+  align-items: center;
+}
+
+.search {
+  background-color: #eee;
+  border-radius: 5px;
+  width: 300px;
+  height: 40px;
+  color: #ccc;
+  font-size: 25px;
+}
+.search span {
+  display: inline-block;
+  transform: translate(0px, 8px);
+  margin-left: 5px;
+}
+.search input[type=text] {
+  border: none;
+  outline: none;
+  background-color: transparent;
+  width: calc(100% - 50px);
+  height: 30px;
+}
+.search input[type=text]::placeholder {
+  display: inline-block;
+  /* transform: translate(0px, 3px); */
+  font-size: 15px;
+}
+
+header a{
+  text-decoration: none;
+  color: #000;
+  font-size: 25px;
+}
+
+header .menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: nowrap;
+  height: 30px;
+  width: 300px;
+  box-sizing: border-box;
+}

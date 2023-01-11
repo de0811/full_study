@@ -1,0 +1,177 @@
+.background::after{
+    width : 100vw;
+    height : 100vh;
+    content : "";
+    background: black;
+    position : absolute;
+    top : 0;
+    left: 0;
+    z-index:-1;
+    opacity: 0.3;
+}
+.card{
+    background-color: white;
+    height: 400px;
+    width : 260px;
+    max-width:100%;
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 5px white;
+}
+
+.card-img{
+    display:inline;
+    position : absolute;
+    /*height: 100px;*/
+    /*width: 200px;*/
+    /*overflow: hidden;*/
+}
+img{
+    width: 230px;
+    height:180px;
+    object-fit: cover;
+    margin : 15px;
+}
+.card-word h1{
+    position: absolute;
+    top : 50%;
+    text-align: center;
+    font-size : 16px;
+}
+
+.card-word>h2{
+    position : absolute;
+    color : grey;
+    font-size : 15px;
+    font-weight: normal;
+    margin : 260px 0px 0px 10px ;
+}
+
+/*=====이미지 파일 이용해서 별 만들기====*/
+.star-move{
+    display : inline-block;
+    margin : 270px 0px 0px 10px;
+}
+.counting-star{
+    /*object-fit: cover;*/
+    width:304px;
+}
+
+.counting-star,.counting-star span {
+    display:inline;
+    height:55px;
+    overflow:hidden;
+    position:absolute;
+    /*margin : 270px 0px 0px 10px;*/
+    background: url(./star.png) no-repeat;
+}
+
+.counting-star span {
+    width:90%;
+    background-position:left bottom;
+    line-height:0;
+    vertical-align:top;
+}
+
+.renew_number{
+    display: inline-block;
+    font-size:15px;
+    position: absolute;
+    color: grey;
+    margin : 10px 0 0 300px;
+}
+.price{
+    font-weight:bold;
+    color : cornflowerblue;
+    margin : 40px 0 0 10px;
+}
+.sale{
+    display: inline;
+    font-size: 12px;
+    background-color: #ef9a9a;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 0 0 0 12px;
+}
+
+
+.card-back{
+    height: 400px;
+    width: 260px;
+    position: relative;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, 0);
+}
+.back-word{
+
+}
+
+.card-back:hover {
+    background-color: black;
+    color : white;
+    height: 400px;
+    width : 260px;
+    position : absolute;
+    left : 50%;
+    top : 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 15px;
+    opacity: 0.8;
+    display: block;
+}
+
+.back-word h1{
+    position: absolute;
+    text-align: center;
+    font-size : 18px;
+    margin : 25px 0px 0px 0px;
+}
+.back-word p{
+    position : absolute;
+    font-size : 14px;
+    padding:5px;
+    font-weight: normal;
+    margin : 90px 0px 0px 0px;
+}
+
+.back-side{
+    position: absolute;
+    font-size : 13px;
+    margin : 180px 0 0 20px;
+}
+
+.beginer{
+    list-style: none;
+    padding-top: 5px;
+}
+.web-developer{
+    list-style: none;
+    padding-top: 5px;
+}
+.dev-tool{
+    list-style: none;
+    padding-top: 5px;
+}
+
+.icon{
+    position: absolute;
+    font-size : 20px;
+    margin : 280px 0 0 220px;
+}
+
+.icon-heart{
+    list-style: none;
+    padding-top: 5px;
+}
+.icon-cart{
+    list-style: none;
+    padding-top: 5px;
+}
+.icon-plus{
+    list-style: none;
+    padding-top: 5px;
+}

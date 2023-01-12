@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
+
+@font-face {
+  font-family: 'MICEGothic Bold';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2206-01@1.0/MICEGothic Bold.woff2') format('woff2');
+  font-weight: 700;
+  font-style: normal;
+}
+
+* {
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.noto-sans{
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 12px;
+}
+
+.fs12 {font-size: 12px;}

@@ -99,7 +99,6 @@
 }
 
 .recommand_list .follow {
-  /* align-self: center; */
   flex-shrink: 0;
 }
 

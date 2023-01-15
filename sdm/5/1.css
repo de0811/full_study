@@ -107,7 +107,7 @@ section:last-of-type {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 100px 0;
+  /* padding: 100px 0; */
   gap: 50px;
 }
 .content-normal > .left {
@@ -136,6 +136,7 @@ section:last-of-type {
 .cards {
   display: flex;
   justify-content: space-between;
+  /* align-items: center; */
 }
 .card {
   border-radius: 2em 0 2em 0;
@@ -233,9 +234,9 @@ section:last-of-type {
   border: none;
   border-radius: 0.2em;
   color: #fff;
-  font-size: 14px;
+  font-size: 17px;
   font-weight: 300;
-  padding: 5px 10px;
+  padding: 10px 20px;
   text-transform: uppercase;
 }
 
@@ -262,7 +263,8 @@ section:last-of-type {
 }
 .section-recent .content {
   display: flex;
-  gap: 10px;;
+  gap: 10px;
+  flex-direction: row;
 }
 .section-recent .content .content-recent {
 
@@ -374,6 +376,88 @@ section:last-of-type {
 footer {
   background-color: #000;
   display: flex;
+  flex-direction: row;
   padding: 20px 0;
   color: #fff;
+  justify-content: center;
+  align-items: center;
+}
+footer a {
+  color: #aaa;
+  font-size: 12px;
+}
+footer .footer-communitys {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-networks {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+footer .footer-project {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.footer-project h1 {
+  font-size: 1em;
+  margin: 0;
+}
+.footer-project p {
+  display: inline-block;
+  font-size: 12px;
+  color: #aaa;
+  margin: 0px 10px;
+}
+
+/*테블릿 구간*/
+@media (min-width: 768px) and (max-width: 1023px){
+}
+
+/*모바일 구간*/
+@media (max-width: 767px){
+  .section.bgblack {
+    display: none;
+  }
+  .content-normal {
+    flex-direction: column;
+    padding: 0;
+  }
+  .content-card > h1 {
+    text-align: center;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 50px;
+  }
+  .card.w350 {
+    width: 100%;
+  }
+  .card .img-box {
+    height: 300px;
+  }
+  .section-recent .content {
+    flex-direction: column;
+  }
+
+  .section-recent .content .content-shared .shareds {
+    flex-direction: row;
+    justify-content: center;
+  }
+  .shared-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 20px;
+  }
 }

@@ -203,8 +203,177 @@ section:last-of-type {
 .slice-radio:checked+label {
   background-color: #444;
 }
+
 .backpoint-2 {
   background-image: url(https://img.hankyung.com/photo/202210/01.31626807.1.jpg);
   background-repeat: no-repeat;
   background-size: cover;
+}
+.backpoint-2 .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+.backpoint-2 .content h1 {
+  color: #fff;
+  text-align: center;
+  margin: 0;
+  font-size: 20px;
+}
+.backpoint-2 .content p {
+  color: #fff;
+  margin: 0;
+}
+.backpoint-2 .content button {
+  cursor: pointer;
+  /* width: 200px; */
+  display: inline-block;
+  background-color: #65C87A;
+  border: none;
+  border-radius: 0.2em;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 300;
+  padding: 5px 10px;
+  text-transform: uppercase;
+}
+
+.section-feature {
+
+}
+.section-feature .content h2 {
+  font-size: 12px;
+  font-weight: 500;
+  text-transform: uppercase;
+  color: #44A0E3;
+}
+.section-feature .content h1 {
+  font-size: 30px;
+}
+.section-feature .content p {
+}
+.section-feature .content a {
+  color: #B55F42;
+}
+
+.section-recent {
+
+}
+.section-recent .content {
+  display: flex;
+  gap: 10px;;
+}
+.section-recent .content .content-recent {
+
+}
+.content-recent > h1{
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.section-recent .content .content-recent .recents {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.recents .hr {
+  border-bottom: 1px solid #eee;
+}
+.recent-card {
+  display: flex;
+  gap: 20px;
+}
+.recents .recent-card  .img-box{
+  
+}
+.border-diagonal {
+  border-radius: 30px 0 30px 0;
+  -webkit-border-radius: 30px 0 30px 0;
+  -moz-border-radius: 30px 0 30px 0;
+  -ms-border-radius: 30px 0 30px 0;
+  -o-border-radius: 30px 0 30px 0;
+}
+.recent-card .img-box-txt {
+  flex: 1;
+}
+.recent-card .img-box-txt h1 {
+  font-size: 18px;
+}
+.recent-card .img-box-txt p {
+}
+.recent-card .img-box-txt time {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.section-recent .content .content-shared {
+}
+.content-shared > h1{
+  font-size: 14px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+.section-recent .content .content-shared .shareds {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.shared-card .img-box-txt {
+  flex: 1;
+}
+.shared-card .img-box-txt h1 {
+  font-size: 18px;
+}
+.shared-card .img-box-txt p {
+  margin: 10px 0;
+}
+.shared-card .img-box-txt time {
+  font-size: 12px;
+  font-weight: 300;
+}
+
+.section-festival {
+  background-color: #333333;
+}
+.section-festival .content {
+  text-align: center;
+}
+.section-festival .content h1 {
+  color: #fff;
+  font-weight: 300;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.section-festival .content h1 em {
+  font-style: normal;
+  font-weight: 500;
+}
+.section-festival .content button {
+  padding: 5px;
+  border: none;
+  border-radius: 0.5em;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+  width: 200px;
+}
+.section-festival .content button:nth-of-type(1) {
+  background-color: #F3C558;
+  color: #fff;
+  margin-right: 10px;
+}
+.section-festival .content button:nth-of-type(2) {
+}
+
+
+
+
+footer {
+  background-color: #000;
+  display: flex;
+  padding: 20px 0;
+  color: #fff;
 }

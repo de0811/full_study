@@ -45,6 +45,7 @@
 }
 .he-color-reverse:hover {
   filter: invert(70%);
+  -webkit-filter: invert(70%);
 }
 
 .he-arrow-right::after {

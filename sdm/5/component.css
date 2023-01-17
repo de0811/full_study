@@ -1,0 +1,13 @@
+.img-box {
+  width: 300px;
+  height: 200px;
+  /* border-radius: 0.2em; */
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.img-box img {
+  display: block;
+  width: inherit;
+  height: inherit;
+  object-fit: cover;
+}

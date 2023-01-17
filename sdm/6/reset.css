@@ -1,0 +1,12 @@
+
+body {
+  margin: 0;
+}
+a {
+  text-decoration: none;
+}
+input[type=text] {
+  border: none;
+  outline: none;
+  background-color: transparent;
+}

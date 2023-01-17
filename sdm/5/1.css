@@ -23,6 +23,7 @@ section:last-of-type {
 
 .section {
   display: block;
+  box-sizing: border-box;
   /* 임시용 */
   /* border: 1px solid sandybrown; */
 }
@@ -30,6 +31,7 @@ section:last-of-type {
   margin: auto;
   max-width: 1200px;
   width: 100%;
+  box-sizing: border-box;
   /* 임시용 */
   /* border: 1px solid salmon; */
 }
@@ -58,8 +60,12 @@ section:last-of-type {
 
 .sticky {
   position: sticky;
+  /* width: 100%; */
   top: 0;
   z-index: 1;
+  /* background-color: rgba(0, 0, 0, 0.271); */
+  background-color: #000;;
+  /* backdrop-filter: blur(10px); */
 }
 .nav-2 {
   padding: 20px 0;
@@ -414,10 +420,6 @@ footer .footer-project {
 
 /*테블릿 구간*/
 @media (min-width: 768px) and (max-width: 1023px){
-}
-
-/*모바일 구간*/
-@media (max-width: 767px){
   .section.bgblack {
     display: none;
   }
@@ -454,6 +456,70 @@ footer .footer-project {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 20px;
+  }
+}
+
+/*모바일 구간*/
+@media (max-width: 767px){
+  .section.bgblack {
+    display: none;
+  }
+  .content-normal {
+    flex-direction: column;
+    padding: 0;
+  }
+  .content-card > h1 {
+    text-align: center;
+  }
+  .cards {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    padding: 0px 50px;
+  }
+  .card.w350 {
+    width: 100%;
+  }
+  .card .img-box {
+    height: 300px;
+  }
+  .section-recent .content {
+    flex-direction: column;
+  }
+
+  .recent-card {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .section-recent .content .content-shared .shareds {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .shared-card {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .section-festival .content {
+    display: flex;
+    flex-direction: column;
+    /* justify-content: center; */
+    align-items: center;
+    gap: 10px;
+  }
+
+  .section-festival .content button:nth-of-type(1) {
+    margin: 0;
   }
 
   footer {

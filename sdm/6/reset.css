@@ -10,3 +10,6 @@ input[type=text] {
   outline: none;
   background-color: transparent;
 }
+button {
+  cursor: pointer;
+}

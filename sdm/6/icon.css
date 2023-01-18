@@ -22,9 +22,11 @@ input[type=checkbox].icon {
 }
 input[type=checkbox].icon+label {
   cursor: pointer;
+  /* display: block; */
 }
 
 .icon::before {
+  display: block; /* 중앙으로 그려주기 위해서*/
   font-family: 'Material Icons Outlined';
 }
 .icon:hover::before {
@@ -75,10 +77,14 @@ input[type=checkbox].icon+label {
 .i-emoji::before {
   content: '\e1d3';
 }
+.i-plus::before {
+  content: '\e145';
+}
 
 /* Input label */
 
 input[type=checkbox].icon+label::before {
+  display: block; /* 중앙으로 그려주기 위해서*/
   font-family: 'Material Icons Outlined';
 }
 input[type=checkbox].icon:hover+label::before {
@@ -125,4 +131,10 @@ input[type=checkbox].i-bookmark+label::before {
 }
 input[type=checkbox].i-emoji+label::before {
   content: '\e1d3';
+}
+input[type=checkbox].i-drop-down+label::before {
+  content: '\e5cf';
+}
+input[type=checkbox].i-drop-down:checked+label::before {
+  content: '\e5ce';
 }

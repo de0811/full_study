@@ -1,3 +1,7 @@
+body {
+  height: 300vh;
+}
+
 nav {
   width: 100%;
   /* background-color: #fff; */
@@ -6,10 +10,13 @@ nav {
   backdrop-filter: blur(4px);
   -webkit-backdrop-filter: blur(4px);
   /* border-radius: 10px; */
-  /* border: 1px solid rgba(255, 255, 255, 0.18); */
+  border: 1px solid rgba(255, 255, 255, 0.18);
   display: flex;
   justify-content: center;
   align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 }
 
 nav .content {
@@ -143,7 +150,7 @@ nav .main-icon {
 }
 
 .section {
-  width: 100%;
+  width: 100vw;
 }
 .main-1 {
   background-image: url('https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_newyear_top_bg.jpg');
@@ -201,4 +208,140 @@ nav .main-icon {
   left: 32vw;
 }
 
+.border-round {
+  border: 1px solid #000;
+  border-radius: 50%;
+}
 
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-2 {
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+.content-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.notice {
+  flex: 1;
+  background-color: #000;
+  padding: 1em 0;
+  color: #fff;
+}
+.notice .notice-txt-link {
+  font-size: 13px;
+}
+.notice .border-round {
+  border-color: #fff;
+}
+.notice a {
+  color: #fff;
+}
+.promotion {
+  flex: 1;
+}
+
+.main-2 .drop-down {
+  background-color: #F4F4ED;
+  padding-bottom: 25px;
+}
+.slids {
+
+}
+.slid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.slid-item .img-box {
+  width: 800px;
+}
+.slid-item a {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  border: 2px solid black;
+  padding: 5px 20px;
+  border-radius: 0.2em;
+  font-size: 12px;
+}
+
+.main-3 {
+  background-color: #1C322C;
+}
+.main-3 .content {
+  padding: 40px 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.main-3 .content .img-box {
+  width: 150px;
+}
+.comeon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comeon .hr {
+  border-bottom: 1px solid #425651;
+  width: 100%;
+  height: 1px;
+}
+.reward {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 15px;
+}
+.reward .reward-txt h1 {
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.reward .reward-txt p {
+  margin: 0;
+}
+.reward-link {
+  display: flex;
+  gap: 10px;
+}
+.reward-link a {
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 0.2em;
+}
+.reward-link .sign-in-link {
+  background-color: #006442;
+}
+.reward-link .log-in-link {
+  border: 2px solid #fff;
+}
+
+.gifts {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+.gifts .gift-card-link {
+  display: inline-block;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 0.2em; 
+  border: 2px solid #fff;
+}

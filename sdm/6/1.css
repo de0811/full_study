@@ -17,6 +17,7 @@ nav {
   position: sticky;
   top: 0;
   z-index: 1;
+  box-sizing: border-box;
 }
 
 nav .content {
@@ -104,7 +105,7 @@ nav .main-icon {
 }
 .nav-under > div:hover > a {
   color: rgb(14, 137, 30);
-  background-color: #000;
+  background-color: #2C2A29;
 }
 .nav-under > div > a:hover {
   text-decoration: underline;
@@ -126,7 +127,7 @@ nav .main-icon {
   overflow: hidden;
 }
 .nav-under > div:hover div.drop-down {
-  background-color: #000;
+  background-color: #2C2A29;
   /* height: min-content; */
   transform: scaleY(1);
 }
@@ -179,9 +180,19 @@ nav .main-icon {
 .find-your-luck > a {
   color: rgb(14, 137, 30);
   border: 2px solid rgb(14, 137, 30);
-  border-radius: 0.5em;
-  padding: 10px 12px;
-  font-size: 12px;
+}
+.find-your-luck > a:hover {
+  color: #fff;
+  background-color: rgb(14, 137, 30);
+}
+.com-btn {
+  border-radius: 0.3em;
+  padding: 5px 20px;
+  font-size: 14px;
+  transition: 1s;
+}
+.com-btn:hover {
+  text-decoration: underline;
 }
 .find-your-luck-drink {
   position: relative;
@@ -273,10 +284,11 @@ nav .main-icon {
   left: 50%;
   transform: translateX(-50%);
   color: #000;
-  border: 2px solid black;
-  padding: 5px 20px;
-  border-radius: 0.2em;
-  font-size: 12px;
+  border: 2px solid #000;
+}
+.slid-item a:hover {
+  background-color: #000;
+  color: #fff;
 }
 
 .main-3 {
@@ -384,14 +396,10 @@ nav .main-icon {
   display: inline-block;
   color: #000;
   border: 2px solid #000;
-  border-radius: 0.3em;
-  padding: 5px 20px;
-  transition: 1s;
 }
 .main-4 .product .product-txt a:hover {
   background-color: #583115;
   color: #fff;
-  text-decoration: underline;
 }
 
 @keyframes ani-left-in{
@@ -476,17 +484,12 @@ nav .main-icon {
 .main-5 .product .product-txt a {
   color: #8A6030;
   border: 2px solid #8A6030;
-  padding: 5px 30px;
-  border-radius: 0.25em;
-  transition: 1s;
 }
 .main-5 .product .product-txt a:hover {
   display: inline-block;
   color: #fff;
   border: 2px solid #8A6030;
-  border-radius: 0.25em;
   background-color: #8A6030;
-  text-decoration: underline;
 }
 .main-5 .product .product-img {
   width: 420px;
@@ -557,19 +560,49 @@ nav .main-icon {
 }
 .pick-txt a {
   color: #fff;
-  font-size: 14px;
   border: 2px solid #fff;
-  padding: 5px 20px;
-  border-radius: 0.25em;
   transition: 0.25s;
   animation: ani-fade-in 2s;
 }
 .pick-txt a:hover {
   color: #000;
   background-color: #fff;
-  text-decoration: underline;
 }
 .pick-img {
   width: 40vw;
   animation: ani-fade-in 1s;
+}
+
+footer {
+  background-color: #2C2A29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-content {
+  width: 80%;
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.footer-item {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-item h1 {
+  font-size: 12px;
+  font-weight: 400;
+}
+.footer-item a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 200;
+}
+.footer-item a:hover {
+  text-decoration: underline;
+}
+.footer-item.img-box {
+  width: 14px;
 }

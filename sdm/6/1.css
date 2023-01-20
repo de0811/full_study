@@ -210,13 +210,14 @@ nav .main-icon {
 }
 .find-your-luck-drink > .img-box:nth-of-type(2) {
   transform: translateX(-80px);
-  align-self: flex-end;
+  height: 16vw;
   left: 15vw;
-  bottom: 0;
+  top: 25%;
 }
 .find-your-luck-drink > .img-box:nth-of-type(3) {
   transform: translateX(-137px);
-  left: 32vw;
+  height: 16vw;
+  left: 31vw;
 }
 
 .border-round {

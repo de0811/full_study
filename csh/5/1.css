@@ -1,0 +1,80 @@
+.shadow>button{
+    width: 200px;
+    height: 40px;
+    font-size: 15px;
+    font-weight: bold;
+    background-color: dodgerblue;
+    color: white;
+    position: absolute;
+    top: 80%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+
+}
+.shadow{
+    width : 100vw;
+    height : 100vh;
+    content : "";
+    background: black;
+    position : absolute;
+    top : 0;
+    left: 0;
+    z-index:-1;
+    opacity: 0.4;
+}
+
+.box{
+    background-color: white;
+    width: 60vw;
+    height: 30vh;
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.box>.title{
+    font-size: 25px;
+    padding-bottom: 10px;
+    display: inline;
+}
+.box>.btn_close{
+    float: right;
+    background-color: white;
+    color: grey;
+    border: none;
+    font-size: 15px;
+    font-weight: bold;
+}
+.box>.btn_close2{
+    background-color: lightgrey;
+    padding: 10px 15px 10px 15px;
+    font-size: 15px;
+    border : none;
+    border-radius: 5px;
+    float: right;
+    margin: 5px;
+
+}
+
+.box>.btn_save{
+    background-color: dodgerblue;
+    color: white;
+    padding: 10px 15px 10px 15px;
+    font-size: 15px;
+    border : none;
+    border-radius: 5px;
+    float:right;
+    margin: 5px;
+}
+
+.box>.word{
+    margin-top: 20px;
+    margin-bottom: 10px;
+    padding-top: 70px;
+    padding-bottom: 60px;
+    border-top : 1px lightgrey solid;
+    border-bottom: 1px lightgrey solid ;
+}

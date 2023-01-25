@@ -1,0 +1,609 @@
+body {
+  height: 300vh;
+}
+
+nav {
+  width: 100%;
+  /* background-color: #fff; */
+  background: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  /* border-radius: 10px; */
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  box-sizing: border-box;
+}
+
+nav .content {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  max-width: 1000px;
+  min-width: 500px;
+  justify-content: space-between;
+  padding: 30px 0px 0px 0px;
+}
+
+nav .main-icon {
+  width: 75px;
+  height: 75px;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.nav-top {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 12px;
+}
+.nav-top > a {
+  color: #000;
+}
+.hr-column {
+  border-right: 1px solid #ccc;
+  height: 1em;
+}
+.nav-top > .search-box {
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  transition: 0.3s;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 0.5em;
+  box-sizing: border-box;
+  width: 40px;
+}
+.nav-top > .search-box:hover {
+  width: 100%;
+  max-width: 200px;
+  transition: 2.3s;
+}
+.nav-top > .search-box input[type=text] {
+  padding: 5px 10px;
+}
+.nav-top > .search-box button {
+}
+.nav-top > .search-box input[type=text] {
+  display: none;
+  width: 0;
+}
+.nav-top > .search-box:hover input[type=text] {
+  display: block;
+  width: 100%;
+}
+
+.nav-under {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 13px;
+  font-weight: 600;
+}
+.nav-under > div {
+}
+.nav-under > div > a {
+  display: inline-block;
+  color: #000;
+  transition: 0.5s;
+  padding: 10px;
+  text-transform: uppercase;
+  padding-bottom: 40px;
+}
+.nav-under > div:hover > a {
+  color: rgb(14, 137, 30);
+  background-color: #2C2A29;
+}
+.nav-under > div > a:hover {
+  text-decoration: underline;
+}
+.nav-under > div > div.drop-down {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-around;
+  padding: 30px 0;
+  position: absolute;
+  width: 100vw;
+  top: 156;
+  left: 0px;
+  transition: 0.25s;
+  /* height: 0; */
+  /* visibility: hidden; */
+  transform-origin: top;
+  transform: scaleY(0);
+  overflow: hidden;
+}
+.nav-under > div:hover div.drop-down {
+  background-color: #2C2A29;
+  /* height: min-content; */
+  transform: scaleY(1);
+}
+
+.drop-down-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.drop-down-item > a {
+  color: #ccc;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-weight: 300;
+  font-size: 14px;
+}
+.drop-down-item > a > b {
+  color: #fff;
+}
+.drop-down-item > a:hover {
+  text-decoration: underline;
+}
+
+.section {
+  width: 100%;
+}
+.main-1 {
+  background-image: url('https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_newyear_top_bg.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 34vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+.main-1 > .content {
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+}
+.find-your-luck {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+}
+.find-your-luck > a {
+  color: rgb(14, 137, 30);
+  border: 2px solid rgb(14, 137, 30);
+}
+.find-your-luck > a:hover {
+  color: #fff;
+  background-color: rgb(14, 137, 30);
+}
+.com-btn {
+  border-radius: 0.3em;
+  padding: 5px 20px;
+  font-size: 14px;
+  transition: 1s;
+}
+.com-btn:hover {
+  text-decoration: underline;
+}
+.find-your-luck-drink {
+  position: relative;
+  width: 40vw;
+  height: 20vw;
+  /* display: flex; */
+  /* justify-content: center; */
+  /* overflow: hidden; */
+}
+.find-your-luck-drink > .img-box {
+  position: absolute;
+  height: 20vw;
+  top: 0;
+  left: 0;
+}
+.find-your-luck-drink > .img-box:nth-of-type(2) {
+  transform: translateX(-80px);
+  height: 16vw;
+  left: 15vw;
+  top: 25%;
+}
+.find-your-luck-drink > .img-box:nth-of-type(3) {
+  transform: translateX(-137px);
+  height: 16vw;
+  left: 31vw;
+}
+
+.border-round {
+  border: 1px solid #000;
+  border-radius: 50%;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-2 {
+}
+
+.content {
+  display: flex;
+  justify-content: center;
+}
+.content-item {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.notice {
+  flex: 1;
+  background-color: #000;
+  padding: 1em 0;
+  color: #fff;
+}
+.notice .notice-txt-link {
+  font-size: 13px;
+}
+.notice .border-round {
+  border-color: #fff;
+}
+.notice a {
+  color: #fff;
+}
+.promotion {
+  flex: 1;
+}
+
+.main-2 .drop-down {
+  background-color: #F4F4ED;
+  padding-bottom: 25px;
+}
+.slids {
+
+}
+.slid-item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  /* justify-content: center; */
+  align-items: center;
+}
+.slid-item .img-box {
+  width: 800px;
+}
+.slid-item a {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #000;
+  border: 2px solid #000;
+}
+.slid-item a:hover {
+  background-color: #000;
+  color: #fff;
+}
+
+.main-3 {
+  background-color: #1C322C;
+}
+.main-3 .content {
+  padding: 40px 0;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+.main-3 .content .img-box {
+  width: 150px;
+}
+.comeon {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.comeon .hr {
+  border-bottom: 1px solid #425651;
+  width: 100%;
+  height: 1px;
+}
+.reward {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 15px;
+}
+.reward .reward-txt h1 {
+  font-weight: 500;
+  margin: 10px 0;
+}
+
+.reward .reward-txt p {
+  margin: 0;
+}
+.reward-link {
+  display: flex;
+  gap: 10px;
+}
+.reward-link a {
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 0.2em;
+}
+.reward-link .sign-in-link {
+  background-color: #006442;
+}
+.reward-link .log-in-link {
+  border: 2px solid #fff;
+}
+
+.gifts {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  justify-content: space-between;
+}
+.gifts .gift-card-link {
+  display: inline-block;
+  color: #fff;
+  padding: 5px 15px;
+  border-radius: 0.2em; 
+  border: 2px solid #fff;
+}
+
+.main-4 {
+  background-image: url(https://image.istarbucks.co.kr/upload/common/img/main/2023/2023_newyear_promotion_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.main-4 .product {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.main-4 .product > .img-box {
+  width: 240px;
+  opacity: 0;
+  animation: ani-left-in 2s;
+  animation-fill-mode:forwards;
+}
+.main-4:hover .product > .img-box {
+}
+.main-4 .product .product-txt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 30px;
+
+  animation: ani-right-in 2s;
+  animation-fill-mode: forwards;
+}
+.main-4:hover .product .product-txt {
+  
+}
+.main-4 .product .product-txt .img-box {
+  width: 300px;
+}
+.main-4 .product .product-txt a {
+  display: inline-block;
+  color: #000;
+  border: 2px solid #000;
+}
+.main-4 .product .product-txt a:hover {
+  background-color: #583115;
+  color: #fff;
+}
+
+@keyframes ani-left-in{
+  from {
+    opacity: 0;
+    transform: translateX(-50vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+}
+@keyframes ani-left-out{
+  from {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(-50vw);
+  }
+}
+
+@keyframes ani-right-in{
+  from {
+    opacity: 0;
+    transform: translateX(53vw);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+}
+
+@keyframes ani-right-out{
+  from {
+    opacity: 1;
+    transform: translateX(0vw);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(53vw);
+  }
+}
+
+.main-5 {
+  background-color: #F2F0E8;
+  position: relative;
+}
+/* .main-5::before {
+  content: '';
+  position: absolute;
+  background-image: url("https://image.istarbucks.co.kr/upload/common/img/main/2022/221220_pc_reserve_left_bg.png");
+  width: 425px;
+  height: 400px;
+  top: 0;
+  left: 0;
+} */
+.main-5 .content {
+  /* overflow: hidden; */
+  justify-content: space-between;
+}
+.main-5 .content > .img-box {
+  width: 200px;
+  height: 380px;
+}
+
+.main-5 .product {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 15px;
+  align-items: center;
+}
+.main-5 .product .product-txt {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+.main-5 .product .product-txt a {
+  color: #8A6030;
+  border: 2px solid #8A6030;
+}
+.main-5 .product .product-txt a:hover {
+  display: inline-block;
+  color: #fff;
+  border: 2px solid #8A6030;
+  background-color: #8A6030;
+}
+.main-5 .product .product-img {
+  width: 420px;
+  height: 380px;
+
+  animation: ani-fade-in 3s;
+}
+.main-5 .product .product-img img {
+  object-fit: none;
+  object-position: -1079px 0px;
+}
+
+@keyframes ani-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.main-6 {
+  /* background: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Chrismas2_PTF_bg.png) center center fixed no-repeat #45434c; */
+  background-image: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Chrismas2_PTF_bg.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.main-6 .content {
+  gap: 20px;
+  align-items: center;
+  padding: 50px;
+}
+.pick-txt {
+  display: flex;
+  flex-direction: column;
+  color: #fff;
+  text-transform: uppercase;
+  justify-content: center;
+  align-items: flex-end;
+}
+.pick-txt > * {
+  margin: 0;
+}
+.pick-txt h1 {
+  font-size: 100px;
+  font-weight: 400;
+  line-height: 0.9em;
+  animation: ani-left-in 2s;
+}
+.pick-txt h2 {
+  font-size: 40px;
+  font-weight: 400;
+  margin-bottom: 20px;
+  animation: ani-left-in 2s;
+}
+.pick-txt h3 {
+  font-size: 27px;
+  font-weight: 400;
+  line-height: 1.0em;
+  margin-bottom: 10px;
+  animation: ani-left-in 2.2s;
+}
+.pick-txt p {
+  font-size: 14px;
+  margin-bottom: 15px;
+  animation: ani-left-in 2.5s;
+}
+.pick-txt a {
+  color: #fff;
+  border: 2px solid #fff;
+  transition: 0.25s;
+  animation: ani-fade-in 2s;
+}
+.pick-txt a:hover {
+  color: #000;
+  background-color: #fff;
+}
+.pick-img {
+  width: 40vw;
+  animation: ani-fade-in 1s;
+}
+
+footer {
+  background-color: #2C2A29;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer-content {
+  width: 80%;
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-around;
+}
+.footer-item {
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.footer-item h1 {
+  font-size: 12px;
+  font-weight: 400;
+}
+.footer-item a {
+  color: #fff;
+  font-size: 12px;
+  font-weight: 200;
+}
+.footer-item a:hover {
+  text-decoration: underline;
+}
+.footer-item.img-box {
+  width: 14px;
+}

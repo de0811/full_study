@@ -1,20 +1,20 @@
-.header {
-  min-width: max-content;
+.usergroup {
+  width: 470px;
   display: flex;
   justify-content: space-between;
-  border: 2px solid darkgray;
-  border-radius: 15px;
-  padding: 10px 5px;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  padding: 5px;
 }
 
-.usergroup {
-  padding: 10px;
+.user {
+  padding: 5px;
   flex: 1 0 auto;
 }
 
 .thumbnail {
-  width: 100px;
-  height: 100px;
+  width: 50px;
+  height: 50px;
   border: 3px solid transparent;
   border-radius: 50%;
   overflow: hidden;
@@ -31,7 +31,7 @@
 }
 
 .username {
-  padding-top: 15px;
+  padding-top: 5px;
   text-align: center;
-  font-size: 22px;
+  font-size: 15px;
 }

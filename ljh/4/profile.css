@@ -1,6 +1,6 @@
 .right {
   padding: 10px;
-  min-width: 400px;
+  width: 400px;
 }
 .profile {
   display: flex;
@@ -11,19 +11,19 @@
 }
 
 .profile_img {
-  flex-basis: 80px;
+  flex-basis: 60px;
   flex-shrink: 0;
 }
 
 .profile_text div:nth-child(2) {
-  font-size: 23px;
+  font-size: 20px;
   color: grey;
 }
 
 .profile_text {
   margin: auto 20px;
   flex-grow: 3;
-  font-size: 25px;
+  font-size: 20px;
 }
 
 .profile_text div:nth-child(1) {
@@ -44,7 +44,7 @@
 .recommand_list_nav {
   display: flex;
   justify-content: space-between;
-  padding: 20px 0;
+  padding: 20px 0 10px 0;
   font-size: 18px;
 }
 
@@ -60,13 +60,13 @@
 .recommand_list {
   display: flex;
   justify-content: space-between;
-  margin: 15px 0;
+  margin: 12px 0;
   align-items: center;
 }
 
 .recommand_list .thumbnail {
-  width: 50px;
-  height: 50px;
+  width: 35px;
+  height: 35px;
   flex-shrink: 0;
   border: 3px solid transparent;
   border-radius: 50%;
@@ -84,8 +84,8 @@
 
 .recommand_list .detail {
   flex-grow: 3;
-  margin: auto 20px;
-  font-size: 18px;
+  margin: auto 10px;
+  font-size: 12px;
   line-height: 120%;
 }
 
@@ -109,7 +109,7 @@
 
 .link {
   padding-top: 30px;
-  font-size: 18px;
+  font-size: 13px;
 }
 
 .link > a {
@@ -126,7 +126,7 @@
 }
 
 .copyright {
-  font-size: 18px;
-  margin-top: 30px;
+  font-size: 13px;
+  margin-top: 20px;
   color: #969696;
 }

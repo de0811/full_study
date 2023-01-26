@@ -1,0 +1,108 @@
+body {
+  width: 100vw;
+  height: 100vh;
+  padding: 100px 0;
+  /* perspective: 1000px; */
+}
+
+.world {
+  perspective: 500px;
+}
+
+@keyframes ani-rotate {
+  0% {
+    -webkit-transform: rotateY(-20deg);
+    -moz-transform: rotateY(-20deg);
+    -ms-transform: rotateY(-20deg);
+    -o-transform: rotateY(-20deg);
+    transform: rotateY(-20deg);
+  }
+
+  50% {}
+
+  100% {
+    -webkit-transform: rotateY(20deg);
+    -moz-transform: rotateY(20deg);
+    -ms-transform: rotateY(20deg);
+    -o-transform: rotateY(20deg);
+    transform: rotateY(20deg);
+  }
+}
+
+.camera {
+  perspective: 1500px;
+}
+
+.frame {
+  margin: 200px auto;
+  transform-style: preserve-3d;
+  border: 4px dashed salmon;
+  border-radius: 0.5em;
+  position: relative;
+  width: 250px;
+  height: 300px;
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
+  transform-origin: 50% 0%;
+  /*animation-name: ani-rotate;
+  *//*animation-duration: 1s;
+  *//*animation-fill-mode: forwards;
+  *//*animation-iteration-count: infinite;
+  *//*animation-direction: alternate;
+  */-webkit-animation: ani-rotate 2s infinite alternate;
+  animation: ani-rotate 2s infinite alternate;
+  -webkit-border-radius: 0.5em;
+  -moz-border-radius: 0.5em;
+  -ms-border-radius: 0.5em;
+  -o-border-radius: 0.5em;
+}
+
+.frame h1 {
+  font-size: 26px;
+  text-align: center;
+  -webkit-transform: translateZ(5px);
+  -moz-transform: translateZ(5px);
+  -ms-transform: translateZ(5px);
+  -o-transform: translateZ(5px);
+  transform: translateZ(5px);
+}
+
+.img-box {
+  width: 100px;
+  position: absolute;
+}
+
+.img-box img {
+  width: inherit;
+  height: inherit;
+}
+
+.img-box:nth-of-type(1) {
+  top: 60%;
+  left: 30%;
+  -webkit-transform: translateZ(25px);
+  -moz-transform: translateZ(25px);
+  -ms-transform: translateZ(25px);
+  -o-transform: translateZ(25px);
+  transform: translateZ(25px);
+}
+
+.img-box:nth-of-type(2) {
+  left: 50%;
+  -webkit-transform: translateZ(10px);
+  -moz-transform: translateZ(10px);
+  -ms-transform: translateZ(10px);
+  -o-transform: translateZ(10px);
+  transform: translateZ(10px);
+}
+
+.img-box:nth-of-type(3) {
+  -webkit-transform: translateZ(20px);
+  -moz-transform: translateZ(20px);
+  -ms-transform: translateZ(20px);
+  -o-transform: translateZ(20px);
+  transform: translateZ(20px);
+}

@@ -84,7 +84,7 @@
 .main {
   display: flex;
   flex-direction: column;
-  padding-right: 20px;
+  margin-right: 20px;
 }
 
 .userbar {
@@ -96,7 +96,7 @@
   border-radius: 3px;
 }
 
-.recommand_list.addeffect {
+.list.addeffect {
   margin: 0;
   padding: 5px 5px;
 }
@@ -157,7 +157,7 @@
   border: none;
 }
 
-.recommand_list.comm {
+.list.comm {
   justify-content: flex-start;
   margin: 7px 0;
 }
@@ -174,7 +174,7 @@
   color: darkgray;
 }
 
-.comment_list li:last-child {
+.writedate {
   text-decoration: none;
   font-size: 6px;
   color: darkgray;

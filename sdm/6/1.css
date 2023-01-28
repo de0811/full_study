@@ -60,7 +60,8 @@ nav .main-icon {
   align-items: center;
   justify-content:space-between;
   transition: 0.3s;
-  background-color: #fff;
+  /* background-color: #fff; */
+  background-color: transparent;
   border: 1px solid #ccc;
   border-radius: 0.5em;
   box-sizing: border-box;
@@ -72,17 +73,17 @@ nav .main-icon {
   transition: 2.3s;
 }
 .nav-top > .search-box input[type=text] {
-  padding: 5px 10px;
+  width: 0;
+  transition: 2.3s;
+  padding: 0;
+  /* display: none; */
 }
 .nav-top > .search-box button {
-}
-.nav-top > .search-box input[type=text] {
-  display: none;
-  width: 0;
 }
 .nav-top > .search-box:hover input[type=text] {
   display: block;
   width: 100%;
+  padding: 5px 10px;
 }
 
 .nav-under {

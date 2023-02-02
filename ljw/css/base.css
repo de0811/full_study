@@ -1,0 +1,93 @@
+@charset "utf-8";
+@import url(//fonts.googleapis.com/earlyaccess/nanumgothic.css);
+
+/* reset.css */
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+    font-family: 'Nanum Gothic','Nanum Square', 'Noto Sans KR', 'Malgun Gothic';
+	 word-break: keep-all;
+}
+body{font-size: 13px; line-height: 1; color: #000; }
+
+
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+    display: block;
+}
+body {
+    line-height: 1;
+}
+ol, ul {
+    list-style: none;
+}
+blockquote, q {
+    quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+    content: '';
+    content: none;
+}
+table {
+    border-collapse: collapse;
+    border-spacing: 0;
+}
+
+* {
+    -webkit-box-sizing: border-box;-moz-box-sizing: border-box;box-sizing: border-box;
+}
+/* 모바일 가로모드 폰트확대 방지 */
+body{-webkit-text-size-adjust:none; }
+
+img.map, map area{
+    /* outline: none; */
+border:0;
+}
+a:hover{text-decoration: none;}
+img{max-width: 100%	; vertical-align: middle;}
+/* form */
+form{margin:0;padding:0}
+fieldset{margin:0;padding:0;border:0 none}
+legend{visibility:hidden;overflow:hidden;position:absolute;top:0;left:0;width:0;height:0;padding:0;font-size:0;line-height:0}
+input,select,textarea{margin:0;padding:0;vertical-align:middle;font-family: 'Nanum Gothic','Nanum Square', 'Noto Sans KR', 'Malgun Gothic';}
+label,button{cursor:pointer}
+caption{visibility:hidden;position:absolute;top:0;left:0;width:0;height:0;margin:0;padding:0;background:none;font-size:0;line-height:0}
+
+.clearfix:after{display: block;clear: both;content: "";}
+
+/* select 초기화
+select::-ms-expand {display: none;} 
+select{appearance: none;-ms-appearance: none;-o-appearance: none;-webkit-appearance: none;-moz-appearance:none; background: url(/img/bbs/sel_arr.gif) 90% center no-repeat;} 
+ */
+
+/* link */
+a{text-decoration:none;cursor:pointer}
+a:link{color:#000}
+a:visited{color:#000}
+a:hover{color:#000}
+a:focus{color:#000}
+a:active{color:#000}
+
+/* Button */
+button{margin:0;padding:0;border:none;background:none; /*outline:none;*/}
+button.btn{display:inline-block;*overflow:visible;cursor:pointer;}
+button,button.btn{vertical-align:middle}

@@ -1,7 +1,7 @@
 .top {
   background-color: #f6f5f0;
-  /* position: sticky;
-  top: 0; */
+  position: sticky;
+  top: 0;
 }
 .topwrap {
   max-width: 1024px;

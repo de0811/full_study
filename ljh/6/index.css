@@ -78,6 +78,17 @@
 .main_menu > li {
   padding: 0 10px;
 }
+.main_menu > li:hover .sub_menu {
+  display: block;
+  position: absolute;
+  top: 124px;
+  left: 0;
+}
+
+.main_menu > li .sub_menu {
+  display: none;
+}
+
 .main_menu > li a {
   font: normal 13px Avenir, Arial, georgia;
 }
@@ -448,4 +459,36 @@ footer {
 #main6 .inner .txt button {
   margin-top: 40px;
   width: 140px;
+}
+
+.sub_menu {
+  width: 100%;
+  margin: 0 auto;
+  padding: 60px 0 100px;
+  background-color: #000;
+}
+
+.sub_row_flex {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.sub_colum_flex {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.sub_colum_flex li:first-child {
+  font-size: 20px;
+  margin-bottom: 10px;
+}
+
+.sub_colum_flex li {
+  margin-top: 10px;
+  font-size: 15px;
+}
+
+.sub_colum_flex li a {
+  color: #fff;
 }

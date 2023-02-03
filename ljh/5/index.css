@@ -1,9 +1,14 @@
 .header {
+  border-bottom: 1px solid gray;
+}
+
+.nav {
+  max-width: 925px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 40px;
-  border-bottom: 1px solid gray;
+  padding: 10px;
+  margin: auto;
 }
 
 .title {
@@ -112,6 +117,7 @@
 }
 
 .maincard_menu a {
+  display: inline-block;
   text-decoration: none;
   color: gray;
   margin-right: 5px;
@@ -131,6 +137,12 @@
   border-top: 1px solid darkgray;
   padding: 8px;
   font-size: 9x;
+  align-items: center;
+}
+
+.input4comm {
+  border: none;
+  width: 417px;
 }
 
 .comment_input a {
@@ -222,7 +234,7 @@
 
 .aside {
   padding: 10px;
-  width: 400px;
+  min-width: 400px;
 }
 .profile {
   display: flex;

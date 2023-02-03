@@ -23,6 +23,7 @@ body{
 }
 .receipt_title{
     position: relative;
+    display: inline;
 }
 
 
@@ -200,7 +201,7 @@ body{
 .modal{
     background-color: white;
     width: 400px;
-    height: 650px;
+    height: 675px;
     top: 50%;
     left: 50%;
     transform: translate(-50%,-50%);
@@ -265,9 +266,7 @@ body{
     margin: 0 0 30px 20px;
 }
 .show_pw{
-    display: block;
     text-align: center;
-    margin-bottom: 20px;
 }
 .show_btn>a{
     display: block;
@@ -291,7 +290,7 @@ body{
     color: white;
     /*padding: 40px 55px 40px 55px;*/
     width: 129px;
-    height: 70px;
+    height: 80px;
     font-size: 25px;
 }
 .zero{
@@ -301,7 +300,7 @@ body{
     font-size: 25px;
     /*padding: 40px 55px 40px 55px;*/
     width: 129px;
-    height: 70px;
+    height: 80px;
 }
 .all_clear{
     background-color: rgb(67, 147, 88);
@@ -309,13 +308,13 @@ body{
     color: white;
     font-size: 18px;
     width: 129px;
-    height: 70px;
+    height: 80px;
 
 }
 .delete{
     background-color: rgb(67, 147, 88);
     width: 129px;
-    height: 70px;
+    height: 80px;
     border: none;
 }
 .delete>img{

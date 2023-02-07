@@ -126,23 +126,24 @@
   transform: translateX(0%) skewX(0deg);
 }
 .slide-card .slide-card-txt a > span {
+  position: relative;
 }
 .slide-card .slide-card-txt a > span::before {
   content: '';
   position: absolute;
   width: 3px;
   height: 3px;
-  top: 20px;
-  left: 8em;
+  top: 0.5em;
+  right: -55px;
   background-color: #fff;
 }
 .slide-card .slide-card-txt a > span::after {
   content: '';
   position: absolute;
-  width: 1em;
+  width: 50px;
   height: 1px;
-  top: 48%;
-  left: 7em;
+  top: 0.8em;
+  right: -60px;
   /* background-color: #fff; */
   border-top: 1px solid #fff;
 }

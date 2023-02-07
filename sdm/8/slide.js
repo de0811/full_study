@@ -6,6 +6,7 @@ function isNotEmpty(str) {
   return !isEmpty(str);
 }
 
+
 class Slide {
   constructor() {
     this.init();
@@ -228,7 +229,6 @@ class Slide {
   }
 
   timeOutCardChange() {
-    console.log(this)
     let nextCardName = this.defaultNextCardName(this.curCardName);
     this.timeId = setTimeout(this.timeOutCardChange.bind(this), 3000);
     this.changeSlide(nextCardName);

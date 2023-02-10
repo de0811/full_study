@@ -1,0 +1,52 @@
+
+.c-ham {
+}
+.c-ham.on-sm {
+  display: none;
+}
+@media (max-width: 767px){
+  .c-ham.on-sm {
+    display: flex;
+    align-items: center;
+  }
+}
+.c-ham input {
+  display: none;
+}
+.c-ham input+label {
+  /* width: inherit; */
+  /* height: inherit; */
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  position: relative;
+}
+.c-ham input+label div {
+  background-color: #000;
+  height: 1px;
+  width: inherit;
+  position: absolute;
+  transition: 0.25s;
+}
+.c-ham input+label div:nth-child(1) {
+  top: 20%;
+}
+.c-ham input+label div:nth-child(2) {
+  top: 50%;
+  /* opacity: 1; */
+}
+.c-ham input+label div:nth-child(3) {
+  top: 80%;
+}
+.c-ham input:checked+label div:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+.c-ham input:checked+label div:nth-child(2) {
+  /* display: none; */
+  opacity: 0;
+}
+.c-ham input:checked+label div:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}

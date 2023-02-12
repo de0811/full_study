@@ -1,10 +1,36 @@
+@keyframes left {
+  0% {
+    left: -500px;
+  }
+  100% {
+    left: 0px;
+  }
+}
+@keyframes right {
+  0% {
+    right: -500px;
+  }
+  100% {
+    right: 0px;
+  }
+}
+@keyframes show {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100%;
+  }
+}
+
 .top {
   background-color: #f6f5f0;
   position: sticky;
   top: 0;
+  z-index: 1;
 }
 .topwrap {
-  max-width: 1024px;
+  max-width: 1200px;
   display: flex;
   margin: auto;
 }
@@ -22,7 +48,7 @@
 }
 .top_menu_group {
   flex-grow: 1;
-  padding: 20px;
+  padding: 20px 20px 0;
 }
 .util_group {
   display: flex;
@@ -43,26 +69,30 @@
 .util > li:last-child {
   border-right: none;
 }
+
 .search_group {
+  display: flex;
   height: 32px;
   width: 32px;
   background: #fff;
   border: 1px solid #ccc;
   border-radius: 5px;
-  text-align: center;
+  justify-content: center;
+  align-items: center;
 }
-.search_group:focus {
+.search_group:hover {
   width: 180px;
 }
-.search_group > a {
+.top_menu_search {
+  padding: 5px;
   display: inline-block;
 }
 .search_group img {
   width: 100%;
   height: 100%;
 }
-.search_group:focus > input,
-.totalSearch:focus {
+.search_group:hover > input,
+.totalSearch:hover {
   display: inline-block;
 }
 .search_group > input {
@@ -71,22 +101,79 @@
 .totalSearch {
   border: none;
 }
+
 .main_menu {
   display: flex;
   justify-content: flex-end;
+  height: 56px;
 }
 .main_menu > li {
-  padding: 0 10px;
+  padding: 10px 10px 20px;
 }
-.main_menu > li:hover .sub_menu {
+
+.main_menu > li:hover {
+  background-color: #333;
+}
+
+.main_menu > li:hover > a {
+  color: #669900;
+  text-decoration: underline;
+}
+.main_menu > .mm1:hover .sub_menu {
   display: block;
   position: absolute;
-  top: 124px;
+  top: 138px;
+  left: 0;
+}
+
+.main_menu > .mm2:hover .sub_menu {
+  display: block;
+  position: absolute;
+  top: 138px;
+  left: 0;
+}
+
+.main_menu > .mm3:hover .sub_menu {
+  display: block;
+  position: absolute;
+  top: 138px;
+  left: 0;
+}
+
+.main_menu > .mm4:hover .sub_menu {
+  display: block;
+  position: absolute;
+  top: 138px;
+  left: 0;
+}
+
+.main_menu > .mm5:hover .sub_menu {
+  display: block;
+  position: absolute;
+  top: 138px;
+  left: 0;
+}
+
+.main_menu > .mm6:hover .sub_menu {
+  display: block;
+  position: absolute;
+  top: 138px;
+  left: 0;
+}
+
+.main_menu > .mm7:hover .sub_menu {
+  display: block;
+  position: absolute;
+  top: 138px;
   left: 0;
 }
 
 .main_menu > li .sub_menu {
   display: none;
+}
+
+.main_menu > li a {
+  font: normal 13px Avenir, Arial, georgia;
 }
 
 .main_menu > li a {
@@ -115,6 +202,10 @@ footer {
   padding: 0 5px;
   border-right: 1px solid gray;
 }
+.terms > li:last-child {
+  border-right: 0;
+  padding-right: 0;
+}
 .terms > li > a {
   color: whitesmoke;
 }
@@ -122,22 +213,30 @@ footer {
   color: #00b050;
 }
 .sitemap {
-  margin-top: 20px;
+  margin-top: 30px;
   height: 30px;
 }
 .sitemap > a {
   border: 2px solid white;
-  padding: 5px 8px;
+  padding: 8px 20px;
   color: white;
+  font-size: 13px;
+  display: inline-block;
 }
 .worknum {
-  margin-top: 20px;
+  margin-top: 30px;
   font-size: 12px;
 }
-.reserved {
+.worknum span {
+  display: inline-block;
+  margin: 0 2px;
+  color: #999;
+}
+.copyright {
   margin-top: 20px;
   padding-bottom: 30px;
   font-size: 15px;
+  color: #999;
 }
 .hoverunder:hover {
   text-decoration: underline;
@@ -194,7 +293,7 @@ footer {
 }
 
 #main_visual .inner .txt {
-  margin: 5% 10%;
+  margin: auto 0;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -266,8 +365,14 @@ footer {
 
 #main1 .inner .notice span {
   width: 55px;
+  height: 55px;
   background: url(https://www.starbucks.co.kr/common/img/common/btn_notice_plus.png)
-    0 0 no-repeat;
+    center center no-repeat;
+  background-size: 50%;
+}
+#main1 .inner .notice span a {
+  display: block;
+  height: 100%;
 }
 
 #main1 .inner .promotion {
@@ -277,6 +382,7 @@ footer {
 
 #main1 .inner .promotion a {
   display: inline-block;
+  height: 15px;
 }
 
 #main2 {
@@ -299,6 +405,13 @@ footer {
   justify-content: space-between;
   align-items: center;
   flex: 1;
+}
+#main2 .contents .contents_top dl {
+  line-height: 1.5;
+}
+#main2 .contents .contents_top dl strong {
+  font-weight: bold;
+  font-size: 15px;
 }
 
 #main2 .contents .contents_top .btn_area {
@@ -324,6 +437,10 @@ footer {
   justify-content: space-between;
   align-items: center;
   flex: 1;
+  line-height: 1.5;
+}
+#main2 .contents .bottom strong {
+  font-weight: bold;
 }
 
 #main2 .contents .bottom button {
@@ -346,6 +463,15 @@ footer {
 #main3 .inner .img {
   padding-top: 30px;
   margin-right: 200px;
+  position: relative;
+  animation-name: left;
+  animation-duration: 1s;
+}
+
+#main3 .inner .ct {
+  position: relative;
+  animation-name: right;
+  animation-duration: 1s;
 }
 #main3 .inner .ct button {
   margin-top: 30px;
@@ -390,8 +516,8 @@ footer {
 #main5 {
   background: url(https://image.istarbucks.co.kr/upload/common/img/main/2022/2022_Chrismas2_PTF_bg.png)
     center center fixed no-repeat #45434c;
-  background-size: 80% 100%;
   height: 800px;
+  background-size: cover;
 }
 #main5 .inner {
   display: flex;
@@ -408,22 +534,46 @@ footer {
   flex: 1;
   margin-right: 150px;
 }
+#main5 .inner .txt p span {
+  position: relative;
+  animation-name: left;
+}
 #main5 .inner .txt p span:first-child {
   display: block;
   font-size: 130px;
+  animation-duration: 1s;
 }
 #main5 .inner .txt p span:nth-child(2) {
   display: block;
   font-size: 100px;
+  animation-duration: 1.2s;
 }
 #main5 .inner .txt p span:last-child {
   display: block;
   font-size: 60px;
+  animation-duration: 1.5s;
 }
 
 #main5 .inner .txt dt {
+  line-height: 1.2;
   padding-top: 30px;
   font-size: 30px;
+  position: relative;
+  animation-name: left;
+  animation-duration: 2s;
+}
+#main5 .inner .txt dt strong {
+  font-weight: bold;
+}
+#main5 .inner .txt dd {
+  line-height: 1.5;
+  margin-top: 20px;
+  position: relative;
+  animation-name: left;
+  animation-duration: 2.5s;
+}
+#main5 .inner .txt dd strong {
+  font-weight: bold;
 }
 
 #main5 .inner .txt dl {
@@ -435,6 +585,10 @@ footer {
   border: 1px solid #fff;
   color: #fff;
   width: 120px;
+}
+
+#main5 .img_area img {
+  width: 70%;
 }
 
 #main6 {
@@ -455,6 +609,11 @@ footer {
   align-items: center;
   margin-right: 60px;
 }
+#main6 .inner .img_area {
+  position: relative;
+  animation-name: show;
+  animation-duration: 1.5s;
+}
 
 #main6 .inner .txt button {
   margin-top: 40px;
@@ -464,13 +623,14 @@ footer {
 .sub_menu {
   width: 100%;
   margin: 0 auto;
-  padding: 60px 0 100px;
-  background-color: #000;
+  padding: 30px;
+  background-color: #333;
 }
 
 .sub_row_flex {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
+  gap: 0 50px;
 }
 
 .sub_colum_flex {
@@ -480,8 +640,10 @@ footer {
 }
 
 .sub_colum_flex li:first-child {
-  font-size: 20px;
+  font-size: 14px;
   margin-bottom: 10px;
+  font-weight: bold;
+  color: #fff;
 }
 
 .sub_colum_flex li {
@@ -490,5 +652,8 @@ footer {
 }
 
 .sub_colum_flex li a {
-  color: #fff;
+  color: #ddd;
+}
+.sub_colum_flex li:hover a {
+  text-decoration: underline;
 }

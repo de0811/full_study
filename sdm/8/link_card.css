@@ -92,3 +92,17 @@
   -o-transform: translateX(-50%);
   transform: translateX(-50%);
 }
+
+@media (max-width: 767px){
+  .link-cards-short {
+    width: 100%;
+    justify-content: flex-end;
+  }
+  .link-card-short {
+    display: block;
+    width: 100%;
+  }
+  .link-cards {
+    display: none;
+  }
+}

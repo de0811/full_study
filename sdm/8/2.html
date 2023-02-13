@@ -269,7 +269,7 @@
 
     </header>
 
-    <section class="l-section">
+    <section id="slide1" class="l-section">
       <div class="c-slide">
         <article class="c-card--slide" data-card-name="1111">
           <div class="c-card__txt--slide">
@@ -347,26 +347,18 @@
           </div>
         </article>
         <button class="c-slide__arrow-btn left">
+          <!-- <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="M 19.41,20.09 14.83,15.5 19.41,10.91 18,9.5 l -6,6 6,6 z" fill="#fff"></path></svg> -->
           <span></span>
           <span></span>
         </button>
         <button class="c-slide__arrow-btn right">
+          <!-- <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#fff"></path></svg> -->
           <span></span>
           <span></span>
         </button>
         <div class="slides-btn-right">
-          <!-- <button class="slides-btn-right-item active">Strong</button> -->
-          <!-- <button class="slides-btn-right-item">KUM</button> -->
-          <!-- <button class="slides-btn-right-item">CHECK</button> -->
-          <!-- <button class="slides-btn-right-item">AC</button> -->
-          <!-- <button class="slides-btn-right-item">BA</button> -->
         </div>
         <div class="slides-btn-under">
-          <!-- <button class="slides-btn-under-item active"></button> -->
-          <!-- <button class="slides-btn-under-item"></button> -->
-          <!-- <button class="slides-btn-under-item"></button> -->
-          <!-- <button class="slides-btn-under-item"></button> -->
-          <!-- <button class="slides-btn-under-item"></button> -->
         </div>
       </div>
     </section>
@@ -395,7 +387,7 @@
   <script src="hamberger.js"></script>
   <script src="slide.js"></script>
   <script>
-    slide = new Slide();
+    slide = new Slide({parent:'#slide1'});
     slide.run();
   </script>
 </body>

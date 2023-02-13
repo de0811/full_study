@@ -1,0 +1,247 @@
+@import url('http://cdn.jsdelivr.net/npm/xeicon@2.3.3/xeicon.min.css');
+
+body{
+    width: 100vw;
+    height: 200vh;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+}
+.header{
+    width: 250px;
+    height: 100vh;
+    position: fixed;
+    border-right: 1px solid rgb(38, 38, 38);
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.title{
+    flex-grow: 1;
+    display: flex;
+    align-items: center;
+}
+.title>a{
+}
+.title>a>img{
+    width: 150px;
+}
+.nav{
+    display: flex;
+    /*width: 100%;*/
+    flex-direction: column;
+    flex-grow: 5;
+}
+.nav>a{
+    color: white;
+    font-size: 25px;
+    text-decoration-line: none;
+    margin-bottom: 30px;
+}
+.nav>.my_profile{
+
+
+}
+.nav>.my_profile>.my_profile_img{
+    width: 25px;
+    height: 25px;
+    border-radius: 70%;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.nav>.my_profile>.my_profile_img>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    margin-top: auto;
+}
+.header>.more{
+    flex-grow: 1;
+}
+.header>.more>button{
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    padding: 0;
+
+}
+
+.main{
+    background-color: rgb(18,18,18);
+    width: 100%;
+    height: 100%;
+    padding: 30px 100px 0 300px;
+}
+
+.main>.main_header_inline-block{
+    /*display: inline-block;*/
+    width: 700px;
+    height: 130px;
+    margin-bottom: 30px;
+}
+
+.main>.main_header_inline-block>.main_header{
+    background-color: black;
+    border: 1px solid rgb(38, 38, 38);
+    border-radius: 10px;
+    width: 100%;
+    height: 100%;
+}
+
+.main>.main_header_inline-block>.main_header>.friends{
+    display: flex;
+    justify-content: space-around;
+    transform: translate(0,22px);
+}
+
+.main>.main_header_inline-block>.main_header>.friends>.friend{
+    text-decoration: none;
+}
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend1_img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend2_img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend3_img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend4_img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend5_img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend6_img
+{
+    width: 70px;
+    height: 70px;
+    border-radius: 70%;
+    overflow: hidden;
+}
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend1_img>img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend2_img>img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend3_img>img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend4_img>img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend5_img>img,
+.main>.main_header_inline-block>.main_header>.friends>.friend>.profile>.friend6_img>img
+{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-basis: 20%;
+    margin-top: auto;
+}
+.name{
+    color: white;
+    font-size: 12px;
+    margin-top: 10px;
+
+}
+
+.main>.main_body_inline-block{
+    /*display: inline-block;*/
+    width: 700px;
+    height: 900px;
+}
+
+.main>.main_body_inline-block>.main_body{
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    border: 1px solid rgb(38, 38, 38);
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+
+.main>.main_body_inline-block>.main_body>.post_header{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    flex-grow: 1;
+    align-items: center;
+}
+
+.main>.main_body_inline-block>.main_body>.post_header>.profile_img_link{
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.main>.main_body_inline-block>.main_body>.post_header>.profile_img_link>.profile{
+    width: 70px;
+    height: 70px;
+    border-radius: 70%;
+    overflow: hidden;
+    /*flex-grow: 1;*/
+}
+.main>.main_body_inline-block>.main_body>.post_header>.profile_img_link>.profile>.profile_img{
+    flex-grow: 7;
+}
+
+
+.main>.main_body_inline-block>.main_body>.post_header>.profile_img_link>.profile>.profile_img>img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    flex-basis: 20%;
+    margin-top: auto;
+}
+
+.main>.main_body_inline-block>.main_body>.post_header>.user_name_link{
+    flex-grow: 7;
+    height: 50%;
+    text-decoration-line: none;
+    display: flex;
+    align-items: center;
+}
+
+.main>.main_body_inline-block>.main_body>.post_header>.user_name_link>.user_name{
+    color: white;
+    font-size:20px;
+
+    font-weight: bold;
+}
+
+.main>.main_body_inline-block>.main_body>.post_header>.more_option{
+    flex-grow: 1;
+    height: 50%;
+    border: none;
+    background-color: black;
+    color: white;
+    font-size: 25px;
+    padding: 0;
+
+}
+
+.main>.main_body_inline-block>.main_body>.post_img{
+    flex-grow: 5;
+}
+.main>.main_body_inline-block>.main_body>.post_img>img{
+    width: 100%;
+    height: 100%;
+}
+
+.main>.main_body_inline-block>.main_body>.post_option{
+    flex-grow: 1;
+}
+.main>.main_body_inline-block>.main_body>.comment_group{
+    flex-grow: 5;
+}
+.main>.main_body_inline-block>.main_body>.comment_group{
+
+}
+.main>.main_body_inline-block>.main_body>.comment_group{
+
+}
+.main>.main_body_inline-block>.main_body>.post_comment{
+    flex-grow: 1;
+}
+
+
+
+.main>.side{
+
+}

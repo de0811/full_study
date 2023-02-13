@@ -4,7 +4,7 @@ let hamberger = document.querySelector('#ham-input');
 console.log(hamberger.checked);
 
 hamberger.addEventListener('click', () => {
-  let nav = document.querySelector('.gnb');
+  let nav = document.querySelector('.l-gnb');
   if( hamberger.checked ) {
     nav.classList.add('on');
   }else {

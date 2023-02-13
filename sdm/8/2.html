@@ -9,11 +9,11 @@
   컴포넌트 형태는 따로 외부로 빼서 BEM 형태로 작업
  -->
 
- <!-- 
+<!-- 
   이게 뭐야
   wrap {
     width: 100vw; / 100%;
-  }
+  
   vw로 설정하면 스크롤이 생기는데 왜지
   -->
 
@@ -24,11 +24,13 @@
   <!-- <link href="https://image.yes24.com/sysimage/renew/l-gnb/yes24.ico" type="image/x-icon" rel="shortcut icon"> -->
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="slide.css">
-  <link rel="stylesheet" href="link_card.css">
   <link rel="stylesheet" href="font.css">
+  <link rel="stylesheet" href="e-effect.css">
   <link rel="stylesheet" href="c-ham.css">
   <link rel="stylesheet" href="size.css">
+  <link rel="stylesheet" href="animation.css">
   <link rel="stylesheet" href="t-radius.css">
+
   <link rel="stylesheet" href="2.css">
   <title>BEM Test</title>
 </head>
@@ -37,12 +39,13 @@
 
   <div class="wrap">
     <header class="l-header">
-      <a class="c-logo">
-        <div class="c-img-box">
-          <img src="./img/running.png" alt="logo">
-        </div>
-        <span class="c-logo__txt">SANDO</span>
-      </a>
+      <div class="l-header__content max-w-px-1200">
+        <a class="c-logo">
+          <div class="c-img-box">
+            <img src="./img/running.png" alt="logo">
+          </div>
+          <span class="c-logo__txt">SANDO</span>
+        </a>
 
         <div class="c-ham on-sm">
           <input type="checkbox" name="" id="ham-input">
@@ -55,190 +58,208 @@
 
         <!-- <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#000"></path></svg> -->
 
-      <nav class="l-gnb">
-        <div class="l-gnb__item">
-          <a href="#none">Deer</a>
-          <div class="l-lnb">
-            <div class="c-card-short">
-              <!-- 카드 제목만 넣기 -->
-              <a href="#none" class="c-card-short__item">dama</a>
-              <a href="#none" class="c-card-short__item">axis</a>
-              <a href="#none" class="c-card-short__item">rucervus</a>
-              <a href="#none" class="c-card-short__item">rusa</a>
-              <a href="#none" class="c-card-short__item">cervus</a>
-            </div>
-            <div class="c-cards">
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://cdn.pixabay.com/photo/2020/11/24/22/05/deer-5773990_960_720.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">dama</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img
-                    src="https://p4.wallpaperbetter.com/wallpaper/549/854/530/artwork-deer-drawing-fantasy-art-wallpaper-preview.jpg"
-                    alt="">
-                </div>
-                <div class="c-img-box__txt--inner">axis</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://i.pinimg.com/originals/f1/99/d1/f199d1df475b38a58aaa9f1114ec29a9.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">rucervus</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://www.teahub.io/photos/full/210-2102796_fantasy-deer-wallpaper-hd.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">rusa</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://i.pinimg.com/originals/7c/59/4a/7c594a689d19b61c140ca8501a1b4aa5.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">cervus</div>
-              </a>
-            </div>
-          </div>
-        </div>
-        
-        <div class="l-gnb__item">
-          <a href="#none">mouse</a>
-          <div class="l-lnb">
-            <div class="c-card-short">
-              <!-- 카드 제목만 넣기 -->
-              <a href="#none" class="c-card-short__item">deer</a>
-              <a href="#none" class="c-card-short__item">house</a>
-              <a href="#none" class="c-card-short__item">western</a>
-              <a href="#none" class="c-card-short__item">white-footed</a>
-            </div>
-            <div class="c-cards">
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://images.unsplash.com/photo-1648331607020-aa51a96ff38d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">deer</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img
-                    src="https://a-static.besthdwallpaper.com/mickey-mouse-and-pluto-wallpaper-2560x1600-83335_7.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">house</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://media.istockphoto.com/id/1355500344/photo/western-european-house-mouse-on-a-white-background.jpg?s=170667a&w=0&k=20&c=xyAsIsu5jN1fSzAEXtJfzTKJgW4yM7U9zNqEyFWZQKs=" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">western</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://t4.ftcdn.net/jpg/00/72/29/17/360_F_72291731_OGYyWmfvFfLZWiwPjDyPBykfUwF87w7L.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">white-footed</div>
-              </a>
+        <nav class="l-gnb">
+          <div class="l-gnb__item">
+            <a href="#none">Deer</a>
+            <div class="l-lnb">
+              <div class="c-card-short">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short__item">dama</a>
+                <a href="#none" class="c-card-short__item">axis</a>
+                <a href="#none" class="c-card-short__item">rucervus</a>
+                <a href="#none" class="c-card-short__item">rusa</a>
+                <a href="#none" class="c-card-short__item">cervus</a>
+              </div>
+              <div class="c-cards">
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://cdn.pixabay.com/photo/2020/11/24/22/05/deer-5773990_960_720.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">dama</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/549/854/530/artwork-deer-drawing-fantasy-art-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">axis</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://i.pinimg.com/originals/f1/99/d1/f199d1df475b38a58aaa9f1114ec29a9.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">rucervus</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://www.teahub.io/photos/full/210-2102796_fantasy-deer-wallpaper-hd.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">rusa</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://i.pinimg.com/originals/7c/59/4a/7c594a689d19b61c140ca8501a1b4aa5.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">cervus</div>
+                </a>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="l-gnb__item">
-          <a href="#none">cat</a>
-          <div class="l-lnb">
-            <div class="c-card-short">
-              <!-- 카드 제목만 넣기 -->
-              <a href="#none" class="c-card-short__item">abyssinian</a>
-              <a href="#none" class="c-card-short__item">scottish</a>
-              <a href="#none" class="c-card-short__item">american</a>
-              <a href="#none" class="c-card-short__item">main coon</a>
-              <a href="#none" class="c-card-short__item">ragdoll</a>
-            </div>
-            <div class="c-cards">
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://p4.wallpaperbetter.com/wallpaper/665/694/471/cat-look-by-johnny-abyssinian-wallpaper-preview.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">abyssinian</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img
-                    src="https://p4.wallpaperbetter.com/wallpaper/189/1020/849/cat-look-nature-stump-wallpaper-preview.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">scottish</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="./img/hg.jpeg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">american</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://c.wallhere.com/photos/81/e9/2048x1365_px_animals_cats-728723.jpg!d" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">main coon</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://p4.wallpaperbetter.com/wallpaper/714/264/1001/cat-flowers-blue-eyes-ragdoll-wallpaper-preview.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">ragdoll</div>
-              </a>
-            </div>
-          </div>
-        </div>
-        <div class="l-gnb__item">
-          <a href="#none">dragon</a>
-          <div class="l-lnb">
-            <div class="c-card-short">
-              <!-- 카드 제목만 넣기 -->
-              <a href="#none" class="c-card-short__item">red</a>
-              <a href="#none" class="c-card-short__item">imoogi</a>
-              <a href="#none" class="c-card-short__item">albino</a>
-              <a href="#none" class="c-card-short__item">green</a>
-              <a href="#none" class="c-card-short__item">gold</a>
-            </div>
-            <div class="c-cards">
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://mblogthumb-phinf.pstatic.net/MjAxOTA2MDRfNjcg/MDAxNTU5NjQ1MDYzMjE0.3vWVz0Rc6RmPzcyP4hZIsxm3Tr30pXZzYw021rQMRgEg.b61UitQxhoT161THaVtDq09vpDbWsfYgStj2qxMea-gg.PNG.badpark/이미지_001.png?type=w800" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">red</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img
-                    src="https://pbs.twimg.com/media/EKIZhHSUYAA4hyL.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">imoogi</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://sg-res.9appsdownloading.com/sg/res/jpg/27/59/4451cfe1c416cd87aa12dd515420-8x11.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">albino</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://downloadwap.com/thumbs2/wallpapers/p2ls/2019/misc/40/41c1c1c813029785.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">green</div>
-              </a>
-              <a class="c-card">
-                <div class="c-img-box">
-                  <img src="https://p4.wallpaperbetter.com/wallpaper/117/306/524/chinese-dragon-dragon-wallpaper-preview.jpg" alt="">
-                </div>
-                <div class="c-img-box__txt--inner">gold</div>
-              </a>
-            </div>
-          </div>
-        </div>
-      </nav>
 
-      
-   
+          <div class="l-gnb__item">
+            <a href="#none">mouse</a>
+            <div class="l-lnb">
+              <div class="c-card-short">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short__item">deer</a>
+                <a href="#none" class="c-card-short__item">house</a>
+                <a href="#none" class="c-card-short__item">western</a>
+                <a href="#none" class="c-card-short__item">white-footed</a>
+              </div>
+              <div class="c-cards">
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://images.unsplash.com/photo-1648331607020-aa51a96ff38d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">deer</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://a-static.besthdwallpaper.com/mickey-mouse-and-pluto-wallpaper-2560x1600-83335_7.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">house</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://media.istockphoto.com/id/1355500344/photo/western-european-house-mouse-on-a-white-background.jpg?s=170667a&w=0&k=20&c=xyAsIsu5jN1fSzAEXtJfzTKJgW4yM7U9zNqEyFWZQKs="
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">western</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://t4.ftcdn.net/jpg/00/72/29/17/360_F_72291731_OGYyWmfvFfLZWiwPjDyPBykfUwF87w7L.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">white-footed</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="l-gnb__item">
+            <a href="#none">cat</a>
+            <div class="l-lnb">
+              <div class="c-card-short">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short__item">abyssinian</a>
+                <a href="#none" class="c-card-short__item">scottish</a>
+                <a href="#none" class="c-card-short__item">american</a>
+                <a href="#none" class="c-card-short__item">main coon</a>
+                <a href="#none" class="c-card-short__item">ragdoll</a>
+              </div>
+              <div class="c-cards">
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/665/694/471/cat-look-by-johnny-abyssinian-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">abyssinian</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/189/1020/849/cat-look-nature-stump-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">scottish</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="./img/hg.jpeg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">american</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://c.wallhere.com/photos/81/e9/2048x1365_px_animals_cats-728723.jpg!d" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">main coon</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/714/264/1001/cat-flowers-blue-eyes-ragdoll-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">ragdoll</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="l-gnb__item">
+            <a href="#none">dragon</a>
+            <div class="l-lnb">
+              <div class="c-card-short">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short__item">red</a>
+                <a href="#none" class="c-card-short__item">imoogi</a>
+                <a href="#none" class="c-card-short__item">albino</a>
+                <a href="#none" class="c-card-short__item">green</a>
+                <a href="#none" class="c-card-short__item">gold</a>
+              </div>
+              <div class="c-cards">
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://mblogthumb-phinf.pstatic.net/MjAxOTA2MDRfNjcg/MDAxNTU5NjQ1MDYzMjE0.3vWVz0Rc6RmPzcyP4hZIsxm3Tr30pXZzYw021rQMRgEg.b61UitQxhoT161THaVtDq09vpDbWsfYgStj2qxMea-gg.PNG.badpark/이미지_001.png?type=w800"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">red</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://pbs.twimg.com/media/EKIZhHSUYAA4hyL.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">imoogi</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://sg-res.9appsdownloading.com/sg/res/jpg/27/59/4451cfe1c416cd87aa12dd515420-8x11.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">albino</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img src="https://downloadwap.com/thumbs2/wallpapers/p2ls/2019/misc/40/41c1c1c813029785.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">green</div>
+                </a>
+                <a class="c-card">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/117/306/524/chinese-dragon-dragon-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">gold</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+
+
     </header>
 
     <section class="l-section">
@@ -343,13 +364,22 @@
       </div>
     </section>
 
-    <section class="l-section">
+    <section class="l-section t-tant-half--deer-blue">
       <article class="l-content max-w-px-1200">
-        <div class="c-img-box w200 h300 t-radius-round">
+        <div class="c-img-box w300 h400 t-radius-round ani-fade-in">
           <img src="https://www.teahub.io/photos/full/210-2102796_fantasy-deer-wallpaper-hd.jpg" alt="">
         </div>
         <div class="l-content__txt">
-          The deer jumps all over the place
+          <h1 class="ani-slide-left">
+            <span>The deer jumps all</span>
+            <span>over the place</span>
+          </h1>
+          <p class="ani-slide-left--500ms">
+            <span> 언어의 표현이 나타낼 수 있는 <b class="e-under-line--yello">의미가 무척 고유하여</b></span>
+            <span>다른 언어로 번역할 수 없다고 여겨지는 것.</span>
+            <span>이러한 이야기들 중에서 정말로 검증된 것은 그다지 </span>
+            <span>많지 않고 <b class="e-under-line--yello">대부분은 사람들</b> 사이에서의 썰에 그친다.</span>
+          </p>
         </div>
       </article>
     </section>

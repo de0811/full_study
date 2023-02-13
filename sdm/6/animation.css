@@ -1,8 +1,8 @@
 .ani-fade-in {
-  animation: fadein 0.25s;
   -moz-animation: fadein 0.25s; /* Firefox */
   -webkit-animation: fadein 0.25s; /* Safari and Chrome */
   -o-animation: fadein 0.25s; /* Opera */
+  animation: fadein 0.25s;
 }
 @keyframes fadein {
     from {
@@ -42,10 +42,10 @@
 
 
 .ani-fade-out {
-  animation: fadeout 0.25s;
   -moz-animation: fadeout 0.25s; /* Firefox */
   -webkit-animation: fadeout 0.25s; /* Safari and Chrome */
   -o-animation: fadeout 0.25s; /* Opera */
+  animation: fadeout 0.25s;
   animation-fill-mode: forwards;
 }
 @keyframes fadeout {
@@ -79,4 +79,39 @@
     to {
         opacity: 0;
     }
+}
+
+.ani-slide-left {
+  -moz-animation: slide-left 0.25s; /* Firefox */
+  -webkit-animation: slide-left 0.25s; /* Safari and Chrome */
+  -o-animation: slide-left 0.25s; /* Opera */
+  animation: slide-left 0.25s;
+  animation-fill-mode: forwards;
+}
+.ani-slide-left--500ms {
+  -moz-animation: slide-left 0.5s; /* Firefox */
+  -webkit-animation: slide-left 0.5s; /* Safari and Chrome */
+  -o-animation: slide-left 0.5s; /* Opera */
+  animation: slide-left 0.5s;
+  animation-fill-mode: forwards;
+}
+@keyframes slide-left {
+	0% {
+		transform: translateX(150%);
+	}
+	50%{
+		transform: translateX(-8%);
+	}
+	65%{
+		transform: translateX(4%);
+	}
+	80%{
+		transform: translateX(-4%);
+	}
+	95%{
+		transform: translateX(2%);
+	}			
+	100% {
+		transform: translateX(0%);
+	}
 }

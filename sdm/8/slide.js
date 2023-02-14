@@ -8,6 +8,7 @@ function isNotEmpty(str) {
 
 /**
  * TODO : img 버튼으로 만들지는... 아니 이런것도 해야하냐?
+ * TODO :각종 list들 모두 자동으로 추가 되도록 수정
  */
 
 class Slide {
@@ -22,67 +23,90 @@ class Slide {
   slide_arrow_btn_left = undefined;
   slide_arrow_btn_right = undefined;
   // slide를 감싸는 부모
-  parent = '';
+  parent = "";
   timeId = undefined;
   // 현재 카드 이름
-  curCardName = '';
+  curCardName = "";
+
+  slideCN = ".c-slide";
+  cardCN = this.slideCN + "__l-card";
+  slidesBtnTopListCN = this.slideCN + "__btn-list--top";
+  slidesBtnTopCN = this.slideCN + "__btn--top";
+  slidesBtnRightListCN = this.slideCN + "__btn-list--right";
+  slidesBtnRightCN = this.slideCN + "__btn--right";
+  slidesBtnUnderListCN = this.slideCN + "__btn-list--under";
+  slidesBtnUnderCN = this.slideCN + "__btn--under";
+  slideArrowBtnCN = this.slideCN + "__arrow-btn";
+  left = ".left";
+  right = ".right";
+  // slideArrowBtnLeftCN = ".c-slide__arrow-btn.left";
+  slideArrowBtnLeftCN = this.slideArrowBtnCN + this.left;
+  // slideArrowBtnRightCN = ".c-slide__arrow-btn.right";
+  slideArrowBtnRightCN = this.slideArrowBtnCN + this.right;
 
   init(param) {
-
-    if( isNotEmpty(param) && 'parent' in param ){
-      this.parent = param.parent + ' ';
+    if (isNotEmpty(param) && "parent" in param) {
+      this.parent = param.parent + " ";
     }
+    
+    // TODO :각종 list들 모두 자동으로 추가 되도록 수정
+    // let slidesBtnRightListElement = document.createElement('div');
 
-    const slideCN = '.c-slide';
-    // const cardCN = '.c-card--slide';
-    const cardCN = '.c-slide__l-card';
-    const slidesBtnTopCN = '.slides-btn-top';
-    const slidesBtnRightCN = '.slides-btn-right';
-    const slidesBtnUnderCN = '.slides-btn-under';
-    const slideArrowBtnLeftCN = '.c-slide__arrow-btn.left';
-    const slideArrowBtnRightCN = '.c-slide__arrow-btn.right';
 
-    this.slide_cards = document.querySelectorAll(this.parent + cardCN);
-    this.slides_btn_top = document.querySelector(this.parent + slidesBtnTopCN);
-    this.slides_btn_right = document.querySelector(this.parent + slidesBtnRightCN);
-    this.slides_btn_under = document.querySelector(this.parent + slidesBtnUnderCN);
+    this.slide_cards = document.querySelectorAll(this.parent + this.cardCN);
+    this.slides_btn_top = document.querySelector(this.parent + this.slidesBtnTopListCN);
+    this.slides_btn_right = document.querySelector(this.parent + this.slidesBtnRightListCN);
+    this.slides_btn_under = document.querySelector(this.parent + this.slidesBtnUnderListCN);
 
     this.card_names = this.#findCardNames(this.slide_cards);
-    if( isNotEmpty(this.slides_btn_top) ){
-      let slidesBtnTopTxt = this.#createSlidesBtnTopTxt(this.card_names);
+    if (isNotEmpty(this.slides_btn_top)) {
+      // let slidesBtnTopTxt = this.#createSlidesBtnTopTxt(this.card_names);
+      let slidesBtnTopTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnTopCN, false);
       this.slides_btn_top.innerHTML = slidesBtnTopTxt;
-      // this.#addSlidesBtnTopEventListener();
-      this.#addSlidesBtnCommonEventListener(this.slides_btn_top, slidesBtnTopCN);
+      this.#addSlidesBtnCommonEventListener(
+        this.slides_btn_top,
+        this.slidesBtnTopListCN
+      );
     }
-    if( isNotEmpty(this.slides_btn_right) ){
-      let slidesBtnRightTxt = this.#createSlidesBtnRightTxt(this.card_names);
+    if (isNotEmpty(this.slides_btn_right)) {
+      // let slidesBtnRightTxt = this.#createSlidesBtnRightTxt(this.card_names);
+      let slidesBtnRightTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnRightCN, true);
       this.slides_btn_right.innerHTML = slidesBtnRightTxt;
-      // this.#addSlidesBtnRightEventListener();
-      this.#addSlidesBtnCommonEventListener(this.slides_btn_right, slidesBtnRightCN);
+      this.#addSlidesBtnCommonEventListener(
+        this.slides_btn_right,
+        this.slidesBtnRightListCN
+      );
     }
-    if( isNotEmpty(this.slides_btn_under) ){
-      let slidesBtnUnderTxt = this.#createSlidesBtnUnderTxt(this.card_names);
+    if (isNotEmpty(this.slides_btn_under)) {
+      // let slidesBtnUnderTxt = this.#createSlidesBtnUnderTxt(this.card_names);
+      let slidesBtnUnderTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnUnderCN, false);
       this.slides_btn_under.innerHTML = slidesBtnUnderTxt;
-      // this.#addSlidesBtnUnderEventListner();
-      this.#addSlidesBtnCommonEventListener(this.slides_btn_under, slidesBtnUnderCN);
+      this.#addSlidesBtnCommonEventListener(
+        this.slides_btn_under,
+        this.slidesBtnUnderListCN
+      );
     }
 
     // arrow left
-    let slide = document.querySelector(this.parent + slideCN);
-    let leftElement = document.createElement('button');
-    leftElement.className = slideArrowBtnLeftCN.replaceAll('.', ' ');
+    let slide = document.querySelector(this.parent + this.slideCN);
+    let leftElement = document.createElement("button");
+    leftElement.className = this.slideArrowBtnLeftCN.replaceAll(".", " ");
     leftElement.innerHTML = `<svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="M 19.41,20.09 14.83,15.5 19.41,10.91 18,9.5 l -6,6 6,6 z" fill="#fff"></path></svg>`;
     slide.appendChild(leftElement);
 
-    this.slide_arrow_btn_left = document.querySelector(this.parent + slideArrowBtnLeftCN);
+    this.slide_arrow_btn_left = document.querySelector(
+      this.parent + this.slideArrowBtnLeftCN
+    );
 
     // arrow right
-    let rightElement = document.createElement('button');
-    rightElement.className = slideArrowBtnRightCN.replaceAll('.', ' ');
+    let rightElement = document.createElement("button");
+    rightElement.className = this.slideArrowBtnRightCN.replaceAll(".", " ");
     rightElement.innerHTML = `<svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#fff"></path></svg>`;
     slide.appendChild(rightElement);
 
-    this.slide_arrow_btn_right = document.querySelector(this.parent + slideArrowBtnRightCN);
+    this.slide_arrow_btn_right = document.querySelector(
+      this.parent + this.slideArrowBtnRightCN
+    );
 
     this.#addSlidesBtnArrowEventListner();
 
@@ -102,7 +126,7 @@ class Slide {
 
   #addSlidesBtnCommonEventListener(element, limitClassName) {
     element.addEventListener("click", (e) => {
-      let selectCardName = '';
+      let selectCardName = "";
       for (
         let target = e.target;
         isNotEmpty(target) && !target.classList.contains(limitClassName);
@@ -119,45 +143,17 @@ class Slide {
       }
     });
   }
-
-
-    //create Right Btn
-  #createSlidesBtnTopTxt(card_names) {
+  
+  //create Common Btn
+  #createSlidesBtnCommonTxt(card_names, itemCN, isTextInject) {
     let result = ``;
     for (let i = 0; i < card_names.length; ++i) {
       result +=
-        `<button class="slides-btn-top-item" data-card-name="` +
+        `<button class="` + itemCN.replace('.', '') + `" data-card-name="` +
         card_names[i] +
         `">` +
-        card_names[i] +
+        (isTextInject ? card_names[i] : '') +
         `</button>`;
-    }
-    return result;
-  }
-   
-  //create Right Btn
-  #createSlidesBtnRightTxt(card_names) {
-    let result = ``;
-    for (let i = 0; i < card_names.length; ++i) {
-      result +=
-        `<button class="slides-btn-right-item" data-card-name="` +
-        card_names[i] +
-        `">` +
-        card_names[i] +
-        `</button>`;
-    }
-    return result;
-  }
-
-  //create Under Btn
-  #createSlidesBtnUnderTxt(card_names) {
-    //create slides btn under
-    let result = ``;
-    for (let i = 0; i < card_names.length; ++i) {
-      result +=
-        `<button class="slides-btn-under-item" data-card-name="` +
-        card_names[i] +
-        `"></button>`;
     }
     return result;
   }
@@ -166,7 +162,9 @@ class Slide {
   #addSlidesBtnArrowEventListner() {
     let self = this;
     //add Click Event
-    let slide_arrow_btn_left = document.querySelector(".c-slide__arrow-btn.left");
+    let slide_arrow_btn_left = document.querySelector(
+      ".c-slide__arrow-btn.left"
+    );
     slide_arrow_btn_left.addEventListener("click", (e) => {
       self.resetCardChange();
       self.changeSlide(self.defaultBeforeCardName(self.curCardName));
@@ -219,7 +217,7 @@ class Slide {
   //find card name element
   findCardNameRightBtnElement(name) {
     let slides_btn_right_items = document.querySelectorAll(
-      ".slides-btn-right-item"
+      this.slidesBtnRightCN
     );
     for (let i = 0; i < slides_btn_right_items.length; ++i) {
       if (
@@ -235,7 +233,7 @@ class Slide {
   //find card name element
   findCardNameUnderBtnElement(name) {
     let slides_btn_right_items = document.querySelectorAll(
-      ".slides-btn-under-item"
+      this.slidesBtnUnderCN
     );
     for (let i = 0; i < slides_btn_right_items.length; ++i) {
       if (
@@ -250,7 +248,7 @@ class Slide {
   }
   //find card name element
   findCardNameCardElement(name) {
-    let slide_cards = document.querySelectorAll(".c-card--slide");
+    let slide_cards = document.querySelectorAll(".c-slide__l-card");
     for (let i = 0; i < slide_cards.length; ++i) {
       if (
         slide_cards[i].getAttribute("data-card-name").toUpperCase() ===

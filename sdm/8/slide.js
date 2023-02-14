@@ -34,7 +34,8 @@ class Slide {
     }
 
     const slideCN = '.c-slide';
-    const cardCN = '.c-card--slide';
+    // const cardCN = '.c-card--slide';
+    const cardCN = '.c-slide__l-card';
     const slidesBtnTopCN = '.slides-btn-top';
     const slidesBtnRightCN = '.slides-btn-right';
     const slidesBtnUnderCN = '.slides-btn-under';
@@ -133,28 +134,7 @@ class Slide {
     }
     return result;
   }
-
-    
-  // #addSlidesBtnTopEventListener() {
-  //   this.slides_btn_top.addEventListener("click", (e) => {
-  //     let selectCardName = "";
-  //     for (
-  //       let target = e.target;
-  //       !target.classList.contains("slides-btn-top");
-  //       target = target.parentElement
-  //     ) {
-  //       if (isNotEmpty(target.getAttribute("data-card-name"))) {
-  //         selectCardName = target.getAttribute("data-card-name");
-  //         break;
-  //       }
-  //     }
-  //     if (isNotEmpty(selectCardName)) {
-  //       this.resetCardChange();
-  //       this.changeSlide(selectCardName);
-  //     }
-  //   });
-  // }
-
+   
   //create Right Btn
   #createSlidesBtnRightTxt(card_names) {
     let result = ``;
@@ -168,25 +148,6 @@ class Slide {
     }
     return result;
   }
-  // #addSlidesBtnRightEventListener() {
-  //   this.slides_btn_right.addEventListener("click", (e) => {
-  //     let selectCardName = "";
-  //     for (
-  //       let target = e.target;
-  //       !target.classList.contains("slides-btn-right");
-  //       target = target.parentElement
-  //     ) {
-  //       if (isNotEmpty(target.getAttribute("data-card-name"))) {
-  //         selectCardName = target.getAttribute("data-card-name");
-  //         break;
-  //       }
-  //     }
-  //     if (isNotEmpty(selectCardName)) {
-  //       this.resetCardChange();
-  //       this.changeSlide(selectCardName);
-  //     }
-  //   });
-  // }
 
   //create Under Btn
   #createSlidesBtnUnderTxt(card_names) {
@@ -200,26 +161,7 @@ class Slide {
     }
     return result;
   }
-  // #addSlidesBtnUnderEventListner() {
-  //   //add Click Event
-  //   this.slides_btn_under.addEventListener("click", (e) => {
-  //     let selectCardName = "";
-  //     for (
-  //       let target = e.target;
-  //       !target.classList.contains("slides-btn-under");
-  //       target = target.parentElement
-  //     ) {
-  //       if (isNotEmpty(target.getAttribute("data-card-name"))) {
-  //         selectCardName = target.getAttribute("data-card-name");
-  //         break;
-  //       }
-  //     }
-  //     if (isNotEmpty(selectCardName)) {
-  //       this.resetCardChange();
-  //       this.changeSlide(selectCardName);
-  //     }
-  //   });
-  // }
+
   // < > btn
   #addSlidesBtnArrowEventListner() {
     let self = this;

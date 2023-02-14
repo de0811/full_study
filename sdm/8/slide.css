@@ -23,15 +23,17 @@
   }
 }
 
-.c-card--slide {
+.c-slide__l-card {
   width: inherit;
   height: 100%;
-  position: absolute;
+  z-index: -1;
   top: 0;
   left: 101%;
-  z-index: -1;
+  position: absolute;
   -webkit-animation: ani-slide-active-out 1s forwards;
   animation: ani-slide-active-out 1s forwards;
+}
+.c-card--slide {
 }
 .c-card--slide:nth-of-type(1) {
   background-image: url('https://t1.daumcdn.net/cfile/tistory/176DCE484E95190E19?original');
@@ -54,10 +56,6 @@
   z-index: 0;
   -webkit-animation: ani-slide-out-active 1s;
   animation: ani-slide-out-active 1s;
-}
-.c-card--slide.out {
-  -webkit-animation: ani-slide 1s;
-  animation: ani-slide 1s;
 }
 .c-card--slide .c-card__txt--slide {
   margin-left: 5%;

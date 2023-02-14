@@ -7,8 +7,6 @@ function isNotEmpty(str) {
 }
 
 /**
- * TODO : arrow btn <> 변경
- * TODO : arrow btn 자체 생성으로 변경
  * TODO : img 버튼으로 만들지는... 아니 이런것도 해야하냐?
  */
 
@@ -35,6 +33,7 @@ class Slide {
       this.parent = param.parent + ' ';
     }
 
+    const slideCN = '.c-slide';
     const cardCN = '.c-card--slide';
     const slidesBtnTopCN = '.slides-btn-top';
     const slidesBtnRightCN = '.slides-btn-right';
@@ -46,8 +45,6 @@ class Slide {
     this.slides_btn_top = document.querySelector(this.parent + slidesBtnTopCN);
     this.slides_btn_right = document.querySelector(this.parent + slidesBtnRightCN);
     this.slides_btn_under = document.querySelector(this.parent + slidesBtnUnderCN);
-    this.slide_arrow_btn_left = document.querySelector(this.parent + slideArrowBtnLeftCN);
-    this.slide_arrow_btn_right = document.querySelector(this.parent + slideArrowBtnRightCN);
 
     this.card_names = this.#findCardNames(this.slide_cards);
     if( isNotEmpty(this.slides_btn_top) ){
@@ -69,14 +66,22 @@ class Slide {
       this.#addSlidesBtnCommonEventListener(this.slides_btn_under, slidesBtnUnderCN);
     }
 
-    // TODO : Arrow 생성을 js로 위임해야함
+    // arrow left
+    let slide = document.querySelector(this.parent + slideCN);
     let leftElement = document.createElement('button');
-    leftElement.classList.add('c-slide__arrow-btn');
-    leftElement.classList.add('left');
+    leftElement.className = slideArrowBtnLeftCN.replaceAll('.', ' ');
+    leftElement.innerHTML = `<svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="M 19.41,20.09 14.83,15.5 19.41,10.91 18,9.5 l -6,6 6,6 z" fill="#fff"></path></svg>`;
+    slide.appendChild(leftElement);
 
+    this.slide_arrow_btn_left = document.querySelector(this.parent + slideArrowBtnLeftCN);
+
+    // arrow right
     let rightElement = document.createElement('button');
-    rightElement.classList.add('c-slide__arrow-btn');
-    rightElement.classList.add('right');
+    rightElement.className = slideArrowBtnRightCN.replaceAll('.', ' ');
+    rightElement.innerHTML = `<svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#fff"></path></svg>`;
+    slide.appendChild(rightElement);
+
+    this.slide_arrow_btn_right = document.querySelector(this.parent + slideArrowBtnRightCN);
 
     this.#addSlidesBtnArrowEventListner();
 

@@ -23,6 +23,12 @@
   
   vw로 설정하면 스크롤이 생기는데 왜지
   -->
+  
+  <!-- 
+    slide sample
+    https://swiperjs.com/demos
+    https://kenwheeler.github.io/slick/
+   -->
 
 <head>
   <meta charset="UTF-8">
@@ -30,13 +36,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- <link href="https://image.yes24.com/sysimage/renew/l-gnb/yes24.ico" type="image/x-icon" rel="shortcut icon"> -->
   <link rel="stylesheet" href="reset.css">
-  <link rel="stylesheet" href="slide.css">
+  <!-- <link rel="stylesheet" href="slide.css"> -->
+  <link rel="stylesheet" href="c-slide-custom.css">
   <link rel="stylesheet" href="font.css">
   <link rel="stylesheet" href="e-effect.css">
   <link rel="stylesheet" href="c-ham.css">
   <link rel="stylesheet" href="size.css">
   <link rel="stylesheet" href="animation.css">
   <link rel="stylesheet" href="t-radius.css">
+  <link rel="stylesheet" href="c-slide-1.css">
 
   <link rel="stylesheet" href="2.css">
   <title>BEM Test</title>
@@ -270,8 +278,8 @@
     </header>
 
     <section id="slide1" class="l-section">
-      <div class="c-slide">
-        <article class="c-slide__l-card c-card--slide" data-card-name="1111">
+      <div class="c-one-slide">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="1111">
           <div class="c-card__txt--slide">
             <b>1111</b>
             <p>
@@ -286,7 +294,7 @@
             </a>
           </div>
         </article>
-        <article class="c-slide__l-card c-card--slide" data-card-name="2222">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="2222">
           <div class="c-card__txt--slide">
             <b>2222</b>
             <p>
@@ -301,7 +309,7 @@
             </a>
           </div>
         </article>
-        <article class="c-slide__l-card c-card--slide" data-card-name="3333">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="3333">
           <div class="c-card__txt--slide">
             <b>3333</b>
             <p>
@@ -316,7 +324,7 @@
             </a>
           </div>
         </article>
-        <article class="c-slide__l-card c-card--slide" data-card-name="4444">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="4444">
           <div class="c-card__txt--slide">
             <b>4444</b>
             <p>
@@ -331,7 +339,7 @@
             </a>
           </div>
         </article>
-        <article class="c-slide__l-card c-card--slide" data-card-name="5555">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="5555">
           <div class="c-card__txt--slide">
             <b>5555</b>
             <p>
@@ -346,10 +354,129 @@
             </a>
           </div>
         </article>
-        <div class="c-slide__btn-list--right">
+        <!-- <div class="c-one-slide__btn-list--right"> -->
+        <!-- </div> -->
+        <!-- <div class="c-one-slide__btn-list--under"> -->
+        <!-- </div> -->
+        <!-- <button class="c-one-slide__btn--play"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"> -->
+            <!-- <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/> -->
+          <!-- </svg> -->
+        <!-- </button> -->
+        <!-- <button class="c-one-slide__btn--pause"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
+        <!-- </button> -->
+      </div>
+    </section>
+    
+    <section id="slide2" class="l-section">
+      <div class="c-one-slide">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="aaaa">
+          <div class="c-card__txt--slide">
+            <b>aaaa</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="bbbb">
+          <div class="c-card__txt--slide">
+            <b>bbbb</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="cccc">
+          <div class="c-card__txt--slide">
+            <b>cccc</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="eeee">
+          <div class="c-card__txt--slide">
+            <b>eeee</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="ffff">
+          <div class="c-card__txt--slide">
+            <b>ffff</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <div class="c-one-slide__btn-list--util">
+        <button class="c-one-slide__arrow-btn left">
+          <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="M 19.41,20.09 14.83,15.5 19.41,10.91 18,9.5 l -6,6 6,6 z" fill="#fff"></path></svg>
+        </button>
+          <div class="c-one-slide__btn-list--under"></div>
+          <button class="c-one-slide__btn--pause">
+            <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg>
+          </button>
+          <button class="c-one-slide__btn--play">
+             <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
+              <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/>
+            </svg>        
+          </button>
+          <button class="c-one-slide__arrow-btn right">
+            <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#fff"></path></svg>
+          </button>
         </div>
-        <div class="c-slide__btn-list--under">
-        </div>
+        <!-- <div class="c-one-slide__btn-list--right"> -->
+        <!-- </div> -->
+        <!-- <div class="c-one-slide__btn-list--under"> -->
+        <!-- </div> -->
+        <!-- <button class="c-one-slide__btn--play"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"> -->
+            <!-- <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/> -->
+          <!-- </svg> -->
+        <!-- </button> -->
+        <!-- <button class="c-one-slide__btn--pause"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
+        <!-- </button> -->
+        <!-- progress -->
+        <!-- <svg viewBox="0 0 48 48" style="--progress:0.0488;"><circle cx="24" cy="24" r="20"></circle></svg> -->
       </div>
     </section>
 
@@ -377,8 +504,24 @@
   <script src="hamberger.js"></script>
   <script src="slide.js"></script>
   <script>
-    slide = new Slide({parent:'#slide1'});
-    slide.run();
+    slide1 = new OneSlide({
+      parent:'#slide1',
+      isCreateBtnTop: false,
+      isCreateBtnRight: true,
+      isCreateBtnUnder: true,
+      isCreateBtnArrow: true,
+      autoSlideSec: 3,
+  });
+    slide1.run();
+    
+    slide2 = new OneSlide({
+      parent: '#slide2',
+      isCreateBtnRight: false,
+      isCreateBtnUnder: false,
+      isCreateBtnArrow: false,
+      autoSlideSec: 1,
+    });
+    slide2.run();
   </script>
 </body>
 

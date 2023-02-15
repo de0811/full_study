@@ -452,12 +452,16 @@
         </button>
           <div class="c-one-slide__btn-list--under"></div>
           <button class="c-one-slide__btn--pause">
-            <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg>
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
+            <div class="img-box">
+              <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-pause-512.png" alt="">
+            </div>
           </button>
           <button class="c-one-slide__btn--play">
-             <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%">
-              <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/>
-            </svg>        
+            <div class="img-box">
+              <img src="https://static.thenounproject.com/png/1192916-200.png" alt="">
+            </div>
+             <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/></svg>         -->
           </button>
           <button class="c-one-slide__arrow-btn right">
             <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#fff"></path></svg>
@@ -510,16 +514,17 @@
       isCreateBtnRight: true,
       isCreateBtnUnder: true,
       isCreateBtnArrow: true,
-      autoSlideSec: 3,
+      autoSlideSec: 1,
   });
     slide1.run();
     
     slide2 = new OneSlide({
       parent: '#slide2',
+      isCreateBtnTop: true,
       isCreateBtnRight: false,
       isCreateBtnUnder: false,
       isCreateBtnArrow: false,
-      autoSlideSec: 1,
+      autoSlideSec: 4,
     });
     slide2.run();
   </script>

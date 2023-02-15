@@ -15,13 +15,7 @@
 .c-card--slide:nth-of-type(5) {
   background-image: url('https://t1.daumcdn.net/cfile/tistory/147B21484E95192608');
 }
-.c-card--slide.active {
-  left: 0%;
-  visibility: visible;
-  z-index: 0;
-  -webkit-animation: ani-slide-out-active 1s;
-  animation: ani-slide-out-active 1s;
-}
+
 .c-card--slide .c-card__txt--slide {
   margin-left: 5%;
   width: 40%;

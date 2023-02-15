@@ -113,7 +113,7 @@ class OneSlide {
 
     this.card_names = this.#findCardNames(this.slide_cards);
     if (isNotEmpty(this.slides_btn_top)) {
-      let slidesBtnTopTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnTopCN, false);
+      let slidesBtnTopTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnTopCN, true);
       this.slides_btn_top.innerHTML = slidesBtnTopTxt;
       this.#addSlidesBtnCommonEventListener(
         this.slides_btn_top,
@@ -297,6 +297,23 @@ class OneSlide {
     return undefined;
   }
   //find card name element
+  findCardNameTopBtnElement(name) {
+    let slides_btn_top_items = document.querySelectorAll(
+      this.slidesBtnTopCN
+    );
+    for (let i = 0; i < slides_btn_top_items.length; ++i) {
+      if (
+        slides_btn_top_items[i]
+          .getAttribute("data-card-name")
+          .toUpperCase() === name.toUpperCase()
+      ) {
+        return slides_btn_top_items[i];
+      }
+    }
+    return undefined;
+  }
+
+  //find card name element
   findCardNameCardElement(name) {
     let slide_cards = document.querySelectorAll(this.cardCN);
     for (let i = 0; i < slide_cards.length; ++i) {
@@ -315,18 +332,22 @@ class OneSlide {
       let curCardEle = this.findCardNameCardElement(this.curCardName);
       let curRightBtnEle = this.findCardNameRightBtnElement(this.curCardName);
       let curUnderBtnEle = this.findCardNameUnderBtnElement(this.curCardName);
+      let curTopBtnEle = this.findCardNameTopBtnElement(this.curCardName);
       if( isNotEmpty(curCardEle) ) curCardEle.classList.remove("active");
       if( isNotEmpty(curRightBtnEle) ) curRightBtnEle.classList.remove("active");
       if( isNotEmpty(curUnderBtnEle) ) curUnderBtnEle.classList.remove("active");
+      if( isNotEmpty(curTopBtnEle) ) curTopBtnEle.classList.remove('active');
     }
 
     if (isNotEmpty(selectCardName)) {
       let selectCardEle = this.findCardNameCardElement(selectCardName);
       let selectRightBtnEle = this.findCardNameRightBtnElement(selectCardName);
       let selectUnderBtnEle = this.findCardNameUnderBtnElement(selectCardName);
+      let selectTopBtnEle = this.findCardNameTopBtnElement(selectCardName);
       if( isNotEmpty(selectCardEle) ) selectCardEle.classList.add("active");
       if( isNotEmpty(selectRightBtnEle) ) selectRightBtnEle.classList.add("active");
       if( isNotEmpty(selectUnderBtnEle) ) selectUnderBtnEle.classList.add("active");
+      if( isNotEmpty(selectTopBtnEle) ) selectTopBtnEle.classList.add('active');
     }
     this.curCardName = selectCardName;
   }

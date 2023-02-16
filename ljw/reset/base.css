@@ -20,7 +20,7 @@ time, mark, audio, video {
     font-size: 100%;
     font: inherit;
     vertical-align: baseline;
-    font-family: 'Nanum Gothic','Nanum Square', 'Noto Sans KR', 'Malgun Gothic';
+    font-family: 'Montserrat','Source Sans Pro','Nanum Gothic','Nanum Square', 'Noto Sans KR', 'Malgun Gothic';
 	 word-break: keep-all;
 }
 body{font-size: 13px; line-height: 1; color: #000; }

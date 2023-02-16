@@ -6,33 +6,155 @@ function isNotEmpty(str) {
   return !isEmpty(str);
 }
 
+/**
+  * TODO : img 버튼으로 만들지는... 아니 이런것도 해야하냐?
+  * TODO : changeSlide 할때 callback() 추가하면 이름 전달하도록 하게 만들어줘야함
+  * TODO : 속도 이슈 왜 나는지?
+ */
 
-class Slide {
-  constructor() {
-    this.init();
+class OneSlide {
+  constructor(param) {
+    this.init(param);
   }
-  slide_cards = document.querySelectorAll(".c-card--slide");
+  slide_cards = undefined;
   card_names = [];
-  slides_btn_right = document.querySelector(".slides-btn-right");
-  slides_btn_under = document.querySelector(".slides-btn-under");
-  slide_arrow_btn_left = document.querySelector(".c-slide__arrow-btn.left");
-  slide_arrow_btn_right = document.querySelector(".c-slide__arrow-btn.right");
+  slides_btn_top = undefined;
+  slides_btn_right = undefined;
+  slides_btn_under = undefined;
+  slide_arrow_btn_left = undefined;
+  slide_arrow_btn_right = undefined;
+  slide_btn_play = undefined;
+  slide_btn_pause = undefined;
+  // slide를 감싸는 부모
+  parent = "";
+  timeId = undefined;
+  // 현재 카드 이름
+  curCardName = "";
+  autoSlideSec = 3;
+  
+  
+  /*
+  */
+  
 
-  init() {
+  // .c-one-slide
+  slideCN = ".c-one-slide";
+  cardCN = this.slideCN + "__l-card";
+  // .c-one-slide__btn-list--top
+  slidesBtnTopListCN = this.slideCN + "__btn-list--top";
+  slidesBtnTopCN = this.slideCN + "__btn--top";
+  // .c-one-slide__btn-list--right
+  slidesBtnRightListCN = this.slideCN + "__btn-list--right";
+  slidesBtnRightCN = this.slideCN + "__btn--right";
+  // .c-one-slide__btn-list--under
+  slidesBtnUnderListCN = this.slideCN + "__btn-list--under";
+  // .c-one-slide__arrow-btn
+  slidesBtnUnderCN = this.slideCN + "__btn--under";
+  slideArrowBtnCN = this.slideCN + "__arrow-btn";
+  left = ".left";
+  right = ".right";
+  // ".c-one-slide__arrow-btn.left";
+  slideArrowBtnLeftCN = this.slideArrowBtnCN + this.left;
+  // ".c-one-slide__arrow-btn.right";
+  slideArrowBtnRightCN = this.slideArrowBtnCN + this.right;
+  slideBtnPlayCN = this.slideCN + '__btn--play';
+  slideBtnPauseCN = this.slideCN + '__btn--pause';
+  
+  getSlideBtnListNm() {
+    return this.slideCN + "\n" +
+    this.slidesBtnTopListCN + '\n' +
+    this.slidesBtnRightListCN + '\n' +
+    this.slidesBtnUnderListCN + '\n' +
+    this.slideArrowBtnCN;
+  }
+
+  init(param) {
+    if (isNotEmpty(param) && "parent" in param) {
+      this.parent = param.parent + " ";
+    }
+    if (isNotEmpty(param) && 'autoSlideSec' in param) {
+      this.autoSlideSec = param.autoSlideSec;
+    }
+    let slide = document.querySelector(this.parent + this.slideCN);
+    
+    // TODO :각종 list들 모두 자동으로 추가 되도록 수정
+    if( isNotEmpty(param) && 'isCreateBtnTop' in param && param.isCreateBtnTop ){
+      let slidesBtnTopListElement = document.createElement('div');
+      slidesBtnTopListElement.className = this.slidesBtnTopListCN.replaceAll('.', '');
+      slide.appendChild(slidesBtnTopListElement);
+    }
+    if( isNotEmpty(param) && 'isCreateBtnRight' in param && param.isCreateBtnRight ){
+      let slidesBtnRightListElement = document.createElement('div');
+      slidesBtnRightListElement.className = this.slidesBtnRightListCN.replaceAll('.', '');
+      slide.appendChild(slidesBtnRightListElement);
+    }
+    if( isNotEmpty(param) && 'isCreateBtnUnder' in param && param.isCreateBtnUnder ){
+      let slidesBtnUnderListElement = document.createElement('div');
+      slidesBtnUnderListElement.className = this.slidesBtnUnderListCN.replaceAll('.', '');
+      slide.appendChild(slidesBtnUnderListElement);
+    }
+    if( isNotEmpty(param) && 'isCreateBtnArrow' in param && param.isCreateBtnArrow ){
+      let leftElement = document.createElement("button");
+      leftElement.className = this.slideArrowBtnLeftCN.replaceAll(".", " ");
+      leftElement.innerHTML = `<svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="M 19.41,20.09 14.83,15.5 19.41,10.91 18,9.5 l -6,6 6,6 z" fill="#fff"></path></svg>`;
+      slide.appendChild(leftElement);
+      
+      let rightElement = document.createElement("button");
+      rightElement.className = this.slideArrowBtnRightCN.replaceAll(".", " ");
+      rightElement.innerHTML = `<svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#fff"></path></svg>`;
+      slide.appendChild(rightElement);
+    }
+
+
+    this.slide_cards = document.querySelectorAll(this.parent + this.cardCN);
+    this.slides_btn_top = document.querySelector(this.parent + this.slidesBtnTopListCN);
+    this.slides_btn_right = document.querySelector(this.parent + this.slidesBtnRightListCN);
+    this.slides_btn_under = document.querySelector(this.parent + this.slidesBtnUnderListCN);
+
     this.card_names = this.#findCardNames(this.slide_cards);
-    let slidesBtnRightTxt = this.#createSlidesBtnRightTxt(this.card_names);
-    this.slides_btn_right.innerHTML = slidesBtnRightTxt;
-    let slidesBtnUnderTxt = this.#createSlidesBtnUnderTxt(this.card_names);
-    this.slides_btn_under.innerHTML = slidesBtnUnderTxt;
+    if (isNotEmpty(this.slides_btn_top)) {
+      let slidesBtnTopTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnTopCN, true);
+      this.slides_btn_top.innerHTML = slidesBtnTopTxt;
+      this.#addSlidesBtnCommonEventListener(
+        this.slides_btn_top,
+        this.slidesBtnTopListCN
+      );
+    }
+    if (isNotEmpty(this.slides_btn_right)) {
+      let slidesBtnRightTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnRightCN, true);
+      this.slides_btn_right.innerHTML = slidesBtnRightTxt;
+      this.#addSlidesBtnCommonEventListener(
+        this.slides_btn_right,
+        this.slidesBtnRightListCN
+      );
+    }
+    if (isNotEmpty(this.slides_btn_under)) {
+      let slidesBtnUnderTxt = this.#createSlidesBtnCommonTxt(this.card_names, this.slidesBtnUnderCN, false);
+      this.slides_btn_under.innerHTML = slidesBtnUnderTxt;
+      this.#addSlidesBtnCommonEventListener(
+        this.slides_btn_under,
+        this.slidesBtnUnderListCN
+      );
+    }
+
+    // arrow
+    this.slide_arrow_btn_left = document.querySelector(this.parent + this.slideArrowBtnLeftCN);
+    this.slide_arrow_btn_right = document.querySelector(this.parent + this.slideArrowBtnRightCN);
+    if( isNotEmpty(this.slide_arrow_btn_left) && isNotEmpty(this.slide_arrow_btn_right) ){
+      this.#addSlidesBtnArrowEventListner();
+    }
+    
+    this.slide_btn_play = document.querySelector( this.parent + this.slideBtnPlayCN );
+    this.slide_btn_pause = document.querySelector( this.parent + this.slideBtnPauseCN );
+    if( isNotEmpty(this.slide_btn_play) ) {
+      this.#addSlidesBtnPlayEventListener(this.slide_btn_play);
+    }
+    if( isNotEmpty(this.slide_btn_pause) ) {
+      this.#addSlidesBtnPuaseEventListener(this.slide_btn_pause);
+    }
 
     this.curCardName = this.card_names[this.card_names.length - 1];
-
-    this.#addSlidesBtnRightEventListener();
-    this.#addSlidesBtnUnderEventListner();
-    this.#addSlidesBtnArrowEventListner();
-    
   }
-  timeId = undefined;
   run() {
     this.timeOutCardChange();
   }
@@ -45,25 +167,12 @@ class Slide {
     return card_names;
   }
 
-  //create Right Btn
-  #createSlidesBtnRightTxt(card_names) {
-    let result = ``;
-    for (let i = 0; i < card_names.length; ++i) {
-      result +=
-        `<button class="slides-btn-right-item" data-card-name="` +
-        card_names[i] +
-        `">` +
-        card_names[i] +
-        `</button>`;
-    }
-    return result;
-  }
-  #addSlidesBtnRightEventListener() {
-    this.slides_btn_right.addEventListener("click", (e) => {
+  #addSlidesBtnCommonEventListener(element, limitClassName) {
+    element.addEventListener("click", (e) => {
       let selectCardName = "";
       for (
         let target = e.target;
-        !target.classList.contains("slides-btn-right");
+        isNotEmpty(target) && !target.classList.contains(limitClassName);
         target = target.parentElement
       ) {
         if (isNotEmpty(target.getAttribute("data-card-name"))) {
@@ -78,52 +187,43 @@ class Slide {
     });
   }
 
-  //create Under Btn
-  #createSlidesBtnUnderTxt(card_names) {
-    //create slides btn under
+  #addSlidesBtnPlayEventListener(element) {
+    element.addEventListener("click", (e) => {
+      this.resetCardChange();
+    });
+  }
+  #addSlidesBtnPuaseEventListener(element) {
+    element.addEventListener("click", (e) => {
+      this.puase();
+    });
+  }
+  
+  //create Common Btn
+  #createSlidesBtnCommonTxt(card_names, itemCN, isTextInject) {
     let result = ``;
     for (let i = 0; i < card_names.length; ++i) {
       result +=
-        `<button class="slides-btn-under-item" data-card-name="` +
+        `<button class="` + itemCN.replace('.', '') + `" data-card-name="` +
         card_names[i] +
-        `"></button>`;
+        `">` +
+        (isTextInject ? card_names[i] : '') +
+        `</button>`;
     }
     return result;
   }
-  #addSlidesBtnUnderEventListner() {
-    //add Click Event
-    this.slides_btn_under.addEventListener("click", (e) => {
-      let selectCardName = "";
-      for (
-        let target = e.target;
-        !target.classList.contains("slides-btn-under");
-        target = target.parentElement
-      ) {
-        if (isNotEmpty(target.getAttribute("data-card-name"))) {
-          selectCardName = target.getAttribute("data-card-name");
-          break;
-        }
-      }
-      if (isNotEmpty(selectCardName)) {
-        this.resetCardChange();
-        this.changeSlide(selectCardName);
-      }
-    });
-  }
+
   // < > btn
   #addSlidesBtnArrowEventListner() {
     let self = this;
     //add Click Event
-    let slide_arrow_btn_left = document.querySelector(".c-slide__arrow-btn.left");
+    let slide_arrow_btn_left = document.querySelector(this.slideArrowBtnLeftCN);
     slide_arrow_btn_left.addEventListener("click", (e) => {
-      self.resetCardChange();
+      // self.resetCardChange();
       self.changeSlide(self.defaultBeforeCardName(self.curCardName));
     });
-    let slide_arrow_btn_right = document.querySelector(
-      ".c-slide__arrow-btn.right"
-    );
+    let slide_arrow_btn_right = document.querySelector(this.slideArrowBtnRightCN);
     slide_arrow_btn_right.addEventListener("click", (e) => {
-      self.resetCardChange();
+      // self.resetCardChange();
       self.changeSlide(self.defaultNextCardName(self.curCardName));
     });
   }
@@ -167,7 +267,7 @@ class Slide {
   //find card name element
   findCardNameRightBtnElement(name) {
     let slides_btn_right_items = document.querySelectorAll(
-      ".slides-btn-right-item"
+      this.slidesBtnRightCN
     );
     for (let i = 0; i < slides_btn_right_items.length; ++i) {
       if (
@@ -183,7 +283,7 @@ class Slide {
   //find card name element
   findCardNameUnderBtnElement(name) {
     let slides_btn_right_items = document.querySelectorAll(
-      ".slides-btn-under-item"
+      this.slidesBtnUnderCN
     );
     for (let i = 0; i < slides_btn_right_items.length; ++i) {
       if (
@@ -197,8 +297,25 @@ class Slide {
     return undefined;
   }
   //find card name element
+  findCardNameTopBtnElement(name) {
+    let slides_btn_top_items = document.querySelectorAll(
+      this.slidesBtnTopCN
+    );
+    for (let i = 0; i < slides_btn_top_items.length; ++i) {
+      if (
+        slides_btn_top_items[i]
+          .getAttribute("data-card-name")
+          .toUpperCase() === name.toUpperCase()
+      ) {
+        return slides_btn_top_items[i];
+      }
+    }
+    return undefined;
+  }
+
+  //find card name element
   findCardNameCardElement(name) {
-    let slide_cards = document.querySelectorAll(".c-card--slide");
+    let slide_cards = document.querySelectorAll(this.cardCN);
     for (let i = 0; i < slide_cards.length; ++i) {
       if (
         slide_cards[i].getAttribute("data-card-name").toUpperCase() ===
@@ -215,18 +332,22 @@ class Slide {
       let curCardEle = this.findCardNameCardElement(this.curCardName);
       let curRightBtnEle = this.findCardNameRightBtnElement(this.curCardName);
       let curUnderBtnEle = this.findCardNameUnderBtnElement(this.curCardName);
-      curCardEle.classList.remove("active");
-      curRightBtnEle.classList.remove("active");
-      curUnderBtnEle.classList.remove("active");
+      let curTopBtnEle = this.findCardNameTopBtnElement(this.curCardName);
+      if( isNotEmpty(curCardEle) ) curCardEle.classList.remove("active");
+      if( isNotEmpty(curRightBtnEle) ) curRightBtnEle.classList.remove("active");
+      if( isNotEmpty(curUnderBtnEle) ) curUnderBtnEle.classList.remove("active");
+      if( isNotEmpty(curTopBtnEle) ) curTopBtnEle.classList.remove('active');
     }
 
     if (isNotEmpty(selectCardName)) {
       let selectCardEle = this.findCardNameCardElement(selectCardName);
       let selectRightBtnEle = this.findCardNameRightBtnElement(selectCardName);
       let selectUnderBtnEle = this.findCardNameUnderBtnElement(selectCardName);
-      selectCardEle.classList.add("active");
-      selectRightBtnEle.classList.add("active");
-      selectUnderBtnEle.classList.add("active");
+      let selectTopBtnEle = this.findCardNameTopBtnElement(selectCardName);
+      if( isNotEmpty(selectCardEle) ) selectCardEle.classList.add("active");
+      if( isNotEmpty(selectRightBtnEle) ) selectRightBtnEle.classList.add("active");
+      if( isNotEmpty(selectUnderBtnEle) ) selectUnderBtnEle.classList.add("active");
+      if( isNotEmpty(selectTopBtnEle) ) selectTopBtnEle.classList.add('active');
     }
     this.curCardName = selectCardName;
   }
@@ -234,12 +355,17 @@ class Slide {
   timeOutCardChange() {
     let nextCardName = this.defaultNextCardName(this.curCardName);
     this.changeSlide(nextCardName);
-    this.timeId = setTimeout(this.timeOutCardChange.bind(this), 3000);
+    this.timeId = setTimeout(this.timeOutCardChange.bind(this), this.autoSlideSec * 1000);
   }
   resetCardChange() {
     if (isNotEmpty(this.timeId)) {
       clearTimeout(this.timeId);
     }
-    this.timeId = setTimeout(this.timeOutCardChange.bind(this), 3000);
+    this.timeId = setTimeout(this.timeOutCardChange.bind(this), this.autoSlideSec * 1000);
+  }
+  puase() {
+    if( isNotEmpty(this.timeId) ){
+      clearTimeout(this.timeId);
+    }
   }
 }

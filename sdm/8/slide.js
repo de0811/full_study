@@ -21,6 +21,7 @@ class OneSlide {
   slides_btn_top = undefined;
   slides_btn_right = undefined;
   slides_btn_under = undefined;
+  slides_btn_custom = undefined;
   slide_arrow_btn_left = undefined;
   slide_arrow_btn_right = undefined;
   slide_btn_play = undefined;
@@ -31,6 +32,7 @@ class OneSlide {
   // 현재 카드 이름
   curCardName = "";
   autoSlideSec = 3;
+  changeSlideEventCallback = undefined;
   
   
   /*
@@ -50,6 +52,17 @@ class OneSlide {
   slidesBtnUnderListCN = this.slideCN + "__btn-list--under";
   // .c-one-slide__arrow-btn
   slidesBtnUnderCN = this.slideCN + "__btn--under";
+  // .c-one-slide__btn-list--custom
+  slidesBtnCustomListCN = this.slideCN + "__btn-list--custom";
+  // .c-one-slide__btn--custom
+  slidesBtnCustomCN = this.slideCN + "__btn--custom";
+
+  // .c-one-slide__btn--play
+  slideBtnPlayCN = this.slideCN + '__btn--play';
+  // .c-one-slide__btn--pause
+  slideBtnPauseCN = this.slideCN + '__btn--pause';
+
+  // .c-one-slide__arrow-btn
   slideArrowBtnCN = this.slideCN + "__arrow-btn";
   left = ".left";
   right = ".right";
@@ -57,8 +70,7 @@ class OneSlide {
   slideArrowBtnLeftCN = this.slideArrowBtnCN + this.left;
   // ".c-one-slide__arrow-btn.right";
   slideArrowBtnRightCN = this.slideArrowBtnCN + this.right;
-  slideBtnPlayCN = this.slideCN + '__btn--play';
-  slideBtnPauseCN = this.slideCN + '__btn--pause';
+
   
   getSlideBtnListNm() {
     return this.slideCN + "\n" +
@@ -74,6 +86,9 @@ class OneSlide {
     }
     if (isNotEmpty(param) && 'autoSlideSec' in param) {
       this.autoSlideSec = param.autoSlideSec;
+    }
+    if( isNotEmpty(param) && 'changeSlideEventCallback' in param ) {
+      this.changeSlideEventCallback = param.changeSlideEventCallback;
     }
     let slide = document.querySelector(this.parent + this.slideCN);
     
@@ -110,6 +125,7 @@ class OneSlide {
     this.slides_btn_top = document.querySelector(this.parent + this.slidesBtnTopListCN);
     this.slides_btn_right = document.querySelector(this.parent + this.slidesBtnRightListCN);
     this.slides_btn_under = document.querySelector(this.parent + this.slidesBtnUnderListCN);
+    this.slides_btn_custom = document.querySelector(this.parent + this.slidesBtnCustomListCN);
 
     this.card_names = this.#findCardNames(this.slide_cards);
     if (isNotEmpty(this.slides_btn_top)) {
@@ -135,6 +151,12 @@ class OneSlide {
         this.slides_btn_under,
         this.slidesBtnUnderListCN
       );
+    }
+    if( isNotEmpty(this.slides_btn_custom) ){
+      this.#addSlidesBtnCommonEventListener(
+        this.slides_btn_custom,
+        this.slidesBtnCustomListCN
+      )
     }
 
     // arrow
@@ -265,9 +287,25 @@ class OneSlide {
   }
 
   //find card name element
+  findCardNameCommonBtnElement(btnListNm, name) {
+    let slides_btn_items = document.querySelectorAll(
+      btnListNm
+    );
+    for (let i = 0; i < slides_btn_items.length; ++i) {
+      if (
+        slides_btn_items[i]
+          .getAttribute("data-card-name")
+          .toUpperCase() === name.toUpperCase()
+      ) {
+        return slides_btn_items[i];
+      }
+    }
+    return undefined;
+  }
+  //find card name element
   findCardNameRightBtnElement(name) {
     let slides_btn_right_items = document.querySelectorAll(
-      this.slidesBtnRightCN
+      this.parent + this.slidesBtnRightCN
     );
     for (let i = 0; i < slides_btn_right_items.length; ++i) {
       if (
@@ -283,7 +321,7 @@ class OneSlide {
   //find card name element
   findCardNameUnderBtnElement(name) {
     let slides_btn_right_items = document.querySelectorAll(
-      this.slidesBtnUnderCN
+      this.parent + this.slidesBtnUnderCN
     );
     for (let i = 0; i < slides_btn_right_items.length; ++i) {
       if (
@@ -299,7 +337,7 @@ class OneSlide {
   //find card name element
   findCardNameTopBtnElement(name) {
     let slides_btn_top_items = document.querySelectorAll(
-      this.slidesBtnTopCN
+      this.parent + this.slidesBtnTopCN
     );
     for (let i = 0; i < slides_btn_top_items.length; ++i) {
       if (
@@ -315,7 +353,7 @@ class OneSlide {
 
   //find card name element
   findCardNameCardElement(name) {
-    let slide_cards = document.querySelectorAll(this.cardCN);
+    let slide_cards = document.querySelectorAll(this.parent + this.cardCN);
     for (let i = 0; i < slide_cards.length; ++i) {
       if (
         slide_cards[i].getAttribute("data-card-name").toUpperCase() ===
@@ -328,26 +366,42 @@ class OneSlide {
   }
 
   changeSlide(selectCardName) {
+    if( isNotEmpty(this.changeSlideEventCallback) ){
+      this.changeSlideEventCallback(this.curCardName, selectCardName);
+    }
     if (isNotEmpty(this.curCardName)) {
-      let curCardEle = this.findCardNameCardElement(this.curCardName);
-      let curRightBtnEle = this.findCardNameRightBtnElement(this.curCardName);
-      let curUnderBtnEle = this.findCardNameUnderBtnElement(this.curCardName);
-      let curTopBtnEle = this.findCardNameTopBtnElement(this.curCardName);
+      // let curCardEle = this.findCardNameCardElement(this.curCardName);
+      let curCardEle = this.findCardNameCommonBtnElement(this.parent + this.cardCN, this.curCardName);
+      // let curRightBtnEle = this.findCardNameRightBtnElement(this.curCardName);
+      let curRightBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnRightCN, this.curCardName);
+      // let curUnderBtnEle = this.findCardNameUnderBtnElement(this.curCardName);
+      let curUnderBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnUnderCN, this.curCardName);
+      // let curTopBtnEle = this.findCardNameTopBtnElement(this.curCardName);
+      let curTopBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnTopCN, this.curCardName);
+      let curCustomBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnCustomCN, this.curCardName);
       if( isNotEmpty(curCardEle) ) curCardEle.classList.remove("active");
       if( isNotEmpty(curRightBtnEle) ) curRightBtnEle.classList.remove("active");
       if( isNotEmpty(curUnderBtnEle) ) curUnderBtnEle.classList.remove("active");
       if( isNotEmpty(curTopBtnEle) ) curTopBtnEle.classList.remove('active');
+      if( isNotEmpty(curCustomBtnEle) ) curCustomBtnEle.classList.remove('active');
     }
 
     if (isNotEmpty(selectCardName)) {
-      let selectCardEle = this.findCardNameCardElement(selectCardName);
-      let selectRightBtnEle = this.findCardNameRightBtnElement(selectCardName);
-      let selectUnderBtnEle = this.findCardNameUnderBtnElement(selectCardName);
-      let selectTopBtnEle = this.findCardNameTopBtnElement(selectCardName);
+      // let selectCardEle = this.findCardNameCardElement(selectCardName);
+      let selectCardEle = this.findCardNameCommonBtnElement(this.parent + this.cardCN, selectCardName);
+      // let selectRightBtnEle = this.findCardNameRightBtnElement(selectCardName);
+      let selectRightBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnRightCN, selectCardName);
+      // let selectUnderBtnEle = this.findCardNameUnderBtnElement(selectCardName);
+      let selectUnderBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnUnderCN, selectCardName);
+      // let selectTopBtnEle = this.findCardNameTopBtnElement(selectCardName);
+      let selectTopBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnTopCN, selectCardName);
+      let selectCustomBtnEle = this.findCardNameCommonBtnElement(this.parent + this.slidesBtnCustomCN, selectCardName);
+      console.log(selectCustomBtnEle);
       if( isNotEmpty(selectCardEle) ) selectCardEle.classList.add("active");
       if( isNotEmpty(selectRightBtnEle) ) selectRightBtnEle.classList.add("active");
       if( isNotEmpty(selectUnderBtnEle) ) selectUnderBtnEle.classList.add("active");
       if( isNotEmpty(selectTopBtnEle) ) selectTopBtnEle.classList.add('active');
+      if( isNotEmpty(selectCustomBtnEle) ) selectCustomBtnEle.classList.add('active');
     }
     this.curCardName = selectCardName;
   }

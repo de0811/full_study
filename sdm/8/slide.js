@@ -8,7 +8,6 @@ function isNotEmpty(str) {
 
 /**
   * TODO : img 버튼으로 만들지는... 아니 이런것도 해야하냐?
-  * TODO : changeSlide 할때 callback() 추가하면 이름 전달하도록 하게 만들어줘야함
   * TODO : 속도 이슈 왜 나는지?
  */
 
@@ -238,15 +237,17 @@ class OneSlide {
   #addSlidesBtnArrowEventListner() {
     let self = this;
     //add Click Event
-    let slide_arrow_btn_left = document.querySelector(this.slideArrowBtnLeftCN);
+    let slide_arrow_btn_left = document.querySelector(this.parent + this.slideArrowBtnLeftCN);
     slide_arrow_btn_left.addEventListener("click", (e) => {
       // self.resetCardChange();
-      self.changeSlide(self.defaultBeforeCardName(self.curCardName));
+      console.log(this);
+      this.changeSlide(this.defaultBeforeCardName(this.curCardName));
     });
-    let slide_arrow_btn_right = document.querySelector(this.slideArrowBtnRightCN);
+    let slide_arrow_btn_right = document.querySelector(this.parent + this.slideArrowBtnRightCN);
     slide_arrow_btn_right.addEventListener("click", (e) => {
       // self.resetCardChange();
-      self.changeSlide(self.defaultNextCardName(self.curCardName));
+      console.log(this);
+      this.changeSlide(this.defaultNextCardName(this.curCardName));
     });
   }
 
@@ -298,68 +299,6 @@ class OneSlide {
           .toUpperCase() === name.toUpperCase()
       ) {
         return slides_btn_items[i];
-      }
-    }
-    return undefined;
-  }
-  //find card name element
-  findCardNameRightBtnElement(name) {
-    let slides_btn_right_items = document.querySelectorAll(
-      this.parent + this.slidesBtnRightCN
-    );
-    for (let i = 0; i < slides_btn_right_items.length; ++i) {
-      if (
-        slides_btn_right_items[i]
-          .getAttribute("data-card-name")
-          .toUpperCase() === name.toUpperCase()
-      ) {
-        return slides_btn_right_items[i];
-      }
-    }
-    return undefined;
-  }
-  //find card name element
-  findCardNameUnderBtnElement(name) {
-    let slides_btn_right_items = document.querySelectorAll(
-      this.parent + this.slidesBtnUnderCN
-    );
-    for (let i = 0; i < slides_btn_right_items.length; ++i) {
-      if (
-        slides_btn_right_items[i]
-          .getAttribute("data-card-name")
-          .toUpperCase() === name.toUpperCase()
-      ) {
-        return slides_btn_right_items[i];
-      }
-    }
-    return undefined;
-  }
-  //find card name element
-  findCardNameTopBtnElement(name) {
-    let slides_btn_top_items = document.querySelectorAll(
-      this.parent + this.slidesBtnTopCN
-    );
-    for (let i = 0; i < slides_btn_top_items.length; ++i) {
-      if (
-        slides_btn_top_items[i]
-          .getAttribute("data-card-name")
-          .toUpperCase() === name.toUpperCase()
-      ) {
-        return slides_btn_top_items[i];
-      }
-    }
-    return undefined;
-  }
-
-  //find card name element
-  findCardNameCardElement(name) {
-    let slide_cards = document.querySelectorAll(this.parent + this.cardCN);
-    for (let i = 0; i < slide_cards.length; ++i) {
-      if (
-        slide_cards[i].getAttribute("data-card-name").toUpperCase() ===
-        name.toUpperCase()
-      ) {
-        return slide_cards[i];
       }
     }
     return undefined;

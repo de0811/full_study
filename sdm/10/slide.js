@@ -239,10 +239,12 @@ class OneSlide {
     //add Click Event
     let slide_arrow_btn_left = document.querySelector(this.parent + this.slideArrowBtnLeftCN);
     slide_arrow_btn_left.addEventListener("click", (e) => {
+      // self.resetCardChange();
       this.changeSlide(this.defaultBeforeCardName(this.curCardName));
     });
     let slide_arrow_btn_right = document.querySelector(this.parent + this.slideArrowBtnRightCN);
     slide_arrow_btn_right.addEventListener("click", (e) => {
+      // self.resetCardChange();
       this.changeSlide(this.defaultNextCardName(this.curCardName));
     });
   }

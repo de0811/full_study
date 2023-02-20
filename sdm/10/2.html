@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- http://dine.co.kr/kr/ -->
+
+<!-- 
+  네이밍 불규칙으로 혼란이 너무 크기에 네이밍 규격화 필요
+  SASS BEM 연습
+  재활용 가능한 단일 모듈(컴포넌트 단위가 아닌)은 OOCSS 형식으로 작업
+  컴포넌트 형태는 따로 외부로 빼서 BEM 형태로 작업
+
+  가장 기초적인 BEM
+   - https://nykim.work/15
+  간단히 BEM
+  - https://9elements.com/bem-cheat-sheet/
+  BEM 응용론
+  - https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
+ -->
+
+<!-- 
+  이게 뭐야
+  wrap {
+    width: 100vw; / 100%;
+  
+  vw로 설정하면 스크롤이 생기는데 왜지
+  -->
+  
+  <!-- 
+    slide sample
+    https://swiperjs.com/demos
+    https://kenwheeler.github.io/slick/
+   -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- <link href="https://image.yes24.com/sysimage/renew/l-gnb/yes24.ico" type="image/x-icon" rel="shortcut icon"> -->
+  <link rel="stylesheet" href="./default/import.css">
+  <link rel="stylesheet" href="c-slide-custom.css">
+  <link rel="stylesheet" href="c-slide-1.css">
+  <link rel="stylesheet" href="2.css">
+  <title>DINE</title>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <header class="l-header">
+      <div class="l-header__content max-w-px-1200">
+        <a class="c-logo">
+          <div class="c-img-box">
+            <img src="http://dine.co.kr/img/common/logo.png" alt="logo">
+          </div>
+        </a>
+
+        <div class="c-ham on-sm">
+          <input type="checkbox" name="" id="ham-input">
+          <label for="ham-input">
+            <div></div>
+            <div></div>
+            <div></div>
+          </label>
+        </div>
+
+        <!-- <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#000"></path></svg> -->
+
+        <nav class="l-gnb">
+          <div class="l-gnb__item">
+            <a href="#none">제품정보</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="dinox">DINOX</a>
+                <a href="#none" class="c-card-short" data-link-name="robotics">ROBOTICS</a>
+                <a href="#none" class="c-card-short" data-link-name="taumax">TAUMAX</a>
+                <a href="#none" class="c-card-short" data-link-name="sumitomo">SUMITOMO</a>
+                <a href="#none" class="c-card-short" data-link-name="korloy">KORLOY</a>
+                <a href="#none" class="c-card-short" data-link-name="widin">WIDIN</a>
+                <a href="#none" class="c-card-short" data-link-name="dsp">DSP  </a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav" data-link-name="dinox">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/dinox.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">DINOX</div>
+                </a>
+                <a class="c-card--nav" data-link-name="robotics">
+                  <div class="c-img-box">
+                    <img
+                      src="http://dine.co.kr/upload/cate/robotics.png"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">ROBOTICS</div>
+                </a>
+                <a class="c-card--nav" data-link-name="taumax">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/taumax.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">TAUMAX</div>
+                </a>
+                <a class="c-card--nav" data-link-name="sumitomo">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/sumitomo.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">SUMITOMO</div>
+                </a>
+                <a class="c-card--nav" data-link-name="korloy">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/korloy.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">KORLOY</div>
+                </a>
+                <a class="c-card--nav" data-link-name="widin">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/widin.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">WIDIN</div>
+                </a>
+                <a class="c-card--nav" data-link-name="dsp">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/dsp.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">DSP</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="l-gnb__item">
+            <a href="#none">사업장</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="business-1">deer</a>
+                <a href="#none" class="c-card-short" data-link-name="business-2">house</a>
+                <a href="#none" class="c-card-short" data-link-name="business-3">western</a>
+                <a href="#none" class="c-card-short" data-link-name="business-4">white-footed</a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav" data-link-name="business-1">
+                  <div class="c-img-box">
+                    <img
+                      src="https://images.unsplash.com/photo-1648331607020-aa51a96ff38d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=8http://dine.co.kr/img/common/gnb_business_img01.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">deer</div>
+                </a>
+                <a class="c-card--nav" data-link-name="business-2">
+                  <div class="c-img-box">
+                    <img
+                      src="https://a-static.besthdwallpaper.com/mickey-mouse-and-pluto-wallpaper-2560x1600-83335_7.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">house</div>
+                </a>
+                <a class="c-card--nav" data-link-name="business-3">
+                  <div class="c-img-box">
+                    <img
+                      src="https://media.istockphoto.com/id/1355500344/photo/western-european-house-mouse-on-a-white-background.jpg?s=170667a&w=0&k=20&c=xyAsIsu5jN1fSzAEXtJfzTKJgW4yM7U9zNqEyFWZQKs="
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">western</div>
+                </a>
+                <a class="c-card--nav" data-link-name="business-4">
+                  <div class="c-img-box">
+                    <img src="https://t4.ftcdn.net/jpg/00/72/29/17/360_F_72291731_OGYyWmfvFfLZWiwPjDyPBykfUwF87w7L.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">white-footed</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="l-gnb__item">
+            <a href="#none">홍보센터</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="promote-1">abyssinian</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-2">scottish</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-3">american</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-4">main coon</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-5">ragdoll</a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav" data-link-name="promote-1">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/665/694/471/cat-look-by-johnny-abyssinian-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">abyssinian</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-2">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/189/1020/849/cat-look-nature-stump-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">scottish</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-3">
+                  <div class="c-img-box">
+                    <img src="./img/hg.jpeg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">american</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-4">
+                  <div class="c-img-box">
+                    <img src="https://c.wallhere.com/photos/81/e9/2048x1365_px_animals_cats-728723.jpg!d" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">main coon</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-5">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/714/264/1001/cat-flowers-blue-eyes-ragdoll-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">ragdoll</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="l-gnb__item">
+            <a href="#none">dragon</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short">red</a>
+                <a href="#none" class="c-card-short">imoogi</a>
+                <a href="#none" class="c-card-short">albino</a>
+                <a href="#none" class="c-card-short">green</a>
+                <a href="#none" class="c-card-short">gold</a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav">
+                  <div class="c-img-box">
+                    <img
+                      src="https://mblogthumb-phinf.pstatic.net/MjAxOTA2MDRfNjcg/MDAxNTU5NjQ1MDYzMjE0.3vWVz0Rc6RmPzcyP4hZIsxm3Tr30pXZzYw021rQMRgEg.b61UitQxhoT161THaVtDq09vpDbWsfYgStj2qxMea-gg.PNG.badpark/이미지_001.png?type=w800"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">red</div>
+                </a>
+                <a class="c-card--nav">
+                  <div class="c-img-box">
+                    <img src="https://pbs.twimg.com/media/EKIZhHSUYAA4hyL.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">imoogi</div>
+                </a>
+                <a class="c-card--nav">
+                  <div class="c-img-box">
+                    <img
+                      src="https://sg-res.9appsdownloading.com/sg/res/jpg/27/59/4451cfe1c416cd87aa12dd515420-8x11.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">albino</div>
+                </a>
+                <a class="c-card--nav">
+                  <div class="c-img-box">
+                    <img src="https://downloadwap.com/thumbs2/wallpapers/p2ls/2019/misc/40/41c1c1c813029785.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">green</div>
+                </a>
+                <a class="c-card--nav">
+                  <div class="c-img-box">
+                    <img
+                      src="https://p4.wallpaperbetter.com/wallpaper/117/306/524/chinese-dragon-dragon-wallpaper-preview.jpg"
+                      alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">gold</div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </nav>
+
+      </div>
+
+
+
+    </header>
+
+    <section id="slide1" class="l-section">
+      <div class="c-one-slide">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="1111">
+          <div class="c-card__txt--slide">
+            <b>1111</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="2222">
+          <div class="c-card__txt--slide">
+            <b>2222</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="3333">
+          <div class="c-card__txt--slide">
+            <b>3333</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="4444">
+          <div class="c-card__txt--slide">
+            <b>4444</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="5555">
+          <div class="c-card__txt--slide">
+            <b>5555</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <!-- <div class="c-one-slide__btn-list--right"> -->
+        <!-- </div> -->
+        <!-- <div class="c-one-slide__btn-list--under"> -->
+        <!-- </div> -->
+        <!-- <button class="c-one-slide__btn--play"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"> -->
+            <!-- <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/> -->
+          <!-- </svg> -->
+        <!-- </button> -->
+        <!-- <button class="c-one-slide__btn--pause"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
+        <!-- </button> -->
+      </div>
+    </section>
+   
+    <section id="slide3" class="l-section">
+      <div class="c-one-slide">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="aaaa">
+          <div class="c-card__txt--slide">
+            <b>aaaa</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="bbbb">
+          <div class="c-card__txt--slide">
+            <b>bbbb</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="cccc">
+          <div class="c-card__txt--slide">
+            <b>cccc</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="eeee">
+          <div class="c-card__txt--slide">
+            <b>eeee</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="ffff">
+          <div class="c-card__txt--slide">
+            <b>ffff</b>
+            <p>
+              Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quisquam quasi eaque ex praesentium, similique
+              id in
+              alias molestias nesciunt eveniet dicta delectus rerum illum nihil facere laboriosam labore cum placeat.
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <div class="c-one-slide__btn-list--custom">
+          <button class="c-one-slide__btn--custom" data-card-name="aaaa">
+            <div class="img-box"><img src="https://t1.daumcdn.net/cfile/tistory/176DCE484E95190E19?original" alt=""></div>
+            <p>aaaa</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="bbbb">
+            <div class="img-box"><img src="https://t1.daumcdn.net/cfile/tistory/176CFC484E9519101C" alt=""></div>
+            <p>bbbb</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="cccc">
+            <div class="img-box"><img src="https://t1.daumcdn.net/cfile/tistory/146DA8484E9519121C" alt=""></div>
+            <p>cccc</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="eeee">
+            <div class="img-box"><img src="https://t1.daumcdn.net/cfile/tistory/12655D484E95191429" alt=""></div>
+            <p>eeee</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="ffff">
+            <div class="img-box"><img src="https://t1.daumcdn.net/cfile/tistory/147B21484E95192608" alt=""></div>
+            <p>ffff</p>
+          </button>
+        </div>
+        <div class="c-one-slide__btn-list--util">
+        <button class="c-one-slide__arrow-btn left">
+          <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="M 19.41,20.09 14.83,15.5 19.41,10.91 18,9.5 l -6,6 6,6 z" fill="#fff"></path></svg>
+        </button>
+          <div class="c-one-slide__btn-list--under"></div>
+          <button class="c-one-slide__btn--pause">
+            <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
+            <div class="img-box">
+              <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-pause-512.png" alt="">
+            </div>
+          </button>
+          <button class="c-one-slide__btn--play">
+            <div class="img-box">
+              <img src="https://static.thenounproject.com/png/1192916-200.png" alt="">
+            </div>
+             <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/></svg>         -->
+          </button>
+          <button class="c-one-slide__arrow-btn right">
+            <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#fff"></path></svg>
+          </button>
+        </div>
+        <!-- <div class="c-one-slide__btn-list--right"> -->
+        <!-- </div> -->
+        <!-- <div class="c-one-slide__btn-list--under"> -->
+        <!-- </div> -->
+        <!-- <button class="c-one-slide__btn--play"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"> -->
+            <!-- <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/> -->
+          <!-- </svg> -->
+        <!-- </button> -->
+        <!-- <button class="c-one-slide__btn--pause"> -->
+          <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
+        <!-- </button> -->
+        <!-- progress -->
+        <!-- <svg viewBox="0 0 48 48" style="--progress:0.0488;"><circle cx="24" cy="24" r="20"></circle></svg> -->
+      </div>
+    </section>
+
+
+    <section class="l-section t-tant-half--deer-blue">
+      <article class="l-content max-w-px-1200">
+        <div class="c-img-box w300 h400 t-radius-round ani-fade-in">
+          <img src="https://www.teahub.io/photos/full/210-2102796_fantasy-deer-wallpaper-hd.jpg" alt="">
+        </div>
+        <div class="l-content__txt">
+          <h1 class="ani-slide-left">
+            <span>The deer jumps all</span>
+            <span>over the place</span>
+          </h1>
+          <p class="ani-slide-left--500ms">
+            <span> 언어의 표현이 나타낼 수 있는 <b class="e-under-line--yello">의미가 무척 고유하여</b></span>
+            <span>다른 언어로 번역할 수 없다고 여겨지는 것.</span>
+            <span>이러한 이야기들 중에서 정말로 검증된 것은 그다지 </span>
+            <span>많지 않고 <b class="e-under-line--yello">대부분은 사람들</b> 사이에서의 썰에 그친다.</span>
+          </p>
+        </div>
+      </article>
+    </section>
+
+  </div> <!-- .wrap -->
+  <script src="./default/hamberger.js"></script>
+  <script src="./slide.js"></script>
+  <script src="./link.js"></script>
+  <script>
+    slide1 = new OneSlide({
+      parent:'#slide1',
+      isCreateBtnTop: false,
+      isCreateBtnRight: true,
+      isCreateBtnUnder: true,
+      isCreateBtnArrow: true,
+      autoSlideSec: 3,
+  });
+    slide1.run();
+    
+      
+    function changeSlide3EventCallback(curCardName, selectCardName) {
+      // console.log(curCardName, selectCardName);
+    }
+    
+    slide3 = new OneSlide({
+      parent: '#slide3',
+      isCreateBtnTop: false,
+      isCreateBtnRight: false,
+      isCreateBtnUnder: false,
+      isCreateBtnArrow: false,
+      autoSlideSec: 3,
+      changeSlideEventCallback: changeSlide3EventCallback,
+    })
+    slide3.run();
+    
+    const linkEvent = new LinkEvent({links: ['.c-card--nav', '.c-card-short']});
+  </script>
+</body>
+
+</html>

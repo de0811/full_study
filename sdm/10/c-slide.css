@@ -109,15 +109,10 @@
 #slide1 .c-one-slide__btn-list--under {
   display: flex;
   flex-direction: row;
-  /* border: 1px solid skyblue; */
   position: absolute;
   gap: 10px;
   left: 50%;
   bottom: 5%;
-  -webkit-transform: translateX(-50%);
-  -moz-transform: translateX(-50%);
-  -ms-transform: translateX(-50%);
-  -o-transform: translateX(-50%);
   transform: translateX(-50%);
 }
 
@@ -236,7 +231,7 @@
 #slide3 .c-one-slide__btn--under {
   width: 5px;
   height: 5px;
-  background-color: #aaa;
+  background-color: #000;
   border: none;
   position: relative;
 }

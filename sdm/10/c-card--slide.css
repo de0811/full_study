@@ -23,7 +23,7 @@
 }
 
 
-#slide1 .c-card--slide {animation: ani-slide-active-out 1s forwards;}
+#slide1 .c-card--slide {animation: ani-slide-active-out 1s forwards; background-repeat: no-repeat; background-size: cover;}
 #slide1 .c-card--slide.active {animation: ani-slide-out-active 1s forwards;}
 #slide1 .c-card--slide:nth-of-type(1) {background-image: url('http://dine.co.kr/img/main/mainVisual01.jpg');}
 #slide1 .c-card--slide:nth-of-type(2) {background-image: url('http://dine.co.kr/img/main/mainVisual02.jpg');}
@@ -52,12 +52,9 @@
   position: relative;
   transition: 1s;
   overflow: hidden;
-  /* border: 1px solid skyblue; */
   padding: 20px;
 }
-#slide1 .c-card--slide .c-card__txt--slide a:hover {
-  transform: scale(1.1);
-}
+#slide1 .c-card--slide .c-card__txt--slide a:hover {transform: scale(1.1);}
 
 #slide1 .c-card--slide .c-card__txt--slide a::before {
   content: '';
@@ -93,7 +90,6 @@
   height: 1px;
   top: 0.8em;
   right: -60px;
-  /* background-color: #fff; */
   border-top: 1px solid #fff;
 }
 
@@ -115,13 +111,6 @@
   justify-content: space-between;
   gap: 100px;
 }
-
-
-
-
-
-
-
 #slide3 .c-card--slide .img-box {
   /* flex: 1; */
   height: 100%;

@@ -6,6 +6,10 @@ function isNotEmpty(str) {
   return !isEmpty(str);
 }
 
+// TODO : Event 종류 선택할 수 있도록 수정
+// TODO : 'data-link-name' 이 아니라 다른 것도 링크 가능하게 수정
+// TODO : 토글 되는 class 이름 설정할 수 있도록 수정
+
 class LinkEvent {
   constructor(param) {
     this.init(param);
@@ -13,6 +17,7 @@ class LinkEvent {
   links = [];
   curLink = null;
 
+  // const linkEvent = new LinkEvent({ links: ['.c-card--nav', '.c-card-short'] });
   init(param) {
     
     if (isNotEmpty(param) && "links" in param) {

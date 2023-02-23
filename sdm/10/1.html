@@ -29,6 +29,10 @@
     https://swiperjs.com/demos
     https://kenwheeler.github.io/slick/
    -->
+   
+   <!-- 
+    TODO : nav 펼쳐지는 모양으로 변경
+    -->
 
 <head>
   <meta charset="UTF-8">
@@ -38,7 +42,7 @@
   <link rel="stylesheet" href="./default/import.css">
   <link rel="stylesheet" href="c-slide.css">
   <link rel="stylesheet" href="c-card--slide.css">
-  <link rel="stylesheet" href="2.css">
+  <link rel="stylesheet" href="1.css">
   <title>DINE</title>
 </head>
 
@@ -278,10 +282,6 @@
         <article class="c-one-slide__l-card c-card--slide" data-card-name="DBC/A">
           <div class="c-card__txt--slide">
             <b>DBC/A</b>
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" height="82px" width="100px"> -->
-            <!-- <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/> -->
-            <!-- <text dx="0" x="0" y="98%">NEW BALANCE</text> -->
-            <!-- </svg> -->
             <p>
               NEW BALANCE
             </p>
@@ -359,18 +359,6 @@
             </a>
           </div>
         </article>
-        <!-- <div class="c-one-slide__btn-list--right"> -->
-        <!-- </div> -->
-        <!-- <div class="c-one-slide__btn-list--under"> -->
-        <!-- </div> -->
-        <!-- <button class="c-one-slide__btn--play"> -->
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"> -->
-        <!-- <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/> -->
-        <!-- </svg> -->
-        <!-- </button> -->
-        <!-- <button class="c-one-slide__btn--pause"> -->
-        <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
-        <!-- </button> -->
       </div>
     </section>
 
@@ -576,26 +564,14 @@
                 </svg>
               </button>
             </div>
-            <!-- <div class="c-one-slide__btn-list--right"> -->
-            <!-- </div> -->
-            <!-- <div class="c-one-slide__btn-list--under"> -->
-            <!-- </div> -->
-            <!-- <button class="c-one-slide__btn--play"> -->
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"> -->
-            <!-- <path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/> -->
-            <!-- </svg> -->
-            <!-- </button> -->
-            <!-- <button class="c-one-slide__btn--pause"> -->
-            <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
-            <!-- </button> -->
-            <!-- progress -->
-            <!-- <svg viewBox="0 0 48 48" style="--progress:0.0488;"><circle cx="24" cy="24" r="20"></circle></svg> -->
           </div>
 
         </div>
 
 
       </div>
+      
+      <div class="big-title"></div>
     </section>
 
 
@@ -629,11 +605,40 @@
         </div>
       </article>
     </section>
+    
+    <section class="l-section t-catalogue">
+      <article class="l-content max-w-px-1200">
+        <div class="l-content-wrap">
+        <div class="l-content--txt">
+          <span>CHECK OUT THE</span>
+          <span><em>E-CATALOGUE</em></span>
+          <span>
+            PROVIDED BY DINE
+            <a href="#none" class="he-plus-to-arrow">
+              <span></span><span></span>
+            </a>
+          </span>
+        </div>
+        <div class="l-content--link">
+          <a href="#none">
+            dinox catalogue 2023
+            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z"/></svg>
+          </a>          
+          <a href="#none">
+            sumitomo catalogue 2021/2022
+            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z"/></svg>
+          </a>          
+        </div>  
+        </div>
+        
+      </article>
+    </section>
 
   </div> <!-- .wrap -->
   <script src="./default/hamberger.js"></script>
   <script src="./slide.js"></script>
   <script src="./link.js"></script>
+  <script src="./default/c-top-btn.js"></script>
   <script>
     slide1 = new OneSlide({
       parent: '#slide1',
@@ -648,6 +653,8 @@
 
     function changeSlide3EventCallback(curCardName, selectCardName) {
       // console.log(curCardName, selectCardName);
+      let bigTitle = document.querySelector('.big-title');
+      bigTitle.innerText = selectCardName;
     }
 
     slide3 = new OneSlide({
@@ -663,17 +670,7 @@
 
     const linkEvent = new LinkEvent({ links: ['.c-card--nav', '.c-card-short'] });
 
-    let topBtn = document.querySelector('.c-top-btn');
-    if( isNotEmpty(topBtn) ){
-      window.addEventListener('scroll', () => {
-        let topBtn = document.querySelector('.c-top-btn');
-        if (window.scrollY !== 0) {
-          topBtn.style.display = 'block';
-        } else {
-          topBtn.style.display = 'none';
-        }    
-      })
-    }
+    const topBtn = new TopBtn({topBtnSelectNm : '.c-top-btn'});
     
 
   </script>

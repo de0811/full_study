@@ -1,7 +1,7 @@
 
 .c-one-slide {width: inherit;height: inherit;position: relative;overflow: hidden;}
 
-.c-one-slide__l-card {width: 100%;height: 100%;z-index: -1;top: 0;position: absolute;background-color: #fff;}
+.c-one-slide__l-card {width: 100%;height: 100%;z-index: -1;top: 0;position: absolute;}
 .c-one-slide__l-card.active {z-index: 0;}
 
 /* 좌우 방향 화살표(다음 슬라이드) */

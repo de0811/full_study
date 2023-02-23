@@ -106,13 +106,9 @@
   }
 }
 
-#slide3 .c-card--slide {
-  display: flex;
-  justify-content: space-between;
-  gap: 100px;
-}
+#slide3 .c-card--slide {display: flex;justify-content: space-between;gap: 100px;visibility: hidden;}
+#slide3 .c-card--slide.active {visibility: visible;}
 #slide3 .c-card--slide .img-box {
-  /* flex: 1; */
   height: 100%;
   aspect-ratio: 900/560;
   border-radius: 2em;
@@ -179,3 +175,13 @@
   animation: he-spread 1s forwards ;
 }
 
+#slide3 .big-title {
+  position: absolute;
+  font-size: 250px;
+  font-weight: 900;
+  bottom: -140px;
+  left: 20%;
+  text-transform: uppercase;
+  z-index: -1;
+  color: #F6F6F6;
+}

@@ -12,6 +12,10 @@
   align-items: center;
   margin: 70px 0;
 }
+#slide3.l-section {
+  padding: 70px 0;
+  margin: 0;
+}
 .l-section:nth-of-type(1) {
   margin: 0;
   height: 87vh;
@@ -362,4 +366,59 @@
   font-size: 20px;
   font-weight: 300;
   gap: 10px;
+}
+
+.t-catalogue {
+  background-image: url('http://dine.co.kr/img/main/banner_bg.jpg');
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.l-section.t-catalogue {
+  max-height: 580px;
+}
+.t-catalogue .l-content {
+  justify-content: flex-end;
+}
+.t-catalogue .l-content .l-content-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+.t-catalogue .l-content .l-content--txt {
+  display: flex;
+  flex-direction: column;
+  font-size: 55px;
+  font-weight: 900;
+  letter-spacing: -5px;
+  word-spacing: 10px;
+}
+.t-catalogue .l-content .l-content--link {
+  /* float / flex 중에 flex를 선택한 것 뿐 */
+  display: flex;
+}
+.t-catalogue .l-content .l-content--link a {
+  color: #8E8E8E;
+  border: 1px solid #8E8E8E;
+  text-transform: uppercase;
+  font-size: 18px;
+  font-weight: 800;
+  display: flex;
+  padding: 10px 20px;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+.t-catalogue .l-content .l-content--link a:nth-of-type(2) {
+  border-left: none;
+}
+.t-catalogue .l-content .l-content--link a>svg {
+  color: #8E8E8E;
+  fill: #8E8E8E;
+  transition: 0.5s;
+}
+.t-catalogue .l-content .l-content--link a:hover {
+  color: #000;
+}
+.t-catalogue .l-content .l-content--link a:hover > svg {
+  fill: #000;
 }

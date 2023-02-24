@@ -1,0 +1,38 @@
+.usergroup {
+  margin-bottom: 20px;
+  width: 470px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid darkgray;
+  border-radius: 3px;
+  padding: 5px;
+}
+
+.user {
+  padding: 5px;
+  flex: 1 0 auto;
+}
+
+.thumbnail {
+  width: 50px;
+  height: 50px;
+  border: 3px solid transparent;
+  border-radius: 50%;
+  overflow: hidden;
+  background-image: linear-gradient(#fff, #fff),
+    linear-gradient(to right, red 0%, orange 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  margin: auto;
+}
+
+.thumbnail > img {
+  width: 100%;
+  height: 100%;
+}
+
+.username {
+  padding-top: 5px;
+  text-align: center;
+  font-size: 15px;
+}

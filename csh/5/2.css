@@ -1,0 +1,122 @@
+.outAll>h1 {
+    text-align: center;
+    border-bottom: 1px grey solid;
+}
+.outAll>.check{
+    background-color: rgb(237, 115, 47);
+    color: white;
+    padding: 10px 20px 10px 20px;
+    margin:auto;
+    display: block;
+    border: none;
+}
+.outAll>.word{
+    background-color: lightgrey;
+    padding: 20px;
+    margin-top: 5px;
+}
+
+.shadow{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: grey;
+    opacity: 0.7;
+}
+.box{
+    position: absolute;
+    background-color: white;
+    width: 550px;
+    height: 500px;
+    left: 50%;
+    top: 37%;
+    transform: translate(-50%,-50%);
+    z-index: 100;
+    padding: 10px;
+}
+.box>h3{
+    color: rgb(237, 115, 47);
+    text-align: center;
+    padding: 10px;
+}
+
+.dot{
+    display: inline;
+    color: rgb(237, 115, 47);
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.box>.name{
+    font-size: 20px;
+}
+.name-box{
+    border: 1px grey solid;
+    width: 90%;
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+
+.box>.contact{
+    font-size: 20px;
+    margin-top: 30px;
+}
+.contact-box1, .contact-box2, .contact-box3{
+    border: 1px grey solid;
+    width: 40px;
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+.dash{
+    display: inline;
+}
+
+.box>.eMail{
+    font-size: 20px;
+    margin-top: 30px;
+}
+.eMail-box{
+    border: 1px grey solid;
+    width: 90%;
+    height: 20px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.box>.agree{
+    font-size: 20px;
+    margin-top: 30px;
+}
+label{
+    color: rgb(237, 115, 47);
+    font-size: 20px;
+    margin-top: 10px;
+}
+u{
+    padding-left: 5px;
+}
+.success{
+    background-color: rgb(237, 115, 47);
+    color: white;
+    display: block;
+    width: 100%;
+    border: none;
+    text-align: center;
+    padding:10px 0 10px 0;
+    margin-top: 30px;
+}
+
+.xButton{
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: -15px;
+    right: -15px;
+    border: 1px lightgrey solid;
+}

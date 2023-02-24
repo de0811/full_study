@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- http://dine.co.kr/kr/ -->
+
+<!-- 
+  네이밍 불규칙으로 혼란이 너무 크기에 네이밍 규격화 필요
+  SASS BEM 연습
+  재활용 가능한 단일 모듈(컴포넌트 단위가 아닌)은 OOCSS 형식으로 작업
+  컴포넌트 형태는 따로 외부로 빼서 BEM 형태로 작업
+
+  가장 기초적인 BEM
+   - https://nykim.work/15
+  간단히 BEM
+  - https://9elements.com/bem-cheat-sheet/
+  BEM 응용론
+  - https://www.smashingmagazine.com/2016/06/battling-bem-extended-edition-common-problems-and-how-to-avoid-them/
+ -->
+
+<!-- 
+  이게 뭐야
+  wrap {
+    width: 100vw; / 100%;
+  
+  vw로 설정하면 스크롤이 생기는데 왜지
+  -->
+
+<!-- 
+    slide sample
+    https://swiperjs.com/demos
+    https://kenwheeler.github.io/slick/
+   -->
+   
+   <!-- 
+    TODO : nav 펼쳐지는 모양으로 변경
+    -->
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="http://dine.co.kr/img/favicon.ico" type="image/x-icon" rel="shortcut icon">
+  <link rel="stylesheet" href="./default/import.css">
+  <link rel="stylesheet" href="c-slide.css">
+  <link rel="stylesheet" href="c-card--slide.css">
+  <link rel="stylesheet" href="1.css">
+  <title>DINE</title>
+</head>
+
+<body>
+
+  <div class="wrap">
+    <button class="c-top-btn w50 h50">
+      <div class="c-img-box"><img src="http://dine.co.kr/img/common/topBtn.png" alt=""></div>
+    </button>
+    <header class="l-header">
+      <div class="l-header__content max-w-px-1200">
+        <a class="c-logo">
+          <div class="c-img-box">
+            <img src="http://dine.co.kr/img/common/logo.png" alt="logo">
+          </div>
+        </a>
+
+        <div class="c-ham on-sm">
+          <input type="checkbox" name="" id="ham-input">
+          <label for="ham-input">
+            <div></div>
+            <div></div>
+            <div></div>
+          </label>
+        </div>
+
+        <!-- <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%"><path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#000"></path></svg> -->
+
+        <nav class="l-gnb">
+          <div class="l-gnb__item">
+            <a href="#none">제품정보</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="dinox">DINOX</a>
+                <a href="#none" class="c-card-short" data-link-name="robotics">ROBOTICS</a>
+                <a href="#none" class="c-card-short" data-link-name="taumax">TAUMAX</a>
+                <a href="#none" class="c-card-short" data-link-name="sumitomo">SUMITOMO</a>
+                <a href="#none" class="c-card-short" data-link-name="korloy">KORLOY</a>
+                <a href="#none" class="c-card-short" data-link-name="widin">WIDIN</a>
+                <a href="#none" class="c-card-short" data-link-name="dsp">DSP </a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav" data-link-name="dinox">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/dinox.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">DINOX</div>
+                </a>
+                <a class="c-card--nav" data-link-name="robotics">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/robotics.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">ROBOTICS</div>
+                </a>
+                <a class="c-card--nav" data-link-name="taumax">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/taumax.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">TAUMAX</div>
+                </a>
+                <a class="c-card--nav" data-link-name="sumitomo">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/sumitomo.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">SUMITOMO</div>
+                </a>
+                <a class="c-card--nav" data-link-name="korloy">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/korloy.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">KORLOY</div>
+                </a>
+                <a class="c-card--nav" data-link-name="widin">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/widin.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">WIDIN</div>
+                </a>
+                <a class="c-card--nav" data-link-name="dsp">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/upload/cate/dsp.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">DSP</div>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="l-gnb__item">
+            <a href="#none">사업장</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="business-1">국내</a>
+                <a href="#none" class="c-card-short" data-link-name="business-2">해외</a>
+                <a href="#none" class="c-card-short" data-link-name="business-3">스마트 팩토리 센터</a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav" data-link-name="business-1">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/gnb_business_img01.jpg" alt="">
+                  </div>
+                  <!-- <div class="c-img-box__txt--inner">국내</div> -->
+                </a>
+                <a class="c-card--nav" data-link-name="business-2">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/gnb_business_img02.jpg" alt="">
+                  </div>
+                  <!-- <div class="c-img-box__txt--inner">해외</div> -->
+                </a>
+                <a class="c-card--nav" data-link-name="business-3">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/gnb_business_img03.jpg" alt="">
+                  </div>
+                  <!-- <div class="c-img-box__txt--inner">스마트 팩토리 센터</div> -->
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="l-gnb__item">
+            <a href="#none">홍보센터</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="promote-1">CI/BI</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-2">전시회</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-3">카탈로그</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-4">미디어센터</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-5">툴링도면</a>
+                <a href="#none" class="c-card-short" data-link-name="promote-6">다인 NEWS</a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav" data-link-name="promote-1">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/pd_promotion_img01.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">CI/BI</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-2">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/pd_promotion_img02.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">전시회</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-3">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/pd_promotion_img03.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">카탈로그</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-4">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/pd_promotion_img04.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">media</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-5">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/pd_promotion_img05.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">롤링도면</div>
+                </a>
+                <a class="c-card--nav" data-link-name="promote-6">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/pd_promotion_img06.png" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">NEWS</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="l-gnb__item">
+            <a href="#none">기업소개</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="company-1">기업개요</a>
+                <a href="#none" class="c-card-short" data-link-name="company-2">인사말</a>
+                <a href="#none" class="c-card-short" data-link-name="company-3">기업연혁</a>
+                <a href="#none" class="c-card-short" data-link-name="company-4">그룹사</a>
+              </div>
+              <div class="c-card-list--nav">
+                <a class="c-card--nav" data-link-name="company-1">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/gnb_company_img01.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">기업개요</div>
+                </a>
+                <a class="c-card--nav" data-link-name="company-2">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/gnb_company_img02.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">인사말</div>
+                </a>
+                <a class="c-card--nav" data-link-name="company-3">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/gnb_company_img03.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">기업연혁</div>
+                </a>
+                <a class="c-card--nav" data-link-name="company-4">
+                  <div class="c-img-box">
+                    <img src="http://dine.co.kr/img/common/gnb_company_img04.jpg" alt="">
+                  </div>
+                  <div class="c-img-box__txt--inner">그룹사</div>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="l-gnb__item">
+            <a href="#none">고객지원</a>
+            <div class="l-lnb">
+              <div class="c-card-short-list">
+                <!-- 카드 제목만 넣기 -->
+                <a href="#none" class="c-card-short" data-link-name="company-1">red</a>
+                <a href="#none" class="c-card-short" data-link-name="company-2">imoogi</a>
+                <a href="#none" class="c-card-short" data-link-name="company-3">albino</a>
+                <a href="#none" class="c-card-short" data-link-name="company-4">green</a>
+                <a href="#none" class="c-card-short" data-link-name="company-5">gold</a>
+              </div>
+              <div class="c-card-list--nav">
+              </div>
+            </div>
+          </div>
+
+        </nav>
+
+      </div>
+
+
+
+    </header>
+
+    <section id="slide1" class="l-section">
+      <div class="c-one-slide">
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="DBC/A">
+          <div class="c-card__txt--slide">
+            <b>DBC/A</b>
+            <p>
+              NEW BALANCE
+            </p>
+            <p>
+              CUTTING TOOL
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="KHU">
+          <div class="c-card__txt--slide">
+            <b>KHU</b>
+            <p>
+              ANGULAR
+            </p>
+            <p>
+              HEAD
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="SDC/P">
+          <div class="c-card__txt--slide">
+            <b>SDC/P</b>
+            <p>
+              PRECISION
+            </p>
+            <p>
+              COLLET CHUCK
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="RA,GA">
+          <div class="c-card__txt--slide">
+            <b>RA,GA</b>
+            <p>
+              COATING CBN
+            </p>
+            <p>
+              CHIP BREAKER
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+        <article class="c-one-slide__l-card c-card--slide" data-card-name="M0609">
+          <div class="c-card__txt--slide">
+            <b>M0609</b>
+            <p>
+              COLLABORATIVE
+            </p>
+            <p>
+              ROBOT
+            </p>
+            <a href="#none">
+              <span>
+                DETAILS VIEW
+              </span>
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="slide3" class="l-section">
+      <div class="l-content--slide max-w-px-1200">
+        <b class="l-content__title ff-black-han-sans">FOLLOW OUR BRANDS</b>
+
+        <div class="c-one-slide__btn-list--custom">
+          <button class="c-one-slide__btn--custom" data-card-name="dinox">
+            <div class="img-box"><img src="http://dine.co.kr/img/main/brands_icon01_off.png" alt="">
+            </div>
+            <p>dinox</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="robotics">
+            <div class="img-box"><img src="http://dine.co.kr/img/main/brands_icon02_on.png" alt=""></div>
+            <p>robotics</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="taumax">
+            <div class="img-box"><img src="http://dine.co.kr/img/main/brands_icon03_on.png" alt=""></div>
+            <p>taumax</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="sumitomo">
+            <div class="img-box"><img src="http://dine.co.kr/img/main/brands_icon04_off.png" alt=""></div>
+            <p>sumitomo</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="korloy">
+            <div class="img-box"><img src="http://dine.co.kr/img/main/brands_icon05_off.png" alt=""></div>
+            <p>korloy</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="widin">
+            <div class="img-box"><img src="http://dine.co.kr/img/main/brands_icon06_off.png" alt=""></div>
+            <p>widin</p>
+          </button>
+          <button class="c-one-slide__btn--custom" data-card-name="dsp">
+            <div class="img-box"><img src="http://dine.co.kr/img/main/brands_icon07_off.png" alt=""></div>
+            <p>dsp</p>
+          </button>
+
+        </div>
+
+        <div class="l-content__slide">
+          <div class="c-one-slide">
+            <article class="c-one-slide__l-card c-card--slide" data-card-name="dinox">
+              <div class="c-card__txt--slide">
+                <b>DINOX</b>
+                <p>
+                  자동차, 항공, 선박 등 가공분야에
+                  핵심인 cBN, PCD를 중심으로
+                  MCT(Machining Center)
+                  Tool T/S(Tooling System)을
+                  전문적으로 생산하고 있습니다.
+                </p>
+                <a href="#none" class="he-spread">
+                  자세히보기
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                      <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="img-box">
+                <img src="http://dine.co.kr/img/main/brand_dinox.jpg" alt="">
+              </div>
+            </article>
+            <article class="c-one-slide__l-card c-card--slide" data-card-name="robotics">
+              <div class="c-card__txt--slide">
+                <b>ROBOTICS</b>
+                <p>
+                  자동화가 필요한 생산 공정에
+                  고객 맞춤형의 토탈 솔루션을
+                  다인 로보틱스가 제공해 드립니다.
+                </p>
+                <a href="#none" class="he-spread">
+                  자세히보기
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                      <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="img-box"><img src="http://dine.co.kr/img/main/brand_robotics.jpg" alt=""></div>
+            </article>
+            <article class="c-one-slide__l-card c-card--slide" data-card-name="taumax">
+              <div class="c-card__txt--slide">
+                <b>TAUMAX</b>
+                <p>
+                  기존의 DINOX 브랜드와 차별화하여
+                  새로운 시장에 도전하고자 다인 그룹에서
+                  출시한 보급형 상품 브랜드입니다.
+                </p>
+                <a href="#none" class="he-spread">
+                  자세히보기
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                      <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="img-box"><img src="http://dine.co.kr/img/main/brand_taumax.jpg" alt=""></div>
+            </article>
+            <article class="c-one-slide__l-card c-card--slide" data-card-name="sumitomo">
+              <div class="c-card__txt--slide">
+                <b>SUMITOMO</b>
+                <p>
+                  다인정공은 일본 NO.1 기업
+                  스미토모 정공의 한국 에이전트를
+                  담당하고 있습니다.
+                </p>
+                <a href="#none" class="he-spread">
+                  자세히보기
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                      <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="img-box"><img src="http://dine.co.kr/img/main/brand_sumitomo.jpg" alt=""></div>
+            </article>
+            <article class="c-one-slide__l-card c-card--slide" data-card-name="korloy">
+              <div class="c-card__txt--slide">
+                <b>KORLOY</b>
+                <p>
+                  단단하고 정밀한 혁신적인 솔루션을
+                  제공하는 KORLOY의 초경합금
+                  절삭공구입니다.
+                </p>
+                <a href="#none" class="he-spread">
+                  홈페이지 바로가기
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                      <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="img-box"><img src="http://dine.co.kr/img/main/brand_korloy.jpg" alt=""></div>
+            </article>
+            <article class="c-one-slide__l-card c-card--slide" data-card-name="widin">
+              <div class="c-card__txt--slide">
+                <b>WIDIN</b>
+                <p>
+                  폭넓은 제원과 다양한 가공 프로세스를
+                  제공하는 회전형 초경 절삭공구입니다.
+                </p>
+                <a href="#none" class="he-spread">
+                  홈페이지 바로가기
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                      <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="img-box"><img src="http://dine.co.kr/img/main/brand_widin.jpg" alt=""></div>
+            </article>
+            <article class="c-one-slide__l-card c-card--slide" data-card-name="dsp">
+              <div class="c-card__txt--slide">
+                <b>DSP</b>
+                <p>
+                  MACHINNING CENTER
+                  TOOL HOLDER(ARBOR)류를
+                  전문적으로 생산하고 있습니다.
+                </p>
+                <a href="#none" class="he-spread">
+                  홈페이지 바로가기
+                  <span>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                      <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+                    </svg>
+                  </span>
+                </a>
+              </div>
+              <div class="img-box"><img src="http://dine.co.kr/img/main/brand_dsp.jpg" alt=""></div>
+            </article>
+
+
+            <div class="c-one-slide__btn-list--util">
+              <button class="c-one-slide__arrow-btn left">
+                <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%">
+                  <path d="M 19.41,20.09 14.83,15.5 19.41,10.91 18,9.5 l -6,6 6,6 z" fill="#000"></path>
+                </svg>
+              </button>
+              <div class="c-one-slide__btn-list--under"></div>
+              <button class="c-one-slide__btn--pause">
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M28.25 38V10H36v28ZM12 38V10h7.75v28Z" fill="#fff"/></svg> -->
+                <div class="img-box">
+                  <img src="https://cdn4.iconfinder.com/data/icons/ionicons/512/icon-pause-512.png" alt="">
+                </div>
+              </button>
+              <button class="c-one-slide__btn--play">
+                <div class="img-box">
+                  <img src="https://static.thenounproject.com/png/1192916-200.png" alt="">
+                </div>
+                <!-- <svg xmlns="http://www.w3.org/2000/svg" height="100%" width="100%"><path d="M16 37.85v-28l22 14Zm3-14Zm0 8.55 13.45-8.55L19 15.3Z" fill="#fff"/></svg>         -->
+              </button>
+              <button class="c-one-slide__arrow-btn right">
+                <svg height="100%" version="1.1" viewBox="0 0 32 32" width="100%">
+                  <path d="m 12.59,20.34 4.58,-4.59 -4.58,-4.59 1.41,-1.41 6,6 -6,6 z" fill="#000"></path>
+                </svg>
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+
+      </div>
+      
+      <div class="big-title"></div>
+    </section>
+
+
+    <section class="l-section t-tant-half--deer-blue">
+      <article class="l-content max-w-px-1200">
+        <div class="c-img-box t-radius-round ani-fade-in">
+          <img src="http://dine.co.kr/img/main/history_img.jpg" alt="">
+        </div>
+        <div class="l-content__txt">
+          <h1 class="ani-slide-left">
+            <span>TRUST AND FAITH</span>
+            <span>FOR CUSTOMERS</span>
+            <span>FOR OVER <em>30 YEAR</em></span>
+          </h1>
+          <p class="ani-slide-left--500ms">
+            <span>30년 이상의 기술력을 보유하고 있는 다인정공은 변함없는</span>
+            <span>신뢰와 믿음으로 세계 최고의 경쟁력을 갖춘 기업입니다.</span>
+            <span>창업의 의지인 <b>품질 제일주의로</b> 로 최고 품질의 <b>TOOLING SYSTEM,</b></span>
+            <span><b class="e-under-line--yello">CBN/PCD, HOLDERS</b> 등을 생산하고 있으며, 바른 윤리 경영을</span>
+            <span>근간으로 고객 여러분과 행복을 나누는 다인정공이 되도록</span>
+            <span>최선의 노력을 다하고 있습니다.</span>
+          </p>
+          <a href="#none" class="he-spread">
+            자세히보기
+            <span>
+              <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+                <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+              </svg>
+            </span>
+          </a>
+        </div>
+      </article>
+    </section>
+    
+    <section class="l-section t-catalogue">
+      <article class="l-content max-w-px-1200">
+        <div class="l-content-wrap">
+        <div class="l-content--txt">
+          <span>CHECK OUT THE</span>
+          <span><em>E-CATALOGUE</em></span>
+          <span>
+            PROVIDED BY DINE
+            <a href="#none" class="he-plus-to-arrow">
+              <span></span><span></span>
+            </a>
+          </span>
+        </div>
+        <div class="l-content--link">
+          <a href="#none">
+            dinox catalogue 2023
+            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z"/></svg>
+          </a>          
+          <a href="#none">
+            sumitomo catalogue 2021/2022
+            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z"/></svg>
+          </a>          
+        </div>  
+        </div>
+        
+      </article>
+    </section>
+
+  </div> <!-- .wrap -->
+  <script src="./default/hamberger.js"></script>
+  <script src="./slide.js"></script>
+  <script src="./link.js"></script>
+  <script src="./default/c-top-btn.js"></script>
+  <script>
+    slide1 = new OneSlide({
+      parent: '#slide1',
+      isCreateBtnTop: false,
+      isCreateBtnRight: true,
+      isCreateBtnUnder: true,
+      isCreateBtnArrow: true,
+      autoSlideSec: 5,
+    });
+    slide1.run();
+
+
+    function changeSlide3EventCallback(curCardName, selectCardName) {
+      // console.log(curCardName, selectCardName);
+      let bigTitle = document.querySelector('.big-title');
+      bigTitle.innerText = selectCardName;
+    }
+
+    slide3 = new OneSlide({
+      parent: '#slide3',
+      isCreateBtnTop: false,
+      isCreateBtnRight: false,
+      isCreateBtnUnder: false,
+      isCreateBtnArrow: false,
+      autoSlideSec: 3,
+      changeSlideEventCallback: changeSlide3EventCallback,
+    })
+    slide3.run();
+
+    const linkEvent = new LinkEvent({ links: ['.c-card--nav', '.c-card-short'] });
+
+    const topBtn = new TopBtn({topBtnSelectNm : '.c-top-btn'});
+    
+
+  </script>
+</body>
+
+</html>

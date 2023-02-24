@@ -1,0 +1,71 @@
+.shadow{
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top:0;
+    left:0;
+    background-color: grey;
+    opacity: 0.7;
+}
+.box{
+    background-color: white;
+    width: 400px;
+    height: 270px;
+    position: absolute;
+    z-index: 100;
+    padding: 20px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.box>.head>h2{
+    display: inline;
+}
+.box>.head>.xButton{
+    float: right;
+    color: grey;
+    border: none;
+    background-color: white;
+    font-weight: bold;
+}
+
+.middle, .tail{
+    border-top: 1px grey solid;
+    margin-top: 10px;
+}
+
+.box>.middle>.update{
+    padding: 20px 0 10px 0;
+
+}
+.box>.middle>input{
+    width: 100%;
+    height: 20px;
+}
+.box>.middle>.warning{
+    width: 100%;
+    height: 25px;
+    background-color: rgb(238, 223, 222);
+    color: red;
+    padding: 10px 0 10px 10px;
+    margin-top: 10px;
+}
+.box>.middle>.submit{
+    background-color: rgb(53, 121, 246);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none;
+}
+
+.box>.tail>.close{
+    background-color: rgb(203, 68, 74);
+    color: white;
+    float: right;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+    border: none;
+}

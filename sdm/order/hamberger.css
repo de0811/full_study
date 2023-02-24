@@ -1,0 +1,43 @@
+
+.hamberger {
+  width: 25px;
+  height: 25px;
+}
+.hamberger input {
+  display: none;
+}
+.hamberger input+label {
+  width: inherit;
+  height: inherit;
+  display: inline-block;
+  position: relative;
+}
+.hamberger input+label div {
+  background-color: #000;
+  height: 1px;
+  width: inherit;
+  position: absolute;
+  transition: 0.25s;
+}
+.hamberger input+label div:nth-child(1) {
+  top: 20%;
+}
+.hamberger input+label div:nth-child(2) {
+  top: 50%;
+  /* opacity: 1; */
+}
+.hamberger input+label div:nth-child(3) {
+  top: 80%;
+}
+.hamberger input:checked+label div:nth-child(1) {
+  top: 50%;
+  transform: rotate(45deg);
+}
+.hamberger input:checked+label div:nth-child(2) {
+  /* display: none; */
+  opacity: 0;
+}
+.hamberger input:checked+label div:nth-child(3) {
+  top: 50%;
+  transform: rotate(-45deg);
+}

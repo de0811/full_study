@@ -39,10 +39,10 @@ a {
 .font-awesome {
 }
 .font-awesome > a::after{
-  content: "\f35b";
-    font: var(--fa-font-solid);
-    margin-right: 5px;
-    color: #ff5544;
+
+  content: '\f015';
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
 }
 .font-google a::after {
   content: '\eb88';

@@ -1,0 +1,11 @@
+.badge-txt {
+  padding: 4px 10px;
+}
+.badge-txt.bg-red {
+  background-color: rgb(254, 116, 116);
+  color: #fff;
+}
+.badge-txt.bg-blue {
+  background-color: #43A0E3;
+  color: #fff;
+}

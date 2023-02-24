@@ -1,0 +1,24 @@
+
+.footer {
+  width: 380px;
+}
+
+.footer-link {
+  color: #969696;
+  letter-spacing: -1px;
+}
+.footer-link a {
+  text-decoration: none;
+  font-size: 12px;
+  color: #969696;
+}
+.footer-link a::after {
+  content: ' ' '\00B7';
+}
+.footer-link a:last-child::after {
+  content: '';
+}
+.footer-company {
+  font-size: 12px;
+  color: #969696;
+}

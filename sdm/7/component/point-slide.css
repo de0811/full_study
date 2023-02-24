@@ -1,0 +1,33 @@
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.point-slids {
+  display: flex;
+  width: 100vw;
+  height: 500px;
+  justify-content: center;
+  align-items: stretch;
+}
+.slid-item {
+  background-color: salmon;
+  width: calc(100vw / 5);
+  transition: 1s;
+}
+.slid-item:nth-of-type(2) {
+  background-color: sandybrown;
+}
+.slid-item:nth-of-type(3) {
+  background-color: skyblue;
+}
+.slid-item:first-child {
+  border-radius: 0.3em 0px 0px 0.3em;
+}
+.slid-item:last-child {
+  border-radius: 0px 0.3em 0.3em 0px;
+}
+.slid-item:hover {
+  width:  calc(100vw / 5 * 3);
+}

@@ -1,0 +1,29 @@
+@charset "utf-8";
+body{background-color: #e6e4e4;}
+#profile{width: 300px;margin: 0 auto; background-color: #fff; border-radius: 5px;box-shadow: 2px 2px 2px rgb(192, 192, 192); padding: 22px 30px;}
+#profile header{margin-bottom: 10px;}
+#profile header .light{float:left; text-indent: -9999px; width: 14px; height: 14px; background: url(../1/ico_light.png) center center no-repeat;}
+#profile header .light:hover {opacity: 0.5; transition: 0.3s;}
+#profile header .right{float:right;}
+#profile header .right .like{text-indent: -9999px; width: 14px; height: 14px; background: url(../1/ico_like.png) center center no-repeat;}
+#profile header .right .more{text-indent: -9999px; width: 14px; height: 14px; background: url(../1/ico_more.png) center center no-repeat;}
+#profile .contents .profile{padding-bottom: 25px; border-bottom: 1px solid #ddd; margin-bottom: 25px;}
+#profile .contents .proImg p{width: 115px; height: 115px; margin: 0 auto;  position: relative; text-align: center;}
+#profile .contents .proImg p:after{position: absolute; right:10px; bottom: 10px; width: 20px; height: 20px; text-align: center; line-height: 20px;    color: #fff; background-color: #24abfa;border-radius: 50px;  content: '+';}
+#profile .contents .proImg p img{width: 100%;height: 100%;border-radius: 100%;}
+#profile .contents dl{margin-top: 28px;text-align: center;}
+#profile .contents dl dt{font-size: 20px;font-weight: bold;}
+#profile .contents dl dt span{display: block; font-size: 11px; margin-top: 10px;color: #999; font-weight: normal;}
+#profile .contents dl dd{margin-top: 20px; font-size: 13px; line-height: 1.6;}
+#profile .contents dl dd a{ color: #617bba;}
+#profile .contents .btn_view{text-align: center;}
+#profile .contents button{margin-top: 10px; font-size: 14px; padding: 10px 33px; color: #fff; background-color: #18b8ca; border-radius: 50px;    }
+#profile .contents button:hover {opacity: 0.8; }
+#profile .contents .follower{padding: 0 10px;}
+#profile .contents .follower ul:after{display: block;clear:both; content: '';}
+#profile .contents .follower ul li{width: 33.33%; float:left;text-align: center;}
+#profile .contents .follower ul li p{width: 65px; margin: 0 auto;}
+#profile .contents .follower ul li strong{display: block; margin-top: 14px; font-size: 18px; color: #333; font-weight: 900;}
+#profile .contents .follower ul li span{display: block;   color: #c2c1c6; margin-top: 10px; font-size: 11px;}
+
+

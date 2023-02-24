@@ -1,0 +1,140 @@
+
+@import url(https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp);
+
+
+.icon {
+  height: 25px;
+  font-size: 25px;
+}
+a.icon {
+  text-decoration: none;
+  /* color: #ccc; */
+  /* height: inherit; */
+  /* height: 25px; */
+  /* font-size: 25px; */
+}
+button.icon {
+  background-color: transparent;
+  border: none;
+}
+input[type=checkbox].icon {
+  display: none;
+}
+input[type=checkbox].icon+label {
+  cursor: pointer;
+  /* display: block; */
+}
+
+.icon::before {
+  display: block; /* 중앙으로 그려주기 위해서*/
+  font-family: 'Material Icons Outlined';
+}
+.icon:hover::before {
+  font-family: 'Material Icons Two Tone';
+}
+.icon:checked::before {
+  font-family: 'Material Icons';
+}
+.icon:active::before {
+  font-family: 'Material Icons';
+}
+
+.i-home::before {
+  content: '\e88a';
+}
+.i-home:hover::before {
+}
+.i-message::before {
+  content: '\e8af';
+}
+.i-message:hover::before {
+}
+.i-new-content::before {
+  content: '\e89c';
+}
+.i-new-content:hover::before {
+}
+.i-path::before {
+  content: '\e87a';
+}
+.i-path:hover::before {
+}
+.i-heart::before {
+  content: '\e87e';
+}
+.i-heart:hover::before {
+  content: '\e87d';
+}
+.i-find::before {
+  content: '\e8b6';
+}
+.i-popup-post::before {
+  content: '\e0c9';
+}
+.i-bookmark::before {
+  content: '\e598';
+}
+.i-emoji::before {
+  content: '\e1d3';
+}
+.i-plus::before {
+  content: '\e145';
+}
+
+/* Input label */
+
+input[type=checkbox].icon+label::before {
+  display: block; /* 중앙으로 그려주기 위해서*/
+  font-family: 'Material Icons Outlined';
+}
+input[type=checkbox].icon:hover+label::before {
+  font-family: 'Material Icons Two Tone';
+}
+input[type=checkbox].icon:checked+label::before {
+  font-family: 'Material Icons';
+}
+input[type=checkbox].icon:active+label::before {
+  font-family: 'Material Icons';
+}
+
+input[type=checkbox].i-home+label::before {
+  content: '\e88a';
+}
+.i-home:hover::before {
+}
+input[type=checkbox].i-message+label::before {
+  content: '\e8af';
+}
+input[type=checkbox].i-new-content+label::before {
+  content: '\e89c';
+}
+input[type=checkbox].i-path+label::before {
+  content: '\e87a';
+}
+input[type=checkbox].i-heart+label::before {
+  content: '\e87e';
+}
+input[type=checkbox].i-heart:checked+label::before {
+  content: '\e87d';
+}
+input[type=checkbox].i-heart+label:hover::before {
+  content: '\e87d';
+}
+input[type=checkbox].i-find+label::before {
+  content: '\e8b6';
+}
+input[type=checkbox].i-popup-post+label::before {
+  content: '\e0c9';
+}
+input[type=checkbox].i-bookmark+label::before {
+  content: '\e598';
+}
+input[type=checkbox].i-emoji+label::before {
+  content: '\e1d3';
+}
+input[type=checkbox].i-drop-down+label::before {
+  content: '\e5cf';
+}
+input[type=checkbox].i-drop-down:checked+label::before {
+  content: '\e5ce';
+}

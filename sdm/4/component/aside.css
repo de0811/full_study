@@ -1,0 +1,66 @@
+@import 'profile.css';
+
+
+.main-aside {
+  width: 380px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.user-change {
+  border: none;
+  background-color: transparent;
+  color: #4463EA;
+  font-size: 12px;
+  font-weight: 500;
+}
+.user-change:active {
+  color: #a2b0eb;
+}
+
+.recommend {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: inherit;
+}
+
+.recommend-all {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: inherit;
+}
+
+.recommend-all-txt {
+  font-size: 12px;
+  font-weight: bold;
+  color: #969696;
+}
+
+.recommend-all-btn {
+  background-color: transparent;
+  border: none;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.recommend-list {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  width: inherit;
+  margin-top: 5px;
+}
+
+.follow {
+  border: none;
+  background-color: transparent;
+  color: #4463EA;
+  font-size: 12px;
+  font-weight: 500;
+}
+.follow:active {
+  color: #a2b0eb;
+}

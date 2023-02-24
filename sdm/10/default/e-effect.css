@@ -1,0 +1,13 @@
+.e-under-line--yello {
+  position: relative;
+}
+.e-under-line--yello::before {
+  content: '';
+  width: 100%;
+  height: 10px;
+  position: absolute;
+  background-color: #FAD949;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
+}

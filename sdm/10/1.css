@@ -557,9 +557,15 @@
   display: flex;
   max-width: 600px;
   width: 100%;
+  gap: 10px;
 }
 .l-section__search--search input[type='text'] {
   width: 100%;
+  border-bottom: 1px solid #000;
+}
+.l-section__search--search input[type='text']::placeholder {
+  font-size: 1.0rem;
+  color: #000;
 }
 .l-section__search--search button {
   min-width: 150px;
@@ -567,4 +573,11 @@
   color: #fff;
   padding: 10px 20px;
   text-transform: capitalize;
+}
+.l-section__search--search button::after {
+  content: '';
+  font-size: .8em;
+  font-family: 'Material Icons Outlined';
+  content: '\e8b6';
+  margin-left: 20px;
 }

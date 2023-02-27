@@ -29,9 +29,11 @@
     https://swiperjs.com/demos
     https://kenwheeler.github.io/slick/
    -->
-   
-   <!-- 
+
+<!-- 
     TODO : nav 펼쳐지는 모양으로 변경
+    TODO : button > .img-box 를 -> button.img-box 로 변경
+    TODO : c-card--slide 상위에 감쌓을거 넣어놓기
     -->
 
 <head>
@@ -570,7 +572,7 @@
 
 
       </div>
-      
+
       <div class="big-title"></div>
     </section>
 
@@ -605,34 +607,174 @@
         </div>
       </article>
     </section>
-    
+
     <section class="l-section t-catalogue">
       <article class="l-content max-w-px-1200">
         <div class="l-content-wrap">
-        <div class="l-content--txt">
-          <span>CHECK OUT THE</span>
-          <span><em>E-CATALOGUE</em></span>
-          <span>
-            PROVIDED BY DINE
-            <a href="#none" class="he-plus-to-arrow">
-              <span></span><span></span>
+          <div class="l-content--txt">
+            <span>CHECK OUT THE</span>
+            <span><em>E-CATALOGUE</em></span>
+            <span>
+              PROVIDED BY DINE
+              <a href="#none" class="he-plus-to-arrow">
+                <span></span><span></span>
+              </a>
+            </span>
+          </div>
+          <div class="l-content--link">
+            <a href="#none">
+              dinox catalogue 2023
+              <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30">
+                <path
+                  d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z" />
+              </svg>
             </a>
-          </span>
+            <a href="#none">
+              sumitomo catalogue 2021/2022
+              <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30">
+                <path
+                  d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z" />
+              </svg>
+            </a>
+          </div>
         </div>
-        <div class="l-content--link">
-          <a href="#none">
-            dinox catalogue 2023
-            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z"/></svg>
-          </a>          
-          <a href="#none">
-            sumitomo catalogue 2021/2022
-            <svg xmlns="http://www.w3.org/2000/svg" height="30" viewBox="0 96 960 960" width="30"><path d="M220 896q-24 0-42-18t-18-42V693h60v143h520V693h60v143q0 24-18 42t-42 18H220Zm260-153L287 550l43-43 120 120V256h60v371l120-120 43 43-193 193Z"/></svg>
-          </a>          
-        </div>  
-        </div>
-        
+
       </article>
     </section>
+
+
+    <div class="l-section l-section--promotion">
+      <div class="l-content l-section__content--promotion max-w-px-1200">
+        <!-- <div class="l-section__title--promotion"> -->
+        <b class="l-content__title ff-black-han-sans">
+          promotinal video
+        </b>
+        <div class="l-section__tab-list--promotion">
+          <button class="l-section__tab--promotion on" data-link-name="dinox">dinox tips</button>
+          <button class="l-section__tab--promotion" data-link-name="product">product</button>
+          <button class="l-section__tab--promotion" data-link-name="robotics">robotics</button>
+        </div>
+        <div class="l-section__vidio-list--promotion on" data-link-name="dinox">
+          <a class="l-section__vidio--promotion">
+            <div class="c-img-box"><img src="https://img.youtube.com/vi/s2iP9D3sXY4/maxresdefault.jpg" alt=""></div>
+            <div class="c-img-box__txt">
+              [DINOX Tips]다인정공 슬림유압척 리뷰
+            </div>
+          </a>
+          <a class="l-section__vidio--promotion">
+            <div class="c-img-box"><img src="https://img.youtube.com/vi/WIyJR-nhmMU/maxresdefault.jpg" alt=""></div>
+            <div class="c-img-box__txt">
+              [DINOX Tips]쩜쩜쩜 하게 만들어야하는데 그래서 마구마구 넣어보는것이지 아아아아아 치타는 빨라 빠르면 기차 기차는
+            </div>
+          </a>
+          <a class="l-section__vidio--promotion">
+            <div class="c-img-box"><img src="https://img.youtube.com/vi/6XzY7jdhqts/maxresdefault.jpg" alt=""></div>
+            <div class="c-img-box__txt">
+              [DINOX Tips]다인정공 슬림유압척 리뷰
+            </div>
+          </a>
+        </div>
+        <div class="l-section__vidio-list--promotion" data-link-name="product">
+          <div class="l-section__vidio--promotion">
+
+          </div>
+          <div class="l-section__vidio--promotion"></div>
+          <div class="l-section__vidio--promotion"></div>
+        </div>
+        <div class="l-section__vidio-list--promotion" data-link-name="robotics">
+          <div class="l-section__vidio--promotion">
+
+          </div>
+          <div class="l-section__vidio--promotion"></div>
+          <div class="l-section__vidio--promotion"></div>
+        </div>
+
+        <a href="#none" class="he-spread">
+          홍보영상 더보기
+          <span>
+            <svg xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 96 960 960" width="20">
+              <path d="m480 896-42-43 247-247H160v-60h525L438 299l42-43 320 320-320 320Z" />
+            </svg>
+          </span>
+        </a>
+
+      </div>
+    </div>
+
+    <section class="l-section l-section--quick">
+      <article class="l-content l-section__content--quick max-w-px-1200">
+        <a href="#none" class="c-btn-quick">
+          <div class="he-box-line"><span></span><span></span><span></span><span></span></div>
+          <div class="c-img-box"><img src="http://dine.co.kr/img/main/quick_icon01_off01.png" alt=""></div>
+          <div class="c-img-box__txt">
+            온라인 전시관
+          </div>
+        </a>
+        <a href="#none" class="c-btn-quick">
+          <div class="he-box-line"><span></span><span></span><span></span><span></span></div>
+          <div class="c-img-box"><img src="http://dine.co.kr/img/main/quick_icon01_off02.png" alt=""></div>
+          <div class="c-img-box__txt">
+            제품소개
+          </div>
+          <a href="#none" class="c-btn-quick">
+            <div class="he-box-line"><span></span><span></span><span></span><span></span></div>
+            <div class="c-img-box"><img src="http://dine.co.kr/img/main/quick_icon01_off03.png" alt=""></div>
+            <div class="c-img-box__txt">
+              카탈로그
+            </div>
+          </a>
+          <a href="#none" class="c-btn-quick">
+            <div class="he-box-line"><span></span><span></span><span></span><span></span></div>
+            <div class="c-img-box"><img src="http://dine.co.kr/img/main/quick_icon01_off04.png" alt=""></div>
+            <div class="c-img-box__txt">
+              롤링 도면
+            </div>
+          </a>
+          <a href="#none" class="c-btn-quick">
+            <div class="he-box-line"><span></span><span></span><span></span><span></span></div>
+            <div class="c-img-box"><img src="http://dine.co.kr/img/main/quick_icon01_off05.png" alt=""></div>
+            <div class="c-img-box__txt">
+              전시회
+            </div>
+          </a>
+          <a href="#none" class="c-btn-quick">
+            <div class="he-box-line"><span></span><span></span><span></span><span></span></div>
+            <div class="c-img-box"><img src="http://dine.co.kr/img/main/quick_icon01_off06.png" alt=""></div>
+            <div class="c-img-box__txt">
+              미디어 센터
+            </div>
+          </a>
+        </a>
+      </article>
+    </section>
+
+
+    <section class="l-section l-section--search">
+      <article class="l-content l-section__content--search max-w-px-1200">
+        <div class="l-section__txt--search">
+          <b>다인공정 Search</b>
+          <p>Search for services provided by Dine</p>
+        </div>
+        <div class="l-section__search--search">
+          <input type="text" name="" id="" placeholder="검색어를 입력해주세요">
+          <button>search</button>
+        </div>
+      </article>
+    </section>
+
+    <footer class="">
+      <section class="l-section--ftnav">
+        <article class="l-section__content--ftnav">
+
+        </article>
+
+      </section>
+      <section class="l-section--f-bottom">
+        <article class="l-section__content--f-bottom">
+
+        </article>
+      </section>
+    </footer>
 
   </div> <!-- .wrap -->
   <script src="./default/hamberger.js"></script>
@@ -670,8 +812,8 @@
 
     const linkEvent = new LinkEvent({ links: ['.c-card--nav', '.c-card-short'] });
 
-    const topBtn = new TopBtn({topBtnSelectNm : '.c-top-btn'});
-    
+    const topBtn = new TopBtn({ topBtnSelectNm: '.c-top-btn' });
+
 
   </script>
 </body>

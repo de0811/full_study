@@ -22,7 +22,7 @@
 }
 .l-content {
   width: 100%;
-  height: inherit;
+  /* height: inherit; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,6 +42,7 @@
   display: block;
   font-size: 50px;
   text-align: center;
+  text-transform: uppercase;
 }
 .l-content__slide {
   display: block;
@@ -329,7 +330,7 @@
   z-index: -1;
 }
 .l-content:nth-of-type(1) {
-  gap: 100px;
+  /* gap: 100px; */
   overflow: hidden;
 }
 .l-content:nth-of-type(1) > .c-img-box {
@@ -421,4 +422,149 @@
 }
 .t-catalogue .l-content .l-content--link a:hover > svg {
   fill: #000;
+}
+
+
+.l-section--promotion {
+
+}
+.l-section__content--promotion {
+  display: flex;
+  flex-direction: column;
+}
+.l-section__title--promotion {
+  text-transform: uppercase;
+  font-weight: 900;
+
+}
+.l-section__tab-list--promotion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 80%;
+}
+.l-section__tab--promotion {
+  border: 1px solid #ccc;  
+  border-left: none;
+  flex: 1;
+  background-color: transparent;
+  padding: 20px 0;
+}
+.l-section__tab--promotion:first-child {
+  border: 1px solid #ccc;
+}
+.l-section__tab--promotion.on {
+  border: 1px solid #000;
+  border-left: none;
+}
+.l-section__tab--promotion:first-child.on {
+  border: 1px solid #000;
+}
+.l-section__vidio-list--promotion {
+  display: none;
+  /* display: flex; */
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: 50px;
+}
+.l-section__vidio-list--promotion.on {
+  display: flex;
+  width: 100%;
+}
+.l-section__vidio--promotion {
+  max-width: 30%;
+}
+.l-section__vidio--promotion .c-img-box{
+  width: 100%;
+  aspect-ratio: 445/250;
+}
+.l-section__vidio--promotion .c-img-box__txt{
+  padding: 0 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.l-section__content--promotion > a {
+  color: #000;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.l-section--quick {
+  background: url('http://dine.co.kr/img/main/quick_menu_bg.jpg') no-repeat #000;
+  max-height: 300px;
+  margin-bottom: 0;
+}
+.l-section__content--quick {
+  justify-content: flex-end;
+}
+
+.c-btn-quick {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  position: relative;
+  gap: 20px;
+  padding: 20px;
+}
+
+.he-box-line {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  inset: 0;
+}
+.he-box-line > span {
+  width: 0px;
+  height: 0px;
+  background-color: #fff103;
+  position: absolute;
+  transition: 1s;
+}
+.he-box-line > span:nth-of-type(1) {top: 0px;left: 0px;}
+.he-box-line > span:nth-of-type(2) {top: 0px;right: 0px;}
+.he-box-line > span:nth-of-type(3) {bottom: 0px;left: 0px;}
+.he-box-line > span:nth-of-type(4) {top: 0px;left: 0px;}
+.he-box-line:hover > span:nth-of-type(1) {width: 100%;height: 1px;}
+.he-box-line:hover > span:nth-of-type(2) {width: 1px;height: 100%;}
+.he-box-line:hover > span:nth-of-type(3) {width: 100%;height: 1px;}
+.he-box-line:hover > span:nth-of-type(4) {width: 1px;height: 100%;}
+
+.l-section--search {
+  max-height: 80px;
+  margin: 0;
+  padding: 60px 0;
+  background-color: #FBF131;
+}
+.l-section__content--search {
+  /* display: flex; */
+  justify-content: space-between;
+}
+.l-section__txt--search {
+}
+.l-section__txt--search b {
+  font-size: 30px;
+  font-weight: 900;
+}
+.l-section__txt--search p {
+  font-size: 20px;
+  font-weight: 300;
+}
+.l-section__search--search {
+  display: flex;
+  max-width: 600px;
+  width: 100%;
+}
+.l-section__search--search input[type='text'] {
+  width: 100%;
+}
+.l-section__search--search button {
+  min-width: 150px;
+  background-color: #2D2D2D;
+  color: #fff;
+  padding: 10px 20px;
+  text-transform: capitalize;
 }

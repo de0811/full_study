@@ -371,6 +371,7 @@
 
 .t-catalogue {
   background-image: url('http://dine.co.kr/img/main/banner_bg.jpg');
+  background-color: #F5F5F5;
   background-size: contain;
   background-repeat: no-repeat;
 }
@@ -526,8 +527,8 @@
 }
 .he-box-line > span:nth-of-type(1) {top: 0px;left: 0px;}
 .he-box-line > span:nth-of-type(2) {top: 0px;right: 0px;}
-.he-box-line > span:nth-of-type(3) {bottom: 0px;left: 0px;}
-.he-box-line > span:nth-of-type(4) {top: 0px;left: 0px;}
+.he-box-line > span:nth-of-type(3) {bottom: 0px;left: 0px;transition-delay: 0.3s;}
+.he-box-line > span:nth-of-type(4) {top: 0px;left: 0px;transition-delay: 0.3s;}
 .he-box-line:hover > span:nth-of-type(1) {width: 100%;height: 1px;}
 .he-box-line:hover > span:nth-of-type(2) {width: 1px;height: 100%;}
 .he-box-line:hover > span:nth-of-type(3) {width: 100%;height: 1px;}
@@ -580,4 +581,98 @@
   font-family: 'Material Icons Outlined';
   content: '\e8b6';
   margin-left: 20px;
+}
+
+footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.l-section--ftnav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1200px;
+  margin: 50px 0;
+}
+.c-ftnav {
+  flex: 3;
+  font-size: 12px;
+  display: flex;
+  /* justify-content: space-evenly; */
+  gap: 100px;
+}
+.c-ftnav dl {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.c-ftnav dl dt {}
+.c-ftnav dl dt a {color: #000;font-weight: 700;}
+.c-ftnav dl dd {margin: 0;text-transform: uppercase;}
+.c-ftnav dl dd a {color: #2D2D2D;}
+
+.c-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  min-width: 21em;
+}
+.c-info b {
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.c-company {}
+.c-company dt {
+  width: 100%;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.c-company dd {
+  flex: 1;
+}
+.c-company dd a {
+  color: #2D2D2D;
+  /* text-indent: 100%; */
+  /* white-space: nowrap; */
+  /* overflow: hidden; */
+}
+
+.c-sns {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.c-sns dt {
+  width: 100%;
+  font-weight: 700;
+  text-transform: capitalize;
+}
+.c-sns dd {
+  flex: 1;
+  /* width: 50px; */
+}
+.c-sns dd a {
+  color: #000;
+  /* width: 50px; */
+}
+
+
+.l-section--f-bottom {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 1px solid #ccc;
+  padding: 50px 0;
+}
+.l-section__content--f-bottom {
+  display: flex;
+  flex-direction: row;
+  max-width: 1200px;
+  width: 100%;
+  justify-content: space-between;
 }

@@ -4,7 +4,8 @@
 .c-ham.on-sm {
   display: none;
 }
-@media (max-width: 767px){
+/* @media (max-width: 767px){ */
+@media (max-width: 1400px){
   .c-ham.on-sm {
     display: flex;
     align-items: center;

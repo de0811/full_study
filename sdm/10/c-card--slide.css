@@ -215,3 +215,12 @@
   }
 
 }
+@media (max-width: 700px) {
+  #slide3 .c-card--slide .c-card__txt--slide {
+    flex-direction: column;
+  }
+
+  #slide3 .c-card--slide .c-card__txt--slide a {
+    align-self: flex-end;
+  }
+}

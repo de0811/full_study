@@ -385,7 +385,7 @@
     gap: 0;
     flex-wrap: wrap;
     justify-content: flex-start;
-    border-left: 1px #f0f0f0;
+    border-left: 1px solid #D0D0D0;
   }
   #slide3 .c-one-slide__btn--custom {
     width: fit-content;

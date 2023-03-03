@@ -222,5 +222,6 @@
 
   #slide3 .c-card--slide .c-card__txt--slide a {
     align-self: flex-end;
+    margin-right: 10px;
   }
 }

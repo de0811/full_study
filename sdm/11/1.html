@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SVG 교육</title>
+  <style>
+    svg {
+      background-color: #eee;
+    }
+  </style>
+</head>
+<body>
+  <!-- viewbox : 해상도 -->
+  <svg viewbox="0 0 200 200">
+    <!-- 기본적으로 태그 속성보다 css 속성을 우선으로 적용 -->
+    <style>
+      @keyframes ani-test {
+        0% {
+          transform: scale(0.7);
+        }
+        100% {
+          transform: scale(1.2);
+        }
+      }
+      .svg__rect {
+        fill: salmon;
+        animation: ani-test 1s infinite alternate;
+      }
+    </style>
+    <!-- x, y, width, height : svg 해상도 기준으로 보여주는 위치 및 크기 -->
+    <!-- fill : 채울 색상 -->
+    <!-- stroke : 태두리 색 -->
+    <!-- stroke-width : 태두리 굵기 -->
+    <!-- rx(x축 방향만큼 반지름), ry(y축 방향만큼 반지름) 모서리가 둥근 사각형 -->
+    <rect class="svg__rect" x="0" y="0" width="100" height="100"></rect>
+    <!-- circle 원 도형 -->
+    <!-- cx, cy 원 중심축 좌표 | r 반지름 -->
+    <circle cx="100" cy="20" r="10"/>
+    <!-- ellipse 타원 도형 -->
+    <ellipse cx="180" cy="10" rx="20" ry="10"/>
+    <!-- line 선 -->
+    <!-- x1, y1 선의 시작 지점, x2, y2 선의 끝 지점 -->
+    <line x1="10" y1="30" x2="180" y2="30" stroke="#8e8e" stroke-width="5" />
+    <!-- polyline -->
+    <!-- points="x1 y1, x2 y2, x3 y3, x4 y4, ..." 여러 선들의 조합이며 내부 선을 채울수는 있음 -->
+    <polyline points="10 40, 180 40, 180, 80" fill="#e8e" stroke="#acacac" stroke-width="5" />
+    <!-- polygon -->
+    <!-- polyline 처럼 여러 선의 조합을 만들고 첫 점과 끝 점을 연결 -->
+    <polygon points="10 90, 180 90, 180, 120" fill="#a20" stroke="#acacac" stroke-width="5" />
+    <!-- path : 일러스트의 펜툴과 동일 (그냥 일러스트를 사라) -->
+  </svg>
+</body>
+</html>

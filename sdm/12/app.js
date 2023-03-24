@@ -1,3 +1,18 @@
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = function (d, b) {
+        extendStatics = Object.setPrototypeOf ||
+            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
+        return extendStatics(d, b);
+    };
+    return function (d, b) {
+        if (typeof b !== "function" && b !== null)
+            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
 function myName(name) {
     console.log(name);
     var aa;
@@ -279,7 +294,89 @@ function myName(name) {
     console.log('a46_1 typeof : ', typeof a46_1);
     console.log('a46_1 : ', a46_1);
     var a47 = 'hello world';
-    console.log(a47.push(123));
+    // console.log( (a47 as number[]).push(123) );  //이렇게 안되는게 맞는건데...
+    //선택적 매개변수
+    function fa48(a48_1, a48) {
+        // function fa48(a48 : string | undefined, a48_1: number): string { // 선택적 매개변수를 앞에 두려면 | undefined 를 넣어주면 된다
+        return "\uC774\uBC88\uC5D4 \uC5B4\uB514\uC5D0 \uB3C8\uC744 \uBC84\uB824\uBCFC\uAE4C ~ ".concat(a48 || '모든 것', " \uC5D0 \uB3C8\uC744 \uBC84\uB824\uC57C\uACA0\uAD70 !");
+    }
+    console.log(fa48(1));
+    console.log(fa48(1, '교육'));
+    // console.log(fa48(645))  //타입 에러
+    function fa49(a49_1, a49_2) {
+        if (a49_2 === void 0) { a49_2 = 'default 문자'; }
+        console.log(a49_1 + ' ' + a49_2);
+    }
+    fa49('parameter default 테스트');
+    console.log('fa49 실행이 안되었니? ');
+    function fa50() {
+        var a50s = [];
+        for (var _i = 0; _i < arguments.length; _i++) {
+            a50s[_i] = arguments[_i];
+        }
+        return a50s.reduce(function (result, number) { return result + number; }, 0);
+    }
+    console.log('총합 구하기 함수', fa50(10, 20, 30));
+    var a51 = {
+        name: 'a51',
+        age: 20,
+        init: function () {
+            var _this = this;
+            // init(this: ca51) {
+            return function () {
+                return _this.age;
+            };
+        }
+    };
+    var fa51_1 = a51.init();
+    var a51_1 = fa51_1();
+    console.log(a51_1);
+    // {return a + b;}
+    function fa52_1(a, b) { return a + b; }
+    // 오버로드 함수를 만들때 하나의 함수에서 모두 정의하고 선언은 각자 따로 또 해줘야함
+    // 뭐 이런 거지같은
+    // 
+    // class
+    // 접근 권한 : private, protected, public
+    var ca53 = /** @class */ (function () {
+        function ca53(month, help) {
+            this.help = help;
+            this.day = 10;
+            this.month = month;
+        }
+        ca53.prototype.getMonth = function () { return this.month; };
+        ca53.prototype.getDay = function () { return this.day; };
+        return ca53;
+    }());
+    var a53 = new ca53("May", 'help 작성란 이건 처음 넣을때만 밖에서 넣는게 가능');
+    // a53.help = 'aaa';  //readonly 라서 읽는것만 가능한데 private 라서 읽지도 못함
+    console.log(a53);
+    // 추상 클래스
+    var aa54 = /** @class */ (function () {
+        function aa54() {
+        }
+        aa54.prototype.printArea = function () { return "".concat(this.getArea()); };
+        return aa54;
+    }());
+    var ca54 = /** @class */ (function (_super) {
+        __extends(ca54, _super);
+        function ca54(radius) {
+            var _this = _super.call(this) || this;
+            _this.radius = radius;
+            return _this;
+        }
+        ca54.prototype.getArea = function () {
+            return Math.PI * this.radius * this.radius;
+        };
+        return ca54;
+    }(aa54));
+    var a54 = new ca54(10);
+    console.log('가상 클래스', a54.printArea());
+    // 제너릭 함수
+    function ja55(a55) {
+        return a55;
+    }
+    console.log('제너릭 함수 : ', typeof (ja55(12)));
 }
 myName("fuck");
 // tsc app.ts -> app.js file create
@@ -290,4 +387,18 @@ function sayName(value) {
     else {
         return value; //이게 들어갈리가 없기 때문에 마우스를 올려보면 naver 반환을 나타냄
     }
+}
+function isEmpty(val) {
+    if (val === null || val === undefined) {
+        return true;
+    }
+    if (typeof val === 'string') {
+        if (val === '')
+            return true;
+    }
+    if (val instanceof Array) {
+        if (val.length === 0)
+            return true;
+    }
+    return false;
 }

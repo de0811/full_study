@@ -79,7 +79,7 @@ function myName(name: string) {
   };
   cat.age = 11;
   
-  // 인덱스 시그니처 <- 이런걸 쓸 이유가 있나 ?
+  // 인덱스 시그니처 <- 이런걸 쓸 이유가 있나 ? dict 만들때 ?
   const dog : { [idex : string] : number } = {};
   dog.id = 2020222;
   // dog.id = '이건 안돼';
@@ -394,7 +394,123 @@ function myName(name: string) {
   const a47 = 'hello world';
   // console.log( (a47 as number[]).push(123) );  //이렇게 안되는게 맞는건데...
 
+  //선택적 매개변수
+  function fa48(a48_1: number, a48? : string): string { //선택적 매개변수는 필수 매개변수보다 앞에 위치하면 에러
+  // function fa48(a48 : string | undefined, a48_1: number): string { // 선택적 매개변수를 앞에 두려면 | undefined 를 넣어주면 된다
+    return `이번엔 어디에 돈을 버려볼까 ~ ${a48 || '모든 것'} 에 돈을 버려야겠군 !`;
+  }
+  console.log(fa48(1))
+  console.log(fa48(1, '교육'))
+  // console.log(fa48(645))  //타입 에러
   
+  function fa49(a49_1: string, a49_2 = 'default 문자'): void {
+    console.log(a49_1 + ' ' + a49_2);
+  }
+  fa49('parameter default 테스트');
+  console.log('fa49 실행이 안되었니? ');
+  
+  function fa50(...a50s: number[]): number{
+    return a50s.reduce((result, number) => result + number, 0);
+  }
+  console.log('총합 구하기 함수', fa50(10, 20, 30));
+  
+  interface ca51 {
+    name: string;
+    age: number;
+    init(this: ca51): () => {};
+  }
+  let a51 : ca51 = {
+    name: 'a51',
+    age: 20,
+    init() {
+    // init(this: ca51) {
+        return () => {
+          return this.age;
+        }
+    },
+  }
+  let fa51_1 = a51.init();
+  let a51_1 = fa51_1();
+  console.log(a51_1);
+  
+  // overload
+  function fa52_1(a: string, b: string): string ;
+  // {return a + b;}
+  function fa52_1(a: number, b: number): number ;
+  // {return a + b;}
+  function fa52_1(a: any, b: any): any {return a + b;}
+  // 오버로드 함수를 만들때 하나의 함수에서 모두 정의하고 선언은 각자 따로 또 해줘야함
+  // 뭐 이런 거지같은
+  // 
+
+  
+  // class
+  // 접근 권한 : private, protected, public
+  class ca53 {
+    month: string;  //선언하지 않으면 사용할 수 없기 때문에 무조건 선언해줘야함
+    private day = 10;
+    constructor(month: string, private readonly help: string) {
+      this.month = month;
+    }
+    getMonth(): string {return this.month;}
+    getDay(): number {return this.day;}
+  }
+  const a53 = new ca53("May", 'help 작성란 이건 처음 넣을때만 밖에서 넣는게 가능');
+  // a53.help = 'aaa';  //readonly 라서 읽는것만 가능한데 private 라서 읽지도 못함
+  console.log(a53);
+  
+  // 추상 클래스
+  abstract class aa54 {
+    public abstract getArea(): number;
+    public printArea(): string { return `${this.getArea()}`; }
+  }
+  class ca54 extends aa54 {
+    public constructor(protected readonly radius: number) {
+      super();
+    }
+    public getArea(): number {
+        return Math.PI * this.radius * this.radius;
+    }
+  }
+  const a54 = new ca54(10);
+  console.log('가상 클래스', a54.printArea());
+  
+  // 제너릭 함수
+  function ja55<T>(a55: T) : T {  //만약 any로 반환하게 되면 타입을 잃어버리게 되기에 제너릭을 쓰는게 이득
+    return a55;
+  }
+  console.log('제너릭 함수 : ', typeof (ja55(12)));
+  console.log('제너릭 함수<강제설정> : ', typeof (ja55<string>('무우운자')));
+  
+  // pick<type, keys>
+  //type 에서 프로퍼티 keys를 pick 해 타입을 생성
+  interface ia56 {
+    name: string;
+    age: number;
+    gender: 'man' | 'woman';
+  }
+  const a56: Pick<ia56, 'name' | 'gender'> = {
+    name: 'pick 원하는 프로퍼티를 선택해서 타입을 만듬',
+    gender: 'woman'
+  };
+  
+  //Omit<type, keys>
+  // type에서 프로퍼티 keys를 빼고 타입을 생성
+  const a56_1 : Omit<ia56, 'age' | 'gender'> = {
+    name: '원하지 않는 프로퍼티를 선택해서 타입을 만듬',
+  }
+  
+  // Exclude<type, ExcludeUnion>
+  // type에는 타입의 종류 왼쪽에는 쓰지 않을 타입을 작성
+  type ta57_1 = Exclude<string | number | boolean, number>;
+  // result : type ta57_1 = string | boolean;
+  
+  // NonNullable<type>
+  // type에서 null과 undefined 를 제외하고 타입을 생성
+  type ta58 = NonNullable<string | number | boolean | null | undefined>;
+  //result : type ta58 = string | number | boolean
+
+
 }
 
 myName("fuck");

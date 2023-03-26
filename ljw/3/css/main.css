@@ -104,12 +104,12 @@
 
 #footer{background-color: #000; text-align: center;}
 #footer .inBox{display: flex;  padding:40px 0; justify-content: space-between; align-items: center;}
-#footer .f_lst{display: flex; width: 50%;}
+#footer .f_lst{display: flex; flex:1;}
 #footer .f_lst dl{flex:1;}
 #footer .f_lst dl dt{color:#d9d9d9; font-weight: bold; line-height: 1.5;}
 #footer .f_lst dl dd a{color:#959595; line-height: 1.5;}
 #footer .f_lst dl dd a:hover{text-decoration: underline;}
-#footer .f_rgh{width: 50%;}
+#footer .f_rgh{flex:1;}
 #footer .f_rgh .help{color: #fff;}
 #footer .f_rgh .help dd{color:#959595; margin-top: 5px;}
 #footer .f_rgh .copyright{color: #959595;margin-top: 35px;}

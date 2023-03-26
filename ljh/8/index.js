@@ -1,21 +1,29 @@
 // 슬라이드 쇼 관리 변수
 var slideIndex = 0;
-var slides = document.querySelectorAll("#slideshow div");
-var navButtons = document.querySelectorAll("#slideshow .nav-button");
-var navAutoButton = document.querySelector("#slideshow .nav-automatic");
-var prevButton = document.querySelector("#slideshow .prevbtn");
-var nextButton = document.querySelector("#slideshow .nextbtn");
+var slides = document.querySelectorAll("#slidelist div");
+var navAutoButton = document.querySelector("#slidebtn .nav-automatic");
+var prevButton = document.querySelector("#btnArrow .prevbtn");
+var nextButton = document.querySelector("#btnArrow .nextbtn");
 var slideInterval;
 
-// let child = document.getElementById("slideshow").childNodes
-// for(var i = 0; i < child.length; i++) {
-//   if(child[i].nodeName.toLowerCase() == "nav") {
-//     for (var i = 0; i < slides.length; i++) {
-//       child[i].appendChild = "<button class='nav-button' data-slide="+(i+1)+">"+(i+1)+"</button>";
-//     }
-//   }
-// }
+// 추가된 슬라이드에 따른 네비게이션 바 세팅
+let child = document.getElementById("slideshow").childNodes;
+for (var i = 0; i < child.length; i++) {
+  if (child[i].nodeName.toLowerCase() == "div") {
+    if (child[i].getAttribute("id") == "slidebtn") {
+      for (var j = 0; j < slides.length; j++) {
+        let new_navTag = document.createElement("button");
+        new_navTag.setAttribute("class", "nav-button");
+        new_navTag.setAttribute("data-slide", j + 1);
+        new_navTag.innerText = j + 1;
+        child[i].appendChild(new_navTag);
+      }
+    }
+  }
+}
 
+// 현재 네비게이션 버튼 활성화
+var navButtons = document.querySelectorAll("#slidebtn .nav-button");
 for (var i = 0; i < slides.length; i++) {
   if (slides[i].getAttribute("class") == "active") {
     slideIndex = i;
@@ -32,7 +40,6 @@ for (var i = 0; i < slides.length; i++) {
       slides[slideIndex].classList.add("active");
       slides[slideIndex + 1].classList.add("next");
     }
-    // 현재 네비게이션 버튼 활성화
     navButtons[slideIndex].classList.add("active");
     break;
   }

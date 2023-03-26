@@ -2,7 +2,7 @@
   position: relative;
   height: 300px;
 }
-#slideshow div {
+#slidelist div {
   position: absolute;
   top: 0;
   left: 20%;
@@ -11,41 +11,41 @@
   opacity: 0;
   background-size: cover;
 }
-#slideshow div:nth-child(1) {
+#slidelist div:nth-child(1) {
   background-image: url("https://t1.daumcdn.net/cfile/tistory/176CFC484E9519101C");
 }
-#slideshow div:nth-child(2) {
+#slidelist div:nth-child(2) {
   background-image: url("https://t1.daumcdn.net/cfile/tistory/146DA8484E9519121C");
 }
-#slideshow div:nth-child(3) {
+#slidelist div:nth-child(3) {
   background-image: url("https://t1.daumcdn.net/cfile/tistory/12655D484E95191429");
 }
-#slideshow div.active {
+#slidelist div.active {
   opacity: 1;
   left: calc(100% / 2);
   transform: translateX(-50%);
   transition: opacity 0.5s ease-in-out;
 }
-#slideshow div.prev,
-#slideshow div.next {
+#slidelist div.prev,
+#slidelist div.next {
   opacity: 0.3;
   transition: opacity 0.5s ease-in-out;
 }
-#slideshow div.prev {
+#slidelist div.prev {
   left: 0;
   transform: translateX(-40%);
 }
-#slideshow div.next {
+#slidelist div.next {
   right: 0;
   transform: translateX(140%);
 }
-#slideshow nav {
+#slidebtn {
   position: absolute;
   bottom: 10px;
   left: 50%;
   transform: translateX(-50%);
 }
-#slideshow nav button {
+#slidebtn button {
   display: inline-block;
   margin: 0 5px;
   padding: 5px;
@@ -55,30 +55,30 @@
   color: #fff;
   cursor: pointer;
 }
-#slideshow nav button.active {
+#slidebtn button.active {
   background-color: #333;
 }
 
-#slideshow nav .nav-automatic {
+#slidebtn .nav-automatic {
   padding: 8px 0;
   height: 25px;
   width: 17px;
 }
 
-#slideshow nav .nav-automatic.stop {
+#slidebtn .nav-automatic.stop {
   background: url(https://www.starbucks.co.kr/common/img/main/main_prom_stop.png)
     center center no-repeat;
   background-color: rgb(244, 235, 241);
 }
 
-#slideshow nav .nav-automatic.play {
+#slidebtn .nav-automatic.play {
   background: url(https://www.starbucks.co.kr/common/img/main/main_prom_play.png)
     center center no-repeat;
   background-color: rgb(69, 221, 66);
 }
 
-#slideshow .prevbtn,
-#slideshow .nextbtn {
+#btnArrow .prevbtn,
+#btnArrow .nextbtn {
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
@@ -92,9 +92,9 @@
   font-weight: bold;
   cursor: pointer;
 }
-#slideshow .prevbtn {
+#btnArrow .prevbtn {
   left: 25%;
 }
-#slideshow .nextbtn {
+#btnArrow .nextbtn {
   right: 25%;
 }

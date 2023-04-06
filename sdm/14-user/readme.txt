@@ -1,0 +1,34 @@
+npm init -y
+npm i -D typescript
+
+scripts : test 는 삭제
+
+touch ./src/index.ts
+내부 소스 작성
+
+touch tsconfig.json
+{
+  // 소스파일이 어디있는지
+  "include": [
+    "src"
+  ],
+  // 컴파일 옵션
+  "compilerOptions": {
+    // 컴파일된 javascript 를 어디로 이동 시킬지
+    "outDir": "build",
+    // javascript 어느 버전으로 빌드할지 설정
+    "target": "ES6",
+    // 어느 환경에서 실행될지 설정
+    // "lib": ["ES6", "DOM"],
+    "lib": ["ES6"],
+    "strict": true,
+    // js 쓰는것을 허용
+    // "allowJs": true,
+    "esModuleInterop": true,
+    // 브라우저 앱을 만들 경우 umd를 사용
+    "module": "CommonJS"
+  }
+}
+
+package.json
+https://nomadcoders.co/typescript-for-beginners/lectures/3687

@@ -32,3 +32,23 @@ touch tsconfig.json
 
 package.json
 https://nomadcoders.co/typescript-for-beginners/lectures/3687
+
+자동 ts-node 실행
+npm i -D ts-node
+
+npm i nodemon
+
+package.json 작성
+  "scripts": {
+    "build": "tsc",
+    "dev": "nodemon --exec ts-node src/index.ts",
+    "start": "node build/index.js"
+  }
+
+
+  정의된 타입이 없어서 미리정의된 타입을 받아오는 방법
+  npm i -D @types/node
+  
+  경로 또는 이름은
+  https://github.com/DefinitelyTyped/DefinitelyTyped
+  여기서 조회할 수 있음

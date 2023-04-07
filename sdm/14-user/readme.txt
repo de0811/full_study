@@ -30,8 +30,6 @@ touch tsconfig.json
   }
 }
 
-package.json
-https://nomadcoders.co/typescript-for-beginners/lectures/3687
 
 자동 ts-node 실행
 npm i -D ts-node
@@ -52,3 +50,7 @@ package.json 작성
   경로 또는 이름은
   https://github.com/DefinitelyTyped/DefinitelyTyped
   여기서 조회할 수 있음
+  
+
+여기까지 봤음
+  https://nomadcoders.co/typescript-for-beginners/lectures/3691

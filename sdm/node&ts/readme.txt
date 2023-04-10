@@ -55,3 +55,8 @@ package.json 작성
 
 여기까지 봤음
   https://nomadcoders.co/typescript-for-beginners/lectures/3691
+
+  npm 은 패키지 관리
+  npx는 패키지 전역 실행 명렁어
+
+  https://docs.npmjs.com/cli/v9/commands

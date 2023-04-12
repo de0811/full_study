@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>user list</title>
+  <style>
+    .c-user--add {
+      display: flex;
+    }
+
+    .c-user--list {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .row {
+      display: flex;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="c-user--add">
+    <label for="name"><input type="text" name="" id="name"></label>
+    <label for="password"><input type="text" name="" id="password"></label>
+    <button class="c-user--add-btn" onclick="onClickAddUser()">추가</button>
+  </div>
+
+  <div class="c-user-list">
+    <!-- <div class="row"> -->
+    <!-- <div class="name">사용자</div> -->
+    <!-- <div class="password">비밀번호</div> -->
+  </div>
+  </div>
+
+  <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+  <script>
+    //사용자 정보 받아오기
+
+    const getUsers = async () => {
+      const res = await axios.get('/v2/users');
+      const users = res.data;
+      const usersEl = document.querySelector('.c-user-list');
+      usersEl.innerHTML = '';
+      addUsers(users);
+    }
+    const addUsers = (users) => {
+      users.forEach(user => {
+        const rowEl = document.createElement('div');
+        const nameEl = document.createElement('div');
+        const passwordEl = document.createElement('div');
+        const editEl = document.createElement('button');
+        const deleteEl = document.createElement('button');
+        rowEl.classList.add('row');
+        nameEl.classList.add('name');
+        nameEl.innerText = user.name;
+        passwordEl.classList.add('password');
+        passwordEl.innerText = user.password;
+        editEl.classList.add('edit');
+        editEl.innerText = 'edit';
+        editEl.addEventListener('click', async () => {
+          const changeNm = prompt('바꿀 이름 작성');
+          const changePass = prompt('바꿀 비번');
+          if (!changeNm) {
+            return alert('이름이 없습니다.');
+          } else if(!changePass) {
+            return alert('비밀번호가 없습니다.');
+          } else {
+            await axios.put('/v2/users/' + user.id, { name: changeNm, password: changePass });
+            getUsers();
+          }
+        });
+        deleteEl.classList.add('delete');
+        deleteEl.innerText = 'delete';
+        deleteEl.addEventListener('click', async () => {
+          await axios.delete('/v2/users/' + user.id);
+          getUsers();
+        });
+
+        rowEl.appendChild(nameEl);
+        rowEl.appendChild(passwordEl);
+        rowEl.appendChild(editEl);
+        rowEl.appendChild(deleteEl);
+        const usersEl = document.querySelector('.c-user-list');
+        usersEl.appendChild(rowEl);
+      });
+    }
+    
+    getUsers();
+
+
+    //사용자 등록하기
+    async function onClickAddUser(event) {
+      const nameEl = document.querySelector('#name');
+      const passEl = document.querySelector('#password');
+      let name = nameEl.value;
+      let pass = passEl.value;
+      console.log('onClickAddUser');
+
+      try {
+        let res = await axios.post('/v2/users', { 'name': name, password: pass })
+        getUsers();
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    //사용자 삭제하기
+    //사용자 수정하기
+  </script>
+
+</body>
+
+</html>

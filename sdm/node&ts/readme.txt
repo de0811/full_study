@@ -7,6 +7,7 @@ touch ./src/index.ts
 내부 소스 작성
 
 touch tsconfig.json
+//또는 npx tsc --init 을 실행
 {
   // 소스파일이 어디있는지
   "include": [

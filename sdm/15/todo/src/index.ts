@@ -8,33 +8,16 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const multer = require('multer');
 const multerUpload = multer({dest: 'upload/'});
+const connect = require('./schemas');
 
 const app: Express = express();
 const PORT: number = process.env.SERVER_PORT == undefined ? 8080 : Number.parseInt(process.env.SERVER_PORT);
 
-console.log('PORT : ', PORT);
-
-interface Todo {
-  id: number,
-  title: string,
-  content: string,
-  tag?: string,
-};
-
-
-let users: Array<Todo> = new Array<Todo>;
-users.push({
-  id: 1,
-  title: 'qqqq',
-  content: 'qqqq',
-  tag: 'q,a'
-});
-
-const db: Map<string, any> = new Map;
-db.set('users', users);
-
 // 실무에서는 'dev'가 아닌 'combined'를 사용
 app.use(morgan('combined'));
+
+// mongoose 실행
+connect();
 
 // cookie를 object 형태로 쓸 수 있게 해줌
 app.use(cookieParser('여기에 password 입력 가능'));
@@ -59,43 +42,9 @@ app.use((req:Request, res:Response, next:NextFunction) => {
   next(); //이게 있어야 다음 요청들을 처리 가능
 })
 
-app.get('/v2/todos', (req:Request, res: Response) => {
-  res.json(users);
-});
-app.get('/v2/todos/:id', (req:Request, res:Response) => {
-  let bCheck = false;
-  users.forEach((todo, idx) => {
-    if( todo.id === Number.parseInt(req.params.id) ) {
-      res.json(todo);
-      bCheck = true;
-      return;
-    }
-  })
-  if(bCheck) {
-  }else {
-    res.status(404).send('undefined id');
-    // throw Error('Undefined Data');
-  }
-});
-app.post('/v2/todos', (req:Request, res:Response) => {
-  let id = users.length + 1;
-  let custom = {...{id}, ...req.body};
-  
-  users.push(custom);
+const todoRouter = require('./routes/todos');
 
-  res.redirect(201, '/v2/todos');
-});
-app.delete('/v2/todos/:id', (req:Request, res:Response) => {
-  users = new Array<Todo>(...users.filter((todo: Todo) => {
-    return todo.id !== Number.parseInt(req.params.id);
-  }) );
-  console.log(users);
-  console.log('delete ok');
-  res.redirect(200, '/v2/todos');
-})
-app.put('/v2/todos/:id', (req:Request, res:Response) => {
-
-});
+app.use('/', todoRouter);
 
 //모든 서버 실행하는걸 라우터라고 함
 app.get("/", (req: Request, res: Response) => {
@@ -126,5 +75,5 @@ app.use((error:any, req:Request, res:Response, next:NextFunction) => {
 });
 
 app.listen(PORT, () => {
-  console.log("express Server Start !!!");
+  console.log(`express ${PORT} Server Start !!!`);
 });

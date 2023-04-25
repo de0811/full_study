@@ -1,9 +1,9 @@
 import express, { Express, NextFunction, Request, Response } from "express";
-import { Todo, db, isTodo } from "./db";
 
 import { v4 as uuidv4 } from "uuid";
 import multer from "multer";
 import path from "path";
+const Todo = require("../schemas/todos");
 
 // Multer 설정
 const storage = multer.diskStorage({
@@ -37,7 +37,6 @@ router.post(
       icon = req.files["icon"][0].path;
     }
 
-    const id = db.get("todos").length + 1;
     const reqData: any = JSON.parse(req.body.todo);
     const startDt = new Date();
     startDt.setHours(0);
@@ -50,88 +49,69 @@ router.post(
     endDt.setSeconds(59);
     endDt.setMilliseconds(999);
 
-    const injectData = {
-      ...{ id, groupId: id, startDt, endDt, icon },
+    const todo = Todo.create({
+      ...{ startDt, endDt, icon },
       ...reqData,
-    } as Todo;
-    if (isTodo(injectData)) {
-      console.log("todo 맞음");
-      db.get("todos").push(injectData);
-      
-      //!DB Todo push
-      
-    } else {
-      console.log("todo 아님");
-      // console.log('inject Todo : ', custom);
-      console.log("origin todo : ", req.body.todo);
-    }
+    });
 
-    res.redirect(201, "/v2/todos");
+    res.redirect(201, `/v2/todos/${todo.id}`);
   }
 );
 
-router.get("/v2/todos", (req: Request, res: Response) => {
-  res.json(db.get("todos"));
-});
-router.get("/v2/todos/:id", (req: Request, res: Response) => {
-  let bCheck = false;
-  db.get("todos").forEach((todo: Todo, idx: number) => {
-    if (todo.id === Number.parseInt(req.params.id)) {
-      res.json(todo);
-      bCheck = true;
-      return;
-    }
-  });
-  if (bCheck) {
-  } else {
-    res.status(404).send("undefined id");
-    // throw Error('Undefined Data');
-  }
-});
-router.post("/v2/todos", (req: Request, res: Response) => {
-  let id = db.get("todos").length + 1;
-  let custom = { ...{ id, groupId: id }, ...req.body };
-  if (isTodo(custom)) {
-    db.get("todos").push(custom);
-  } else {
-    console.log("todo 아님");
-  }
+router.get("/v2/todos", async (req: Request, res: Response, next:NextFunction) => {
+  try {
+    const todo = await Todo.find().exec();
+    res.json(todo);
+  }catch(e){
+    let error = Object.assign({}, e, { status: 404 });
+    console.error(error);
 
-  res.redirect(201, "/v2/todos");
+    next(error);
+  }
 });
+router.get("/v2/todos/:id", async (req: Request, res: Response) => {
+  try {
+    console.log("params : ", req.params);
+    const todo = await Todo.findOne({ _id: req.params.id }).exec();
+    console.log("todo : ", todo);
+    res.json(todo);
+  } catch (e) {
+    console.error(e);
+    res.status(404).send("undefined id");
+  }
+});
+
 router.delete("/v2/todos/:id", (req: Request, res: Response) => {
-  db.set(
-    "todos",
-    new Array<Todo>(
-      ...db.get("todos").filter((todo: Todo) => {
-        return todo.id !== Number.parseInt(req.params.id);
-      })
-    )
-  );
-  console.log(db.get("todos"));
+  Todo.deleteOne({ _id: req.params.id });
   console.log("delete ok");
   res.redirect(200, "/v2/todos");
 });
-router.put("/v2/todos/:id", (req: Request, res: Response) => {
-  db.set(
-    "todos",
-    new Array<Todo>(
-      ...db.get("todos").filter((todo: Todo) => {
-        if (todo.id === Number.parseInt(req.params.id)) {
-          todo.title = req.body.title;
-          todo.content = req.body.content;
-          todo.startDt =
-            req.body.startDt !== undefined ? req.body.startDt : todo.startDt;
-          todo.endDt =
-            req.body.endDt !== undefined ? req.body.endDt : todo.endDt;
-          todo.icon = req.body.icon !== undefined ? req.body.icon : undefined;
-          todo.tag = req.body.tag !== undefined ? req.body.tag : undefined;
-          res.json(todo);
-          return;
-        }
-      })
-    )
-  );
+router.put("/v2/todos/:id", async (req: Request, res: Response, next:NextFunction) => {
+  try {
+    const updatedTodo = await Todo.findOneAndUpdate(
+      { _id: req.params.id },
+      req.body,
+      { new: true }
+    );
+    res.json(updatedTodo);
+  } catch (e) {
+    let error = Object.assign({}, e, { status: 404 });
+    console.error(error);
+    next(error);
+  }
+});
+router.patch("/v2/todos/:id", async (req: Request, res: Response, next:NextFunction) => {
+  try {
+    const result = await Todo.updateOne(
+      { _id: req.params.id },
+      { $set: req.body }
+    );
+    res.json(result);
+  } catch (e) {
+    let error = Object.assign({}, e, { status: 404 });
+    console.error(error);
+    next(error);
+  }
 });
 
 module.exports = router;

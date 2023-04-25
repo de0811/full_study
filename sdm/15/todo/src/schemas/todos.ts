@@ -1,34 +1,31 @@
-// const mongoose = require('mongoose');
+import { Types } from "mongoose";
 
-const {Schema} = mongoose;
-const {Types: {ObjectId}} = Schema;
+const mongoose = require('mongoose');
 
-enum TODO_STATE {
-  TODO = 1,
-  ALTER,
-}
+const { Schema } = mongoose;
+const { Types: { ObjectId } } = Schema;
+
+const TODO_STATE = {
+  TODO: 1,
+  ALTER: 2,
+};
 
 const todoSchema = new Schema({
-  id: {
-    type: Number,
-    require: true,
-    unique: true,
-  },
   groupId: {
-    type: ObjectId,
-    require: true,
+    type: Types.ObjectId,
+    required: true,
     ref: 'Todo',
-    
+    default: () => new Types.ObjectId(),
   },
   title: {
     type: String,
-    require: true,
+    required: true,
   },
   content: {
     type: String,
-    require: true,
+    required: true,
   },
-  startDb: {
+  startDt: {
     type: Date,
     default: Date.now,
   },
@@ -46,8 +43,10 @@ const todoSchema = new Schema({
     type: Number,
   },
   state: {
-    type: TODO_STATE,
-  }
+    type: Number,
+    enum: Object.values(TODO_STATE),
+    default: TODO_STATE.TODO,
+  },
 });
 
 module.exports = mongoose.model('Todo', todoSchema);

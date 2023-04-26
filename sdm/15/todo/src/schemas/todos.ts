@@ -11,6 +11,11 @@ const TODO_STATE = {
 };
 
 const todoSchema = new Schema({
+  calendarId: {
+    type: Types.ObjectId,
+    required: true,
+    ref: 'Calendar',
+  },
   groupId: {
     type: Types.ObjectId,
     required: true,

@@ -3,7 +3,8 @@ import express, { Express, NextFunction, Request, Response } from "express";
 import { v4 as uuidv4 } from "uuid";
 import multer from "multer";
 import path from "path";
-const Todo = require("../schemas/todos");
+const DB = require("../schemas");
+// const Todo = require("../schemas/todo");
 
 // Multer 설정
 const storage = multer.diskStorage({
@@ -49,7 +50,7 @@ router.post(
     endDt.setSeconds(59);
     endDt.setMilliseconds(999);
 
-    const todo = Todo.create({
+    const todo = DB.Todo.create({
       ...{ startDt, endDt, icon },
       ...reqData,
     });
@@ -60,7 +61,7 @@ router.post(
 
 router.get("/v2/todos", async (req: Request, res: Response, next:NextFunction) => {
   try {
-    const todo = await Todo.find().exec();
+    const todo = await DB.Todo.find().exec();
     res.json(todo);
   }catch(e){
     let error = Object.assign({}, e, { status: 404 });
@@ -72,7 +73,7 @@ router.get("/v2/todos", async (req: Request, res: Response, next:NextFunction) =
 router.get("/v2/todos/:id", async (req: Request, res: Response) => {
   try {
     console.log("params : ", req.params);
-    const todo = await Todo.findOne({ _id: req.params.id }).exec();
+    const todo = await DB.Todo.findOne({ _id: req.params.id }).exec();
     console.log("todo : ", todo);
     res.json(todo);
   } catch (e) {
@@ -82,13 +83,13 @@ router.get("/v2/todos/:id", async (req: Request, res: Response) => {
 });
 
 router.delete("/v2/todos/:id", (req: Request, res: Response) => {
-  Todo.deleteOne({ _id: req.params.id });
+  DB.Todo.deleteOne({ _id: req.params.id });
   console.log("delete ok");
   res.redirect(200, "/v2/todos");
 });
 router.put("/v2/todos/:id", async (req: Request, res: Response, next:NextFunction) => {
   try {
-    const updatedTodo = await Todo.findOneAndUpdate(
+    const updatedTodo = await DB.Todo.findOneAndUpdate(
       { _id: req.params.id },
       req.body,
       { new: true }
@@ -102,7 +103,7 @@ router.put("/v2/todos/:id", async (req: Request, res: Response, next:NextFunctio
 });
 router.patch("/v2/todos/:id", async (req: Request, res: Response, next:NextFunction) => {
   try {
-    const result = await Todo.updateOne(
+    const result = await DB.Todo.updateOne(
       { _id: req.params.id },
       { $set: req.body }
     );

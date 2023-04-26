@@ -8,7 +8,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const multer = require('multer');
 const multerUpload = multer({dest: 'upload/'});
-const connect = require('./schemas');
+const connect = require('./schemas').connect;
 
 const app: Express = express();
 const PORT: number = process.env.SERVER_PORT == undefined ? 8080 : Number.parseInt(process.env.SERVER_PORT);

@@ -33,4 +33,16 @@ const connect = () => {
   });
 };
 
-module.exports = connect;
+const User = require('./user');
+const Todo = require('./todo');
+const Calendar = require('./calendar');
+
+const DB = {
+  User,
+  Todo,
+  Calendar,
+ };
+
+export { DB, connect };
+
+// module.exports = connect;

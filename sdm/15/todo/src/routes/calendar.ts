@@ -1,5 +1,5 @@
 import express, { Express, NextFunction, Request, Response } from "express";
-const DB = require("../schemas");
+const DB = require("../schemas").DB;
 
 // const Calender = require("../schemas/calender");
 
@@ -94,3 +94,5 @@ router.delete(
     }
   }
 );
+
+module.exports = router;

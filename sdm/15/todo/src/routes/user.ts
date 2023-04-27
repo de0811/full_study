@@ -1,5 +1,5 @@
 import express, { Express, NextFunction, Request, Response } from "express";
-const DB = require("../schemas");
+const DB = require("../schemas").DB;
 // const User = require("../schemas/user");
 
 const router = express.Router();
@@ -88,3 +88,6 @@ router.delete(
     }
   }
 );
+
+
+module.exports = router;

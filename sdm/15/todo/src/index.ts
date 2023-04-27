@@ -1,5 +1,6 @@
 import express, { Express, NextFunction, Request, Response } from "express";
 import * as path from "path";
+import passport from "passport";
 // import * as morgan from 'morgan';
 // 요청과 응답을 기록하는 모듈
 const morgan = require('morgan');
@@ -7,8 +8,9 @@ const morgan = require('morgan');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const multer = require('multer');
-const multerUpload = multer({dest: 'upload/'});
 const connect = require('./schemas').connect;
+const passportConfig = require('./passport');
+passportConfig();
 
 const app: Express = express();
 const PORT: number = process.env.SERVER_PORT == undefined ? 8080 : Number.parseInt(process.env.SERVER_PORT);
@@ -36,14 +38,22 @@ app.use(cookieParser('여기에 password 입력 가능'));
     },
     // name: 'connect.sid', //default 로 connect.sid로 저장됨
   }));
+  app.use(passport.initialize()); //req.user, req.login(), req.logout(), req.isAuthenticated() 등을 사용할 수 있게 해줌
+  app.use(passport.session());  // connect.sid 를 이름으로 새로운 쿠키가 생성됨
 
 app.use((req:Request, res:Response, next:NextFunction) => {
   // console.log('공통으로 읽어지는 구간 middleware');
   next(); //이게 있어야 다음 요청들을 처리 가능
 })
 
-const todoRouter = require('./routes/todos');
+const authRouter = require('./routes/auth');
+const userRouter = require('./routes/user');
+const calendarRouter = require('./routes/calendar');
+const todoRouter = require('./routes/todo');
 
+app.use('/', authRouter);
+app.use('/', userRouter);
+app.use('/', calendarRouter);
 app.use('/', todoRouter);
 
 //모든 서버 실행하는걸 라우터라고 함

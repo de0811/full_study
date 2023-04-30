@@ -17,6 +17,8 @@
     // "allowJs": true,
     "esModuleInterop": true,
     // 브라우저 앱을 만들 경우 umd를 사용
-    "module": "CommonJS"
+    "module": "CommonJS",
+    // 디버깅을 위한 소스맵
+    "sourceMap": true
   }
 }

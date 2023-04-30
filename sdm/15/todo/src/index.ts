@@ -14,8 +14,15 @@ const multer = require('multer');
 const connect = require('./schemas').connect;
 const passportConfig = require('./passport');
 
+
 const app: Express = express();
 const PORT: number = process.env.SERVER_PORT == undefined ? 8080 : Number.parseInt(process.env.SERVER_PORT);
+//cors 설정
+const cors = require('cors');
+app.use(cors({
+  // origin: true,
+  // credentials: true,
+}));
 
 // 실무에서는 'dev'가 아닌 'combined'를 사용
 app.use(morgan('combined'));

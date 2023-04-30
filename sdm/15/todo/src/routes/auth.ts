@@ -46,15 +46,20 @@ router.post(
   "/v2/register",
   async (req: Request, res: Response, next: NextFunction) => {
     try {
+      console.log("회원가입", req.body);
       let { email, password, name } = req.body;
+
+      console.log(email, password, name);
       //이메일 중복 확인
-      const checkUser = DB.User.findOne({ email });
+      console.log("이메일 중복 확인");
+      const checkUser = await DB.User.findOne({ email });
+      console.log(checkUser);
       if( checkUser ) {
         return res.status(409).json({ message: "이미 존재하는 이메일 입니다." });
       }
       //패스워드 해싱
       password = await bcrypt.hash(password, 10);
-      const user = await DB.User.create(req.body);
+      const user = await DB.User.create({ email, password, name});
       res.redirect(201, `/v2/users/${user.id}`);
     } catch (e) {
       let error = Object.assign({}, e, { status: 404 });

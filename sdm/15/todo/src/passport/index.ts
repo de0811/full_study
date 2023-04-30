@@ -1,5 +1,6 @@
 import passport from "passport";
 const local = require("./localStrategy");
+const kakao = require("./kakaoStrategy");
 
 module.exports = () => {
   /*
@@ -8,6 +9,7 @@ module.exports = () => {
 보통 ID 값만 저장
 */
   passport.serializeUser((user, done) => {
+    console.log("passport.serializeUser() ", user);
     done(null, user);
   });
 
@@ -17,8 +19,10 @@ module.exports = () => {
 조회된 정보를 req.user에 저장하기 위해 done(null, user) 호출
 */
   passport.deserializeUser((user: Express.User, done) => {
+    console.log("passport.deserializeUser() ", user);
     done(null, user);
   });
   
   local();
+  kakao();
 };

@@ -21,3 +21,9 @@ exports.isNotLogin = (req:Request, res:Response, next:NextFunction) => {
         res.redirect("/");
     }
 }
+
+exports.errorMaker = (err:Error) => {
+ let error = Object.assign({}, err, { status: 404 });
+ console.log(error);
+ return error;
+}

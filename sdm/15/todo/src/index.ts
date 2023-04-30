@@ -1,22 +1,25 @@
 import express, { Express, NextFunction, Request, Response } from "express";
 import * as path from "path";
 import passport from "passport";
-// import * as morgan from 'morgan';
 // 요청과 응답을 기록하는 모듈
-const morgan = require('morgan');
+import morgan from "morgan";
+// .env 파일을 읽어서 process.env 로 만들어줌
+import dotenv from "dotenv";
+dotenv.config();
 // cookie를 object 형식으로 바꿔줌
-const cookieParser = require('cookie-parser');
+import cookieParser from "cookie-parser";
+//const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const multer = require('multer');
 const connect = require('./schemas').connect;
 const passportConfig = require('./passport');
-passportConfig();
 
 const app: Express = express();
 const PORT: number = process.env.SERVER_PORT == undefined ? 8080 : Number.parseInt(process.env.SERVER_PORT);
 
 // 실무에서는 'dev'가 아닌 'combined'를 사용
 app.use(morgan('combined'));
+passportConfig();
 
 // mongoose 실행
 connect();

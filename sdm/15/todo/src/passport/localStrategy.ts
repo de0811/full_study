@@ -13,6 +13,7 @@ module.exports = () => {
       async (email, password, done) => {
         try {
           // 이메일 확인
+          console.log("이메일 확인");
           const user = await DB.User.findOne({ email });
           if (!user) {
             return done(null, false, {
@@ -21,6 +22,7 @@ module.exports = () => {
           }
 
           //password 확인
+          console.log("비밀번호 확인", password, user.password);
           const result = await bcrypt.compare(password, user.password);
           if (!result) {
             return done(null, false, {
@@ -29,6 +31,7 @@ module.exports = () => {
           }
 
           // 로그인 성공
+          console.log("로그인 성공");
           return done(null, user);
         } catch (e) {
           console.error(e);

@@ -37,6 +37,7 @@ app.use(cookieParser('여기에 password 입력 가능'));
 
   // req.body.던져진Body내용 이렇게 바로 사용가능하도록 해주는 것
   app.use('/', express.static(path.join(__dirname, 'public'))); //express.static('요청 경로', '실제 경로')
+  app.use('/', express.static(path.join(__dirname, 'uploads'))); //express.static('요청 경로', '실제 경로')
   app.use(express.json());                          //JSON parsing
   app.use(express.urlencoded({extended: true}));    //form parsing  extended: true 라면 qs 사용, false 라면 querystring 사용
   app.use(session({

@@ -1,28 +1,27 @@
+import userInptut from "@/hook/userInptut";
 import Link from "next/link";
 import { ButtonHTMLAttributes, useCallback, useState } from "react";
 
-const LoginForm = () => {
-  const [id, setId] = useState("");
-  const [password, setPassword] = useState("");
+const LoginForm = ({
+  setIsLogin,
+}: {
+  setIsLogin: (isLogin: boolean) => void;
+}) => {
+  const [id, setId] = userInptut("");
+  const [password, setPassword] = userInptut("");
 
-  const onChangeId = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-    setId(e.target.value);
-  }, []);
-  const onChangePassword = useCallback(
-    (e: React.ChangeEvent<HTMLInputElement>) => {
-      setPassword(e.target.value);
+  const onSubmitForm = useCallback(
+    (e: React.FormEvent<HTMLButtonElement>) => {
+      e.preventDefault();
+      console.log({
+        id,
+        password,
+      });
+      setIsLogin(true);
     },
-    []
+    [id, password]
   );
 
-const onSubmitForm = useCallback((e: React.FormEvent<HTMLButtonElement>) => {
-  e.preventDefault();
-  console.log({
-    id,
-    password,
-  });
-}, [id, password]);
-  
   return (
     <div>
       <form>
@@ -32,7 +31,7 @@ const onSubmitForm = useCallback((e: React.FormEvent<HTMLButtonElement>) => {
           <input
             name="user-id"
             type="text"
-            onChange={onChangeId}
+            onChange={setId}
             value={id}
             required
           />
@@ -43,7 +42,7 @@ const onSubmitForm = useCallback((e: React.FormEvent<HTMLButtonElement>) => {
           <input
             name="user-password"
             type="password"
-            onChange={onChangePassword}
+            onChange={setPassword}
             value={password}
             required
           />

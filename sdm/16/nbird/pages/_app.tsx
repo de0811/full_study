@@ -2,10 +2,11 @@
  * 공통으로 들어갈 내용을 여기에 작성
  */
 
-import LoginForm from "@/components/loginForm";
-import UserProfile from "@/components/userProfile";
+import LoginForm from "@/components/LoginForm";
+import UserProfile from "@/components/UserProfile";
 import Head from "next/head";
 import { useState } from "react";
+import wrapper from "../store/configStore";
 
 type AppProps = {
   Component: any;
@@ -15,7 +16,8 @@ type AppProps = {
 //로그인 상태 저장
 
 const CommonComponent = ({ Component, pageProps }: AppProps) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  console.log(Component, pageProps);
+  const [isLogin, setIsLogin] = useState(false);
   return (
     <>
       <Head>
@@ -23,14 +25,14 @@ const CommonComponent = ({ Component, pageProps }: AppProps) => {
       </Head>
       <Component {...pageProps} />
 
-      {isLoggedIn ? (
+      {isLogin ? (
         <div>로그인 했습니다.</div>
       ) : (
         <div>로그인 되지 않았습니다.</div>
       )}
-      {isLoggedIn ? <UserProfile></UserProfile> : <LoginForm></LoginForm>}
+      {isLogin ? <UserProfile setIsLogin={setIsLogin} id="asd" password="asd" name="asd"></UserProfile> : <LoginForm setIsLogin={setIsLogin}></LoginForm>}
     </>
   );
 };
 
-export default CommonComponent;
+export default wrapper.withRedux(CommonComponent);

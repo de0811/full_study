@@ -7,11 +7,7 @@ import UserProfile from "@/components/UserProfile";
 import Head from "next/head";
 import { useState } from "react";
 import wrapper from "../store/configStore";
-
-type AppProps = {
-  Component: any;
-  pageProps: any;
-};
+import { AppProps } from "next/app";
 
 //로그인 상태 저장
 

@@ -10,6 +10,7 @@ import reducer from '@/modules';
 function getServerState() {
   // document 가 정의되어 있지 않다면 클라이언트에서 실행되고 #__NEXT_DATA__ 를 찾아서 초기 상태를 가져옴
   // return typeof document !== 'undefined' ? JSON.parse(document.querySelector('#__NEXT_DATA__').textContent)?.props.pageProps.initialState : undefined;
+  if(typeof window === 'undefined' ) return undefined;
   const nextData = document?.querySelector('#__NEXT_DATA__')?.textContent;
   if( !nextData ) return undefined;
   return JSON.parse(nextData)?.props.pageProps.initialState;
@@ -32,6 +33,8 @@ const configStoreSettings = {
 }
 const makeStore = () => configureStore(configStoreSettings);
   
-const wrapper = createWrapper(makeStore);
+const wrapper = createWrapper(makeStore, {
+  debug: process.env.NODE_ENV === 'development',
+});
 
 export default wrapper;

@@ -4,10 +4,11 @@ import { RootState } from "@/modules";
 import { useSelector } from "react-redux";
 
 const Signup = () => {
-  const email = useSelector((state: RootState) => state?.myInfo.email);
-  const password = useSelector((state: RootState) => state.myInfo.password);
-  const name = useSelector((state: RootState) => state.myInfo.name);
-  const snsId = useSelector((state: RootState) => state.myInfo.snsId);
+  const myInfo = useSelector((state: RootState) => state.myInfo);
+  const email = myInfo?.email
+  const password = myInfo?.password;
+  const name = myInfo?.name;
+  const snsId = myInfo?.snsId;
   return (
     <AppLayout>
       <div className="row">ID : {email ? email : snsId}</div>

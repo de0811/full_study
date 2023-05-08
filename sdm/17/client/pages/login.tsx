@@ -4,7 +4,7 @@ import { addUser } from "@/modules/users";
 import { useCallback } from "react";
 import signupStyles from "@/styles/signup.module.css";
 
-const Signup = () => {
+const Login = () => {
   const [id, setId] = userInptut("");
   const [password, setPassword] = userInptut("");
   const [name, setName] = userInptut("");
@@ -67,4 +67,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default Login;

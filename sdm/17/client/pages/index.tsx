@@ -3,7 +3,8 @@ import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.css";
 import AppLayout from "@/components/AppLayout";
-
+import { useSelector } from "react-redux";
+import { RootState } from "@/redux/reducer";
 
 export default function Index() {
   return (

@@ -1,25 +1,30 @@
 import AppLayout from "@/components/AppLayout";
 import userInptut from "@/hook/userInptut";
-import { addUser } from "@/modules/users";
+import { addUser } from "@/redux/reducer/users";
 import { useCallback } from "react";
 import signupStyles from "@/styles/signup.module.css";
+import { useDispatch } from "react-redux";
 
 const Signup = () => {
+  const dispatch = useDispatch();
   const [id, setId] = userInptut("");
   const [password, setPassword] = userInptut("");
   const [name, setName] = userInptut("");
   const onSubmit = useCallback(
     (e: React.FormEvent<HTMLButtonElement>) => {
+      e.preventDefault();
       if (!id || !password || !name) {
         alert("빈칸을 채워주세요");
         return;
       }
 
-      addUser({
-        id,
-        password,
-        name,
-      });
+      dispatch(
+        addUser({
+          id,
+          password,
+          name,
+        })
+      );
     },
     [id, password, name]
   );
@@ -27,7 +32,9 @@ const Signup = () => {
     <AppLayout>
       <form>
         <div className={`${signupStyles.signup} ${signupStyles.panel}`}>
-          <div><h1>Signup</h1></div>
+          <div>
+            <h1>Signup</h1>
+          </div>
           <div className={signupStyles.row}>
             <label htmlFor="user-id">아이디</label>
             <input

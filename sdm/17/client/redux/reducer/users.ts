@@ -1,12 +1,5 @@
 import { createAction, createSlice } from "@reduxjs/toolkit";
-import { log } from "console";
-
-export interface User {
-  email: string;
-  name: string;
-  snsId: string;
-  password: string;
-}
+import { User } from "./myInfo";
 
 
 const initialState = {
@@ -15,16 +8,18 @@ const initialState = {
     name: "",
     snsId: "",
     password: "",
-  },
+  } as User,
   users : [] as User[],
-} 
+};
 
 export const usersSlice = createSlice({
   name: "users",
   initialState,
   reducers: {
     addUser: (state, action) => {
+      console.log("Add User Start", action.payload);
       state.users.push(action.payload);
+      console.log("Add User End", state.users);
     },
     removeUser: (state, action) => {
       state.users = state.users.filter(user => user.email !== action.payload);
@@ -33,18 +28,10 @@ export const usersSlice = createSlice({
       state.users = state.users.map(user => user.email === action.payload.email ? action.payload : user);
       state.myInfo = action.payload;
     },
-    login: (state, action) => {
-      state.myInfo = action.payload;
-    },
-    logout: (state, action) => {
-      state.myInfo = initialState.myInfo;
-    },
-    
   }
 })
 
 export const { addUser, removeUser, editUser } = usersSlice.actions;
-export const { login, logout } = usersSlice.actions;
 
 export default usersSlice.reducer;
 

@@ -9,6 +9,9 @@ import { RootState } from "@/redux/reducer";
 export default function Index() {
   return (
     <>
+    <Head>
+      <title>Home | SDM</title>
+    </Head>
       <AppLayout>
         <div>index</div>
       </AppLayout>

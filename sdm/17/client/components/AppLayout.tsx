@@ -5,6 +5,7 @@ import { RootState } from "@/redux/reducer";
 import Login from "./login";
 import Profile from "./profile";
 import { logout } from "@/redux/reducer/myInfo";
+import Nav from "./nav";
 
 const AppLayout = ({ children }: { children: React.ReactNode }) => {
   const dispatch = useDispatch();
@@ -17,17 +18,12 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
   console.log(myInfo);
   return (
     <>
-      <div className="nav">
-        <div>공통메뉴</div>
-        <Link href={"/"}> 홈 </Link>
-        {/* <Link href={"/profile"}> 프로필 </Link> */}
-        <Link href={"/signup"}> 회원가입 </Link>
-        <div>{children}</div>
-        {isLogin && <button onClick={() => dispatch(logout({}))} >로그아웃</button>}
-      </div>
+      <Nav/>
+
+      <div>{children}</div>
       <div>
         {!isLogin ? (
-          <Login></Login>
+          <Login/>
         ) : (
           <Profile
             email={myInfo.email}
@@ -36,9 +32,6 @@ const AppLayout = ({ children }: { children: React.ReactNode }) => {
             name={myInfo.name}
           ></Profile>
         )}
-        
-
-
       </div>
     </>
   );

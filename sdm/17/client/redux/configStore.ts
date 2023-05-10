@@ -2,8 +2,7 @@
 // import { createWrapper } from "next-redux-wrapper";
 // import { createStore } from "redux"; //toolkit으로 대체
 import rootReducer from "@/redux/reducer";
-import { Middleware, configureStore } from "@reduxjs/toolkit";
-import reducer from "@/redux/reducer";
+import { configureStore } from "@reduxjs/toolkit";
 
 // SSR을 위한 함수
 // 클라이언트와 서버에서 다른 초기 상태를 가질 수 있기 때문에 서버에서 초기 상태를 가져옴

@@ -1,0 +1,15 @@
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 800px;
+  gap: 20px;
+}
+
+.postItem {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+}

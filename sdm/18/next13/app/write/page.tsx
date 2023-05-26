@@ -1,4 +1,4 @@
-import { useRouter } from "next/router";
+'use client'
 import { useState } from "react";
 
 export default function Create() {
@@ -7,10 +7,10 @@ export default function Create() {
   const [title, setTitle] = useState("");
   // content
   const [content, setContent] = useState("");
-  const router = useRouter();
-  const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+  // const router = useRouter();
+  const onButtonClick = async (e: any) => {
     e.preventDefault();
-    const res = await fetch("/api/post/create", {
+    const res = await fetch("/api/post", {
       method: "POST",
       body: JSON.stringify({
         title,
@@ -41,8 +41,8 @@ export default function Create() {
             }}
           />
         </div>
-        <button onClick={(e) => router.back()}>취소</button>
-        <button>작성</button>
+        {/* <button onClick={(e) => router.back()}>취소</button> */}
+        <button onClick={(e) => onButtonClick(e)}>작성</button>
       </>
     );
   };

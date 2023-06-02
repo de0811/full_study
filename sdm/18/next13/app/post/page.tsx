@@ -31,9 +31,7 @@ export async function List() {
     },
     cache: "no-cache",
   });
-  console.log("[res] : ", res);
   const findData: Post[] = await res.json();
-  console.log("[findData] : ", findData);
 
   return (
     <>

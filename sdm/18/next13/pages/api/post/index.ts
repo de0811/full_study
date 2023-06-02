@@ -6,12 +6,13 @@ import { ObjectId } from "mongodb";
 const COLLECTION_NAME = "post";
 
 export default function post(req: NextApiRequest, res: NextApiResponse) {
+  //referrer 확인
+  console.log("req.headers.referer : ", req.headers.referer);
   switch (req.method) {
     case "GET":
       console.log("req.query.id : ", req.query.id);
       if (req.query.id === undefined) {
         getPost(undefined).then((data) => {
-          console.log("DB Result data : ", data);
           res.status(200).json(data);
         });
       } else {
@@ -21,7 +22,6 @@ export default function post(req: NextApiRequest, res: NextApiResponse) {
       }
       break;
     case "POST":
-      console.log(req.body);
       insertPost(req.body.title, req.body.content).then((data) => {
         res.status(201).redirect("/post/" + data?.insertedId);
       });
@@ -94,14 +94,12 @@ function insertLocalPost(title: string, content: string) {
 
 async function insertPost(title: string, content: string) {
   try {
-    console.log("insertPost", title, content);
     const insertData = await (
       await getCollection(COLLECTION_NAME)
     ).insertOne({
       title: title,
       content: content,
     });
-    console.log("insertData : ", insertData);
     return insertData;
   } catch (error) {
     console.error(error);
